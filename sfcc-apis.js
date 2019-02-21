@@ -93,6 +93,7 @@ var createCartService = (authToken, callback) => {
     }
     else if(response.statusCode == 400){
       console.log('Cart already present');
+      console.log(body.fault.arguments.basketIds);
       callback(undefined, {
         basketId: body.fault.arguments.basketIds
         });
