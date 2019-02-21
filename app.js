@@ -195,11 +195,11 @@ app.post('/webhook/', (req, res) => {
 						if(isDefined(actionName)){
 							text: "Sure, I'll inform the store manager. Your shoes will be ready on time. Probably don't use them for your next trail as the distance is too long for brand new shoes. By the way do you want to check how you used your last pair ?";
 							messageData = {
-									speech: sandeep,
+									speech: text ,
 									displayText: text
 									}
 							res.send(messageData);	
-							mailer.sendMailService(emailId, customerName);
+							//mailer.sendMailService(emailId, customerName);
 						     }
 						}
 					break;
