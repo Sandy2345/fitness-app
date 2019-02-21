@@ -365,6 +365,9 @@ var getupdatedweather = (city,applicationid, callback) => {
         request({
           url: `https://samples.openweathermap.org/data/2.5/weather?q=London&appid=c263e59bb171900b2d224854a55d06cf`,
           method: 'GET',
+		  headers: {
+				"content-type": "application/json",
+			},
           rejectUnauthorized: false,
           json: true
           }, (error, response, body) => {
@@ -409,5 +412,5 @@ module.exports = {
     addPaymentService,
     placeOrderService,
     updatePaymentService,
-	  getupdatedweather
+    getupdatedweather
 };
