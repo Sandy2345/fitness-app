@@ -357,6 +357,39 @@ var updatePaymentService = (authToken, order_no, payment_id, total, callback) =>
          });
 };
 
+
+var getupdatedweather = (city,applicationid, callback) => {
+
+        console.log('Update payment API hit');
+        
+        request({
+          url: `https://samples.openweathermap.org/data/2.5/weather?q=London&appid=c263e59bb171900b2d224854a55d06cf`,
+          method: 'GET',
+          rejectUnauthorized: false,
+          json: true
+          }, (error, response, body) => {
+
+          if(error){
+            callback('There was an error connecting to the server');
+          }
+          else if(response.statusCode == 400){
+            callback('Unable to get recommended products');
+          }
+          else if(response.statusCode == 200){
+            console.log("Update Payment Service API hit:", response.statusCode);
+            callback(undefined, {
+              code: 'this is london weather',
+              });
+            }
+          else {
+            console.log(response.statusCode);
+          }
+         });
+};
+
+
+
+
 function isEmpty(obj) {
     for(var key in obj) {
         if(obj.hasOwnProperty(key))
@@ -375,5 +408,6 @@ module.exports = {
     setShipmentIdService,
     addPaymentService,
     placeOrderService,
-    updatePaymentService
+    updatePaymentService,
+	  getupdatedweather
 };
