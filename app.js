@@ -198,8 +198,20 @@ app.post('/webhook/', (req, res) => {
 									speech: text ,
 									displayText: text
 									};
+							var responseObj= {
+							    "fulfillment": {
+							      "speech": "Hi! How are you doing?",
+							      "messages": [
+								{
+								  "type": 0,
+								  "speech": "Hi! How are you doing?"
+								}
+							      ]
+							    }
+							}
+							
 							//res.send(messageData);
-							res.send('Hello');
+							res.send(responseObj);
 							//mailer.sendMailService(emailId, customerName);
 						     }
 						}
