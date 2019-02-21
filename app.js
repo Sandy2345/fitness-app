@@ -1,5 +1,3 @@
-'use strict';
-
 const apiai = require('apiai');
 const config = require('./config');
 const express = require('express');
@@ -189,36 +187,27 @@ app.post('/webhook/', (req, res) => {
 					}
 		 			break;
 			
-			
- 		case 'serviceCloud': {
-					console.log('In serviceCloud');
-						if(isDefined(actionName)){
-							text: "Sure, I'll inform the store manager. Your shoes will be ready on time. Probably don't use them for your next trail as the distance is too long for brand new shoes. By the way do you want to check how you used your last pair ?";
-							messageData = {
-									speech: text ,
-									displayText: text
-									};
-							var responseObj= {
-							    "fulfillment": {
-							      "speech": "Hi! How are you doing?",
-							      "messages": [
-								{
-								  "type": 0,
-								  "speech": "Hi! How are you doing?"
-								}
-							      ]
-							    }
-							}
-							
-							//res.send(messageData);
-							res.send(responseObj);
-							//mailer.sendMailService(emailId, customerName);
-						     }
-						}
-					break;
-
-
-		 case 'shoes-in-stock-order': {
+		case 'weathercondition':{
+		
+		sfcc.getupdatedweather(city, appid, (error, result)=> {
+							if(error){
+								console.log(error);
+							} else {
+								console.log(result.code);
+								//notify(emailId, messageId);
+								//setTimeout(() => pushNotification(deviceIdJ), 3000);
+								text="I am sending you the options, please check on your app.";
+								messageData = {
+ 										speech: result.code,
+ 										displayText: text
+ 										}
+ 								res.send(messageData);	
+ 								}
+						   	});
+		}	
+		break;
+ 		
+                  case 'shoes-in-stock-order': {
 					console.log('In shoes-in-stock-order');
 			 		console.log(basketId+ "  "+ token);
 			 		mailer.sendMailService(emailId, customerName, custLastName);
