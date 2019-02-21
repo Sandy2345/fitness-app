@@ -187,9 +187,8 @@ app.post('/webhook/', (req, res) => {
 					}
 		 			break;
 			
-		case 'weathercondition':{
-		
-		sfcc.getupdatedweather(city, appid, (error, result)=> {
+		case 'weathercondition':{		
+		sfcc.getupdatedweather('city', 'appid', (error, result)=> {
 							if(error){
 								console.log(error);
 							} else {
@@ -198,7 +197,7 @@ app.post('/webhook/', (req, res) => {
 								//setTimeout(() => pushNotification(deviceIdJ), 3000);
 								text="I am sending you the options, please check on your app.";
 								messageData = {
- 										speech: 'sandeeptesti',
+ 										speech: result.code,
  										displayText: text
  										}
  								res.send(messageData);	
