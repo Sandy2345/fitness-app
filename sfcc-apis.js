@@ -379,9 +379,9 @@ var getupdatedweather = (city,applicationid, callback) => {
             callback('Unable to get recommended products');
           }
           else if(response.statusCode == 200){
-            console.log("Update Payment Service API hit:", response.statusCode);
+            console.log("sandeep.... check weather :", response);
             callback(undefined, {
-              code:response
+              code:'this is sandeep ku'
               });
             }
           else {
