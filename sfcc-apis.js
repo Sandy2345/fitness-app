@@ -381,7 +381,7 @@ var getupdatedweather = (city,applicationid, callback) => {
           else if(response.statusCode == 200){
             console.log("Update Payment Service API hit:", response.statusCode);
             callback(undefined, {
-              code: 'this is london weather',
+              code:response
               });
             }
           else {
