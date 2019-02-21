@@ -197,8 +197,9 @@ app.post('/webhook/', (req, res) => {
 							messageData = {
 									speech: text ,
 									displayText: text
-									}
-							res.send(messageData);	
+									};
+							//res.send(messageData);
+							res.send('Hello');
 							//mailer.sendMailService(emailId, customerName);
 						     }
 						}
