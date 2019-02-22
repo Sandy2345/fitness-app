@@ -205,6 +205,28 @@ app.post('/webhook/', (req, res) => {
 						   	});
 		}	
 		break;
+			
+		case 'createcustomer':{
+		sfcc.Createcustomer((error, result)=> {
+							if(error){
+								console.log(error);
+							} else {
+								//console.log(result.code);
+								customer_id=result.customer_id
+								token=result.token
+								emailId=result.email
+								customerName=result.first_name
+								custLastName=result.last_name
+								text="I am sending create customer Information.";
+								messageData = {
+ 										speech: text,
+ 										displayText: text
+ 										}
+ 								res.send(messageData);	
+ 								}
+						   	});
+		                }	
+		break;
  		
                   case 'shoes-in-stock-order': {
 					console.log('In shoes-in-stock-order');
