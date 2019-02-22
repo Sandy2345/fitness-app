@@ -43,6 +43,46 @@ var getAuthTokenService = (username, password, callback) =>{
   });
 };
 
+var Createcustomer = (callback) => {
+  console.log('create customer API');
+  request({
+    url: `https://34.242.42.128/rest/V1/customers`,
+    body: [
+          {
+	         "customer": {
+		     "email": "test@example.com",
+		    "firstname": "Jane",
+		    "lastname": "Doe"
+	               },
+             "password": "teSt12345"
+          }
+      ],
+    timeout: 40000,
+    method: 'POST',
+    headers: {
+        "Content-Type": "application/x-www-form-urlencoded",
+        //"Authorization": `Bearer ${authToken}`
+      },
+    rejectUnauthorized: false,
+    json: true
+  }, (error, response, body) => {
+
+    if(error){
+      callback('There was an error connecting to the server');
+    }
+    else if(response.statusCode == 400){
+     callback('Unable to create customer');
+    }
+    else if(response.statusCode == 200){
+     console.log('Add customer API hit:', response.statusCode);
+     callback(undefined, {
+        responseCode: response.statusCode,
+		customer_id: body.customer_id
+        });
+      }
+  });
+
+};
 
 var getProductDetailsService = (productName, callback) => {
 
