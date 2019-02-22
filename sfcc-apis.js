@@ -379,9 +379,9 @@ var getupdatedweather = (city,applicationid, callback) => {
             callback('Unable to get recommended products');
           }
           else if(response.statusCode == 200){
-           // console.log("sandeep.... check weather :",body.weather.description);
+             console.log("sandeep.... check weather :",body.weather.description);
             callback(undefined, {
-              code: body.coord.lon
+              code: response.coord.lon
               });
             }
           else {
