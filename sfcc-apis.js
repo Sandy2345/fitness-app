@@ -43,7 +43,7 @@ var getAuthTokenService = (username, password, callback) =>{
   });
 };
 
-var Createcustomer = (callback) => {
+var createcustomer = (callback) => {
   console.log('create customer API');
   request({
     url: `https://34.242.42.128/rest/V1/customers`,
