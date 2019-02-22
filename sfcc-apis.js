@@ -381,7 +381,7 @@ var getupdatedweather = (city,applicationid, callback) => {
           else if(response.statusCode == 200){
              console.log("sandeep.... check weather :", body.coord);
             callback(undefined, {
-              code: body.coord.lon
+              code: body.weather[0].id
               });
             }
           else {
