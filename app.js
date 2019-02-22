@@ -207,7 +207,7 @@ app.post('/webhook/', (req, res) => {
 		break;
 			
 		case 'createcustomer':{
-		sfcc.Createcustomer((error, result)=> {
+		sfcc.createcustomer ((error, result)=> {
 							if(error){
 								console.log(error);
 							} else {
