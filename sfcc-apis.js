@@ -76,8 +76,9 @@ var createcustomer = (callback) => {
     else if(response.statusCode == 200){
      console.log('Add customer API hit:', response.statusCode);
      callback(undefined, {
-        responseCode: response.statusCode,
-        customer_id: body.customer_id
+        //responseCode: response.statusCode,
+        //customer_id: body.customer_id
+	     
         });
       }
   });
