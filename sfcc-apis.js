@@ -77,7 +77,7 @@ var getOrderService = (city,applicationid, callback) => {
   console.log('hit order service api');
   request({
     url: `https://samples.openweathermap.org/data/2.5/weather?q=London&appid=c263e59bb171900b2d224854a55d06cf`,
-    method: 'POST',
+    method: 'GET',
     headers: {
 	      "Content-Type": "application/json",
              //"authorization": `Bearer 8czclcac96qvy5ia3h4vg948t46nc8e0`
