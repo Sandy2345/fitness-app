@@ -485,7 +485,7 @@ app.post('/webhook/', (req, res) => {
 		}	
 		                                    break;
 			case 'token': {
-					console.log("In shoes-in-stock");
+					console.log("In order tokennnnn");
 					if(isDefined(actionName)){
 						//var idtoken=req.body.originalRequest.data.user.idToken;
 						//var decoded = jwtdecode(idtoken);
