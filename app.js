@@ -403,7 +403,7 @@ app.post('/webhook/', (req, res) => {
 								console.log(result.code);
 								//notify(emailId, messageId);
 								//setTimeout(() => pushNotification(deviceIdJ), 3000);
-								text="I am sending you the options, please check on your app.";
+								text="I am sending you the options,from magento api.";
 								messageData = {
  										speech: text,
  										displayText: text
