@@ -467,15 +467,15 @@ app.post('/webhook/', (req, res) => {
 			case 'token': {
 					console.log("In shoes-in-stock");
 					if(isDefined(actionName)){
-						var idtoken=req.body.originalRequest.data.user.idToken;
-						var decoded = jwtdecode(idtoken);
+						//var idtoken=req.body.originalRequest.data.user.idToken;
+						//var decoded = jwtdecode(idtoken);
 						//console.log(decoded);
 						if(decoded.iss == 'https://accounts.google.com'){
-						email=decoded.email;
-						password=decoded.email;
-						console.log(email+'   '+password)
+						//email=decoded.email;
+						//password=decoded.email;
+						//console.log(email+'   '+password)
 						}
-						var passwordTest=password.charAt(0).toUpperCase() + password.slice(1);
+						//var passwordTest=password.charAt(0).toUpperCase() + password.slice(1);
 						console.log(passwordTest);
 						magento.getAuthTokenService(email, passwordTest, (error, result)=> {
 							if(error){
