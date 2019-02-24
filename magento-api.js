@@ -47,8 +47,7 @@ var getAuthTokenService = (username, password, callback) =>{
 };
 
 var createorder = (authToken, callback) => {
-
-  console.log('Create order api');
+console.log('Create order api');
   request({
     url: `https://34.242.42.128/rest/default/V1/orders/1`,
     method: 'POST',
@@ -67,7 +66,7 @@ var createorder = (authToken, callback) => {
       console.log('Cart already present');
       //console.log(body.fault.arguments.basketIds);
       callback(undefined, {
-        basketId: body.fault.arguments.basketIds
+       // basketId: body.fault.arguments.basketIds
         });
     }
     else if(response.statusCode == 200){
