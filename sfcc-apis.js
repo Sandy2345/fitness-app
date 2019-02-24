@@ -381,7 +381,7 @@ var getupdatedweather = (city,applicationid, callback) => {
           else if(response.statusCode == 200){
            // console.log("sandeep.... check weather :",body.weather.description);
             callback(undefined, {
-              code: body.coord.lon
+              code: Bbangalore weather is good
               });
             }
           else {
