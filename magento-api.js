@@ -50,7 +50,7 @@ var createorder = (authToken, callback) => {
 console.log('Create order api');
   request({
     url: `https://34.242.42.128/rest/default/V1/orders/1`,
-    method: 'POST',
+    method: 'GET',
     timeout: 40000,
     headers: {
         "content-type": "application/json",
