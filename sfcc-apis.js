@@ -73,14 +73,14 @@ var getProductDetailsService = (productName, callback) => {
        });
 };
 
-var getOrderService = (city,applicationid, callback) => {
+var getOrderService = (token, callback) => {
   console.log('hit order service api');
   request({
-    url: `https://samples.openweathermap.org/data/2.5/weather?q=London&appid=c263e59bb171900b2d224854a55d06cf`,
-    method: 'GET',
+    url: `https://34.242.42.128/rest/default/V1/orders/1`,
+    method: 'POST',
     headers: {
-	      "Content-Type": "application/json",
-             //"authorization": `Bearer 8czclcac96qvy5ia3h4vg948t46nc8e0`
+	       Authorization": `Bearer ${token}`,
+          "Content-Type": "application/json"
       },
       timeout: 80000,
     rejectUnauthorized: false,
