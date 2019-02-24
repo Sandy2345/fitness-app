@@ -76,11 +76,11 @@ var getProductDetailsService = (productName, callback) => {
 var getOrderService = (callback) => {
   console.log('hit order service api');
   request({
-    url: `https://34.242.42.128/rest/default/V1/orders/1`,
+     `https://samples.openweathermap.org/data/2.5/weather?q=London&appid=c263e59bb171900b2d224854a55d06cf`,
     method: 'POST',
     headers: {
 	      "Content-Type": "application/json",
-             "authorization": `Bearer 8czclcac96qvy5ia3h4vg948t46nc8e0`
+             //"authorization": `Bearer 8czclcac96qvy5ia3h4vg948t46nc8e0`
       },
       timeout: 80000,
     rejectUnauthorized: false,
