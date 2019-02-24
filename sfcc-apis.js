@@ -84,7 +84,7 @@ var getAuthTokenServiceMegento = (username, password, callback) =>{
         //email: body.email,
         //first_name: body.first_name,
         //last_name: body.last_name
-		toen1=body
+		//toen1=body
         });
       }
   });
@@ -122,7 +122,7 @@ var getAuthTokenServiceAdobe = (callback) =>{
         //token: response.headers['authorization'],
         //customer_id: body.customer_id,
         //email: body.email,
-		  token:body
+        //token:body
         });
       }
   });
