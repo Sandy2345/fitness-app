@@ -6,7 +6,6 @@ const bodyParser = require('body-parser');
 const sfcc= require('./sfcc-apis.js');
 const sfmc= require('./sfmc.js');
 //const magento=require('./magento.js')
-magento-api.js
 const magento= require('./magento-api.js');
 const mailer= require('./mailer.js');
 const nodemailer= require('nodemailer');
