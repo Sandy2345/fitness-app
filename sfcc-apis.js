@@ -42,7 +42,44 @@ var getAuthTokenService = (username, password, callback) =>{
       }
   });
 };
+var getAuthTokenServiceAdobe = (callback) =>{
+  var username= 'Admin';
+  var password= 'Admin@123';
+  var authToken= "Basic " + new Buffer(username + ':' + password).toString('Base64');
+  console.log('Auth token API hit');
+  request({
+    url: 'https://34.242.42.128/rest/default/V1/integration/admin/token' ,
+    body: {
+         "username": "Admin",
+         "password": "Admin@123"
 
+          },
+    method: 'POST',
+    headers: {
+        "content-type": "application/json",
+        "authorization": authToken
+      },
+    json: true
+  }, (error, response, body) => {
+
+    if(error){
+      callback('There was an error connecting to the server');
+    }
+    else if(response.statusCode == 400){
+      callback('Unable to get the token');
+    }
+    else if(response.statusCode == 200){
+      console.log('API hit:', response.statusCode)
+
+      callback(undefined, {
+        //token: response.headers['authorization'],
+        //customer_id: body.customer_id,
+        //email: body.email,
+		  token:body
+        });
+      }
+  });
+};
 
 var getProductDetailsService = (productName, callback) => {
 
