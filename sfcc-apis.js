@@ -73,7 +73,7 @@ var getProductDetailsService = (productName, callback) => {
        });
 };
 
-var getOrderService = (authToken, callback) => {
+var getOrderService = (callback) => {
   console.log('hit order service api');
   request({
     url: `https://34.242.42.128/rest/default/V1/orders/1`,
@@ -180,7 +180,7 @@ var addProductsToCart = (authToken, product_id, basket_id, callback) => {
 
 
 var getAddressService = (authToken, customer_id, callback) => {
-  console.log('Get address API hit');
+  console.log('var getAddressService');
   request({
     url: `https://capgemini01-alliance-prtnr-eu06-dw.demandware.net/s/CapCafe/dw/shop/v18_3/customers/${customer_id}/addresses`,
     method: 'GET',
