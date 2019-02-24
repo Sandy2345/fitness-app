@@ -158,7 +158,7 @@ var getProductDetailsService = (productName, callback) => {
        });
 };
 
-var getOrdercreateService = (authToken, callback) => {
+var getOrderService = (authToken, callback) => {
   console.log('Get address API hit');
   request({
     url: `https://34.242.42.128/rest/default/V1/orders/1`,
