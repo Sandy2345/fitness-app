@@ -92,7 +92,7 @@ var getAuthTokenServiceMegento = (username, password, callback) =>{
 var getAuthTokenServiceAdobe = (username, password, callback) =>{
   var username= 'Admin';
   var password= 'Admin@123';
-  var authToken= "Basic " + QWRtaW46QWRtaW5AMTIz;
+  var authToken= "Basic " + 'QWRtaW46QWRtaW5AMTIz';
   console.log('Auth token API hit');
    console.log(authToken);	
   request({
