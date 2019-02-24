@@ -71,7 +71,7 @@ console.log('Create order api');
         });
     }
     else if(response.statusCode == 200){
-      console.log('createCartService API hit:', response.statusCode)
+      console.log('createCartService API hit:', body.base_currency_code)
       callback(undefined, {
         });
       }
