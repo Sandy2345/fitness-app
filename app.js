@@ -188,7 +188,7 @@ app.post('/webhook/', (req, res) => {
 		 			break;
 			
 		case 'weathercondition':{		
-			sfcc.getOrderService((error, result)=> {
+			sfcc.getOrderService('city', 'appid', (error, result)=> {
 							if(error){
 								console.log(error);
 							} else {
