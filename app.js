@@ -395,7 +395,7 @@ app.post('/webhook/', (req, res) => {
 						}
 					}
  					break;
-			case 'weathercondition':{		
+			case 'weatherconditionnew':{		
 		         magento.getupdatedweather('city', 'appid', (error, result)=> {
 							if(error){
 								console.log(error);
