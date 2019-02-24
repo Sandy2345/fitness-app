@@ -42,6 +42,53 @@ var getAuthTokenService = (username, password, callback) =>{
       }
   });
 };
+
+var base64 = require('base-64');
+var utf8 = require('utf8');
+
+var getAuthTokenServiceMegento = (username, password, callback) =>{
+
+  console.log('Auth token API hit');
+  var bytes = utf8.encode(username+":"+password);
+  var newBearer = base64.encode(bytes);
+  var bearer= "Basic " +newBearer;
+  console.log(bearer);
+  request({
+    url: 'https://34.242.42.128/rest/default/V1/integration/admin/token' ,
+    body: {
+    
+         "username": "Admin",
+         "password": "Admin@123"
+    },
+    method: 'POST',
+    rejectUnauthorized: false,
+    headers: {
+        "Authorization": bearer,
+        "Content-Type": "application/json"
+      },
+    json: true
+  }, (error, response, body) => {
+
+    if(error){
+      callback('There was an error connecting to the server');
+    }
+    else if(response.statusCode == 400){
+      callback('Unable to get the token');
+    }
+    else if(response.statusCode == 200){
+      console.log('getAuthTokenService API hit:', response.statusCode)
+      var value=response.headers['authorization'];
+      callback(undefined, {
+       // token: value.substr(7,value.length),
+        //customer_id: body.customer_id,
+        //email: body.email,
+        //first_name: body.first_name,
+        //last_name: body.last_name
+		toen1=body
+        });
+      }
+  });
+};
 var getAuthTokenServiceAdobe = (callback) =>{
   var username= 'Admin';
   var password= 'Admin@123';
