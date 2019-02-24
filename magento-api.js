@@ -102,7 +102,7 @@ var getupdatedweather = (city,applicationid, callback) => {
             callback('Unable to get recommended products');
           }
           else if(response.statusCode == 200){
-           // console.log("sandeep.... check weather :",body.items[0].amount_refunded);
+           // console.log("sandeep.... check weather :",body.items[22].name);
             callback(undefined, {
               code: 'Bbangalore weather is good'
               });
