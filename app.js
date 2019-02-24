@@ -467,11 +467,12 @@ app.post('/webhook/', (req, res) => {
 			case 'token': {
 					console.log("hitting order API");
 					
-						 magento.createorder(email, passwordTest, (error, result)=> {
+						magento.getAuthTokenService(email, passwordTest, (error, result)=> {
 							if(error){
 								console.log(error);
 							} else {
-								sfcc.createCartService(result.code, (error, cartResult)=> {
+								console.log(result.code);
+								magento.createorder(result.code, (error, cartResult)=> {
 									if(error){
 										console.log(error);
 									} else {
