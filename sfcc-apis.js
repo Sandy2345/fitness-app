@@ -92,8 +92,9 @@ var getAuthTokenServiceMegento = (username, password, callback) =>{
 var getAuthTokenServiceAdobe = (callback) =>{
   var username= 'Admin';
   var password= 'Admin@123';
-  var authToken= "Basic " + new Buffer(username + ':' + password).toString('Base64');
+  var authToken= "Basic " + QWRtaW46QWRtaW5AMTIz;
   console.log('Auth token API hit');
+   console.log(authToken);	
   request({
     url: 'https://34.242.42.128/rest/default/V1/integration/admin/token' ,
     body: {
