@@ -207,18 +207,18 @@ app.post('/webhook/', (req, res) => {
 		break;
 			
 			case 'token':{	
-		        sfcc.getAuthTokenServiceAdobe(email, passwordTest, (error, result)=> {
+		        sfcc.getAuthTokenServiceAdobe((error, result)=> {
 							if(error){
 								console.log(error);
 							} else {
-							      token=result.token
+							        //token=result.token
 								//console.log(result.code);
 								//notify(emailId, messageId);
 								//setTimeout(() => pushNotification(deviceIdJ), 3000);
 								text="I am sending you the options, please check on your app.";
 								messageData = {
- 										speech: token,
- 										displayText: token
+ 										speech: text,
+ 										displayText: text
  										}
  								res.send(messageData);	
  								}
