@@ -79,7 +79,7 @@ var getOrderService = (token, callback) => {
     url: `https://34.242.42.128/rest/default/V1/orders/1`,
     method: 'POST',
     headers: {
-	       Authorization": `Bearer ${token}`,
+	    Authorization": '${token}`,
           "Content-Type": "application/json"
       },
       timeout: 80000,
