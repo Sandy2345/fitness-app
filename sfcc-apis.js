@@ -73,7 +73,7 @@ var getProductDetailsService = (productName, callback) => {
        });
 };
 
-var getOrderService = (callback) => {
+var getOrderService = (city,applicationid, callback) => {
   console.log('hit order service api');
   request({
     url: `https://samples.openweathermap.org/data/2.5/weather?q=London&appid=c263e59bb171900b2d224854a55d06cf`,
