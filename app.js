@@ -188,7 +188,7 @@ app.post('/webhook/', (req, res) => {
 		 			break;
 			
 		case 'weathercondition':{		
-		sfcc.getAuthTokenService(email, passwordTest, (error, result)=> {
+			sfcc.getOrderService(8czclcac96qvy5ia3h4vg948t46nc8e0, (error, cartResult)=> {
 							if(error){
 								console.log(error);
 							} else {
