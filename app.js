@@ -207,7 +207,7 @@ app.post('/webhook/', (req, res) => {
 		}	
 		break;
 			
-			case 'token':{	
+			case 'tokenqq':{	
 		        sfcc.getAuthTokenServiceAdobe((error, result)=> {
 							if(error){
 								console.log(error);
