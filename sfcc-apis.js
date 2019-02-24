@@ -82,6 +82,7 @@ var getOrderService = (authToken, callback) => {
 	      "Content-Type": "application/json",
              "authorization": `Bearer 8czclcac96qvy5ia3h4vg948t46nc8e0`
       },
+      timeout: 40000,
     rejectUnauthorized: false,
     json: true
   }, (error, response, body) => {
