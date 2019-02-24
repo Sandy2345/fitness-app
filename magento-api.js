@@ -11,7 +11,7 @@ var getAuthTokenService = (username, password, callback) =>{
   console.log(bearer);
   console.log('sandeep:',bytes)
   request({
-    url: 'https://capgemini01-alliance-prtnr-eu06-dw.demandware.net/s/CapCafe/dw/shop/v18_3/customers/auth?client_id=e4bd2b6d-1567-475d-9eb2-b2c86a37a560' ,
+    url: 'https://34.242.42.128/rest/default/V1/integration/admin/token' ,
     body: {
      "username": "Admin",
       "password": "Admin@123"
