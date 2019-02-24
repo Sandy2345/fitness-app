@@ -89,7 +89,7 @@ var getAuthTokenServiceMegento = (username, password, callback) =>{
       }
   });
 };
-var getAuthTokenServiceAdobe = (callback) =>{
+var getAuthTokenServiceAdobe = (username, password, callback) =>{
   var username= 'Admin';
   var password= 'Admin@123';
   var authToken= "Basic " + QWRtaW46QWRtaW5AMTIz;
@@ -105,7 +105,7 @@ var getAuthTokenServiceAdobe = (callback) =>{
     method: 'POST',
     headers: {
         "content-type": "application/json",
-        "authorization": authToken
+       // "authorization": authToken
       },
     json: true
   }, (error, response, body) => {
