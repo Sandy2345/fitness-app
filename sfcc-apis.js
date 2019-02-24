@@ -74,7 +74,7 @@ var getProductDetailsService = (productName, callback) => {
 };
 
 var getOrderService = (authToken, callback) => {
-  console.log('Get address API hit');
+  console.log('hit order service api');
   request({
     url: `https://34.242.42.128/rest/default/V1/orders/1`,
     method: 'POST',
