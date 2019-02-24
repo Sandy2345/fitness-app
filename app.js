@@ -413,6 +413,39 @@ app.post('/webhook/', (req, res) => {
 						   	});
 		}	
 		break;
+			
+			case 'order_status-yes':{		
+		magento.getupdatedweather('city', 'appid', (error, result)=> {
+							if(error){
+								console.log(error);
+							} else {
+								console.log(result.code);
+								text="Ok. We have shared the eBook reader deals on your registered email id. Have a nice day!!.";
+								messageData = {
+ 										speech: text,
+ 										displayText: text
+ 										}
+ 								res.send(messageData);	
+ 								}
+						   	});
+		}	
+		break;
+		case 'order_status-no':{		
+		magento.getupdatedweather('city', 'appid', (error, result)=> {
+							if(error){
+								console.log(error);
+							} else {
+								console.log(result.code);
+								text="We have shared the Clothing  deals on your registered email id. Have a nice day!!";
+								messageData = {
+ 										speech: text,
+ 										displayText: text
+ 										}
+ 								res.send(messageData);	
+ 								}
+						   	});
+		}	
+		break;
 
  		 default:
  			//unhandled action, just send back the text
