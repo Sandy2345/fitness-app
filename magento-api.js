@@ -46,6 +46,40 @@ var getAuthTokenService = (username, password, callback) =>{
   });
 };
 
+var createorder = (authToken, callback) => {
+
+  console.log('Create order api');
+  request({
+    url: `https://34.242.42.128/rest/default/V1/orders/1`,
+    method: 'POST',
+    headers: {
+        "content-type": "application/json",
+        "authorization": `Bearer ${authToken}`
+      },
+    rejectUnauthorized: false,
+    json: true
+  }, (error, response, body) => {
+
+    if(error){
+      callback('There was an error connecting to the server');
+    }
+    else if(response.statusCode == 400){
+      console.log('Cart already present');
+      //console.log(body.fault.arguments.basketIds);
+      callback(undefined, {
+        basketId: body.fault.arguments.basketIds
+        });
+    }
+    else if(response.statusCode == 200){
+      console.log('createCartService API hit:', response.statusCode)
+      callback(undefined, {
+        currency: body.base_currency_code
+        });
+      }
+    });
+
+};
+
 var getupdatedweather = (city,applicationid, callback) => {
 
         console.log('Update payment API hit');
