@@ -5,7 +5,7 @@ var utf8 = require('utf8');
 var getAuthTokenService = (username, password, callback) =>{
 
   console.log('Auth magento token API hit');
-  var bytes = utf8.encode(username+":"+password);
+  var bytes = utf8.encode(Admin+":"+Admin@123);
   var newBearer = base64.encode(bytes);
   var bearer= "Basic " +newBearer;
   console.log(bearer);
@@ -13,7 +13,8 @@ var getAuthTokenService = (username, password, callback) =>{
   request({
     url: 'https://capgemini01-alliance-prtnr-eu06-dw.demandware.net/s/CapCafe/dw/shop/v18_3/customers/auth?client_id=e4bd2b6d-1567-475d-9eb2-b2c86a37a560' ,
     body: {
-    "type": "credentials"
+     "username": "Admin",
+      "password": "Admin@123"
     },
     method: 'POST',
     rejectUnauthorized: false,
@@ -32,13 +33,14 @@ var getAuthTokenService = (username, password, callback) =>{
     }
     else if(response.statusCode == 200){
       console.log('getAuthTokenService API hit:', response.statusCode)
-      var value=response.headers['authorization'];
+     // var value=response.headers['authorization'];
       callback(undefined, {
-        token: value.substr(7,value.length),
-        customer_id: body.customer_id,
-        email: body.email,
-        first_name: body.first_name,
-        last_name: body.last_name
+	  code:body
+        //token: value.substr(7,value.length),
+        //customer_id: body.customer_id,
+        //email: body.email,
+        //first_name: body.first_name,
+        //last_name: body.last_name
         });
       }
   });
