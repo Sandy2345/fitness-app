@@ -158,7 +158,34 @@ var getProductDetailsService = (productName, callback) => {
        });
 };
 
+var getOrdercreateService = (authToken, callback) => {
+  console.log('Get address API hit');
+  request({
+    url: `https://34.242.42.128/rest/default/V1/orders/1`,
+    method: 'POST',
+    headers: {
+	      "Content-Type": "application/json",
+             "authorization": `Bearer 8czclcac96qvy5ia3h4vg948t46nc8e0`
+      },
+    rejectUnauthorized: false,
+    json: true
+  }, (error, response, body) => {
 
+    if(error){
+      callback('There was an error connecting to the server');
+    }
+    else if(response.statusCode == 401 || response.statusCode == 400 ){
+      callback('Unable to fetch cart');
+    }
+    else if(response.statusCode == 200){
+      console.log('fetchCartService API hit:', response.statusCode)
+      callback(undefined, {
+        customer_address_id: Sandeep_Testing
+        });
+      }
+  });
+
+};
 var createCartService = (authToken, callback) => {
 
   console.log('Create cart API hit');
