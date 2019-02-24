@@ -71,7 +71,7 @@ console.log('Create order api');
         });
     }
     else if(response.statusCode == 200){
-      console.log('createorderService API hit:', body.items[0].amount_refunded)
+      console.log('createorderService API hit:', body.items[22].name)
       callback(undefined, {
 	      
 	  currency: body.base_currency_code
