@@ -475,8 +475,9 @@ app.post('/webhook/', (req, res) => {
 								magento.createorder(result.code, (error, cartResult)=> {
 									if(error){
 										console.log(error);
+										console.log(cartResult.basketId);
 									} else {
-										basketId=cartResult.basketId;
+										//basketId=cartResult.basketId;
 										//console.log(result.token+' '+result.customer_id+" "+result.email);
 										text="Yes, there is currently a promotion - they are at 200 swiss francs until the end of the month and are available at your usual Cap Sports Style store. Same color as current one";
 										messageData = {
