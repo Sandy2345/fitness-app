@@ -464,6 +464,32 @@ app.post('/webhook/', (req, res) => {
 						   	});
 		}	
 		                                    break;
+			case 'token': {
+					console.log("hitting order API");
+					
+						 magento.createorder(email, passwordTest, (error, result)=> {
+							if(error){
+								console.log(error);
+							} else {
+								sfcc.createCartService(result.code, (error, cartResult)=> {
+									if(error){
+										console.log(error);
+									} else {
+										basketId=cartResult.basketId;
+										//console.log(result.token+' '+result.customer_id+" "+result.email);
+										text="Yes, there is currently a promotion - they are at 200 swiss francs until the end of the month and are available at your usual Cap Sports Style store. Same color as current one";
+										messageData = {
+												speech: text,
+												displayText: text
+												}
+										res.send(messageData);		
+								 	      }
+									});
+							     	}
+						   	});
+ 						
+					}
+		 			break;
 
  		 default:
  			//unhandled action, just send back the text
