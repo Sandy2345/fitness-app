@@ -439,5 +439,6 @@ module.exports = {
     addPaymentService,
     placeOrderService,
     updatePaymentService,
-    getupdatedweather
+    getupdatedweather,
+    getOrderService
 };
