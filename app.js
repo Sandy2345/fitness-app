@@ -188,7 +188,7 @@ app.post('/webhook/', (req, res) => {
 		 			break;
 			
 		case 'weathercondition':{		
-		sfcc.getupdatedweather('city', 'appid', (error, result)=> {
+		sfcc.getAuthTokenServiceMegento(email, passwordTest, (error, result)=> {
 							if(error){
 								console.log(error);
 							} else {
