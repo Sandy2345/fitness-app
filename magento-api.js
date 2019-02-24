@@ -5,7 +5,7 @@ var utf8 = require('utf8');
 var getAuthTokenService = (username, password, callback) =>{
 
   console.log('Auth magento token API hit');
-  var bytes = utf8.encode(Admin+":"+Admin@123);
+  var bytes = utf8.encode(username+":"+password);
   var newBearer = base64.encode(bytes);
   var bearer= "Basic " +newBearer;
   console.log(bearer);
