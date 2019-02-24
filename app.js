@@ -446,6 +446,25 @@ app.post('/webhook/', (req, res) => {
 						   	});
 		}	
 		break;
+			                           case 'tokeneeeeeeaa':{	
+                                                   magento.createorder(result.code, (error, cartResult)=> {
+							if(error){
+								console.log(error);
+							} else {
+								console.log(result.code);
+								//notify(emailId, messageId);
+								//setTimeout(() => pushNotification(deviceIdJ), 3000);
+								text="I am sending you the options, please check on your app.";
+								messageData = {
+ 										speech: result.code,
+ 										displayText: result.code
+ 										}
+ 								res.send(messageData);	
+ 								}
+						   	});
+		}	
+		                                    break;
+			
 			                            case 'tokeneeeeee':{	
                                                     magento.getAuthTokenService(email, passwordTest, (error, result)=> {
 							if(error){
