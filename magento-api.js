@@ -64,7 +64,7 @@ console.log('Create order api');
     }
     else if(response.statusCode == 400){
       console.log('Cart already present');
-      //console.log(body.fault.arguments.basketIds);
+      //console.log(body.base_currency_code);
       callback(undefined, {
        // basketId: body.fault.arguments.basketIds
         });
@@ -72,7 +72,6 @@ console.log('Create order api');
     else if(response.statusCode == 200){
       console.log('createCartService API hit:', response.statusCode)
       callback(undefined, {
-        currency: body.base_currency_code
         });
       }
     });
