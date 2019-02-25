@@ -146,18 +146,24 @@ app.post('/webhook/', (req, res) => {
 							}
 		 				break;
 			
-			case 'serviceCloud': {
-					console.log('In serviceCloud');
-						if(isDefined(actionName)){
-							text: "Sure, I'll inform the store manager. Your shoes will be ready on time. Probably don't use them for your next trail as the distance is too long for brand new shoes. By the way do you want to check how you used your last pair ?";
-									speech: text,
-									displayText: text
-									}
-							res.send(messageData);	
-							//mailer.sendMailService(emailId, customerName);
-						     }
+			case 'peee': {
+			 console.log("In process-order");
+			 if(isDefined(actionName)){
+							if(error){
+								console.log(error);
+							} else {
+								//console.log(result.responseCode);
+								text="Can I use your saved card or Google pay ?";
+								messageData = {
+										speech: text,
+										displayText: text
+										}
+								res.send(messageData);		
+							      }
+							
 						}
-					break;
+					 }
+			     break;
 
 			case 'shoes-in-stock': {
 					console.log("In shoes-in-stock");
