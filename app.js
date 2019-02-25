@@ -513,7 +513,6 @@ app.post('/webhook/', (req, res) => {
 									} else {
 										var currency1=cartResult.currency;
 										console.log(currency1);
-										function myNewFunc(currency1) {
 										text='Yes, there  currently a promotion - they are at 200 swiss francs unt one';
 										messageData = {
 												speech: text,
@@ -522,8 +521,6 @@ app.post('/webhook/', (req, res) => {
 										res.send(messageData);		
 								 	      }
 										
-										
-									};
 									});
 							     	}
 						   	});
