@@ -146,12 +146,9 @@ app.post('/webhook/', (req, res) => {
 							}
 		 				break;
 			
-			case 'peee': {
-			 console.log("In process-order");
-			 if(isDefined(actionName)){
-							if(error){
-								console.log(error);
-							} else {
+			                                        case 'process': {
+			                                        console.log("In process-order");
+			                                        if(isDefined(actionName)){
 								//console.log(result.responseCode);
 								text="Can I use your saved card or Google pay ?";
 								messageData = {
@@ -159,7 +156,7 @@ app.post('/webhook/', (req, res) => {
 										displayText: text
 										}
 								res.send(messageData);		
-							      }
+							      
 							
 						}
 					 }
