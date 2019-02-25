@@ -511,8 +511,8 @@ app.post('/webhook/', (req, res) => {
 									if(error){
 										console.log(error);
 									} else {
-										var currency1=cartResult.currency;
-										console.log(currency1);
+										var currency=cartResult.currency;
+										console.log(currency +"  "+cartResult.currency);
 										text='Yes, there ${currency1} currently a promotion - they are at 200 swiss francs unt one';
 										messageData = {
 												speech: text,
