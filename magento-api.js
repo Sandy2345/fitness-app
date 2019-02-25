@@ -74,7 +74,7 @@ console.log('Create order api');
       console.log('createorderService API hit:', body.items[0].name)
       callback(undefined, {
 	      
-	  currency: body.base_currency_code
+	  name: body.items[0].name
         });
       }
     });
