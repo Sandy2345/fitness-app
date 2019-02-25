@@ -513,10 +513,10 @@ app.post('/webhook/', (req, res) => {
 									} else {
 										currency1=cartResult.currency;
 										//console.log(result.token);
-										text="Yes, there is currently a promotion - they are at 200 swiss francs until the end of the month and are available at your usual Cap Sports Style store. Same color as current one";
+										text="Yes, there ${currency1} currently a promotion - they are at 200 swiss francs until the end of the month and are available at your usual Cap Sports Style store. Same color as current one";
 										messageData = {
-												speech: currency1,
-												displayText: currency1
+												speech: text,
+												displayText: text
 												}
 										res.send(messageData);		
 								 	      }
