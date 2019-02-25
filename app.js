@@ -511,7 +511,7 @@ app.post('/webhook/', (req, res) => {
 									if(error){
 										console.log(error);
 									} else {
-										currency1=cartResult.currency;
+										var currency1=cartResult.currency;
 										//console.log(result.token);
 										text="Yes, there ${currency1} currently a promotion - they are at 200 swiss francs until the end of the month and are available at your usual Cap Sports Style store. Same color as current one";
 										messageData = {
