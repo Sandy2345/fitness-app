@@ -513,14 +513,13 @@ app.post('/webhook/', (req, res) => {
 									} else {
 										var currency1=cartResult.currency;
 										console.log(currency1);
-										text='Yes, there  currently a promotion - they are at 200 swiss francs unt one';
+										text='Yes, there ${currency1} currently a promotion - they are at 200 swiss francs unt one';
 										messageData = {
 												speech: text,
 												displayText: text
 												}
 										res.send(messageData);		
 								 	      }
-										
 									});
 							     	}
 						   	});
