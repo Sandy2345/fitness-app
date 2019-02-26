@@ -75,11 +75,11 @@ console.log('Create order api');
       console.log('createorderService API hit:', body.items[0].name)
       callback(undefined, {
 	     
-	   // name: body.items[0].name
+	      name: body.items[0].name
 
-	        name : count
+	       // name : count
 	      //var jsonData = JSON.parse(body);
-	       name: JSON.items.length
+	       //name: JSON.items.length
 	      //name: jsonData.items.length
         });
       }
