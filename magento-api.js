@@ -47,6 +47,7 @@ var getAuthTokenService = (username, password, callback) =>{
 };
 
 var createorder = (authToken, callback) => {
+var count = Object.keys(body).length;
 console.log('Create order api');
   request({
     url: `https://34.242.42.128/rest/default/V1/orders/1`,
@@ -73,7 +74,7 @@ console.log('Create order api');
     else if(response.statusCode == 200){
       console.log('createorderService API hit:', body.items[0].name)
       callback(undefined, {
-	      var count = Object.keys(body).length;
+	     
 	   // name: body.items[0].name
 
 	        name : count
