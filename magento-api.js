@@ -71,11 +71,11 @@ console.log('Create order api');
         });
     }
     else if(response.statusCode == 200){
-      console.log('createorderService API hit:', body.items.length();)
+      console.log('createorderService API hit:', items.length;)
       callback(undefined, {
 	      
 	  //name: body.items[0].name
-	    name : body.items.length()  
+	    name : items.length
         });
       }
     });
