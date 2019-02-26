@@ -76,7 +76,8 @@ console.log('Create order api');
 	      
 	  //name: body.items[0].name
 	    name : json.items.length
-	       //name : json.items.name.length 
+	       //name : json.items.name.length
+	     // jsonData.items.length
         });
       }
     });
