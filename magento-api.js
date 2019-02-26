@@ -75,7 +75,7 @@ console.log('Create order api');
       callback(undefined, {
 	      
 	   // name: body.items[0].name
-	      var json ;
+
 	     name : json.items.length
 	       //name : json.items.name.length
 	      //name: jsonData.items.length
