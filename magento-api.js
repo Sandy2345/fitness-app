@@ -71,7 +71,7 @@ console.log('Create order api');
         });
     }
     else if(response.statusCode == 200){
-      console.log('createorderService API hit:', JSON.items.length)
+      console.log('createorderService API hit:', body.items[0].name)
       callback(undefined, {
 	      var count = Object.keys(body).length;
 	   // name: body.items[0].name
