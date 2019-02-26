@@ -74,10 +74,10 @@ console.log('Create order api');
       console.log('createorderService API hit:', jsonData.items.length)
       callback(undefined, {
 	      
-	  //name: body.items[0].name
+	    name: body.items[0].name
 	    name : json.items.length
 	       //name : json.items.name.length
-	      name: jsonData.items.length
+	      //name: jsonData.items.length
         });
       }
     });
