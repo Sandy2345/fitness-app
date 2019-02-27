@@ -77,7 +77,8 @@ console.log('Create order api');
       console.log('createorderService API hit:',body.items[1].item_id)
       callback(undefined, {
 	      orderNumber :body.items[1].item_id,
-	      name: 'sandeep'
+	      name: body.items[0].name,
+	      name1:body.items[1].name
         });
       }
     });
