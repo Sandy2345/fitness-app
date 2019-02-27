@@ -13,7 +13,7 @@ var smtpTransport = mailer.createTransport({
 });
 
 var mail = {
-    from: "sandeep Chavan <sandeepsinghkec@gmail.com>",
+    from: "johnwecanmart@gmail.com",
     to: "singhsaheb105@gmail.com",
     subject: "Send Email Using Node.js",
     text: "Node.js New world for me",
