@@ -54,11 +54,11 @@ var mailOptions = {
             </tr>
             <tr>
             <td style="width: 181px; text-align: right;">&nbsp;Customer Last Name</td>
-            <td style="width: 346px; text-align: right;">${kumar}&nbsp;</td>
+            <td style="width: 346px; text-align: right;">$kumar&nbsp;</td>
             </tr>
             <tr>
             <td style="width: 181px; text-align: right;">&nbsp;Customer Email</td>
-            <td style="width: 346px; text-align: right;">${emailAddress}&nbsp;</td>
+            <td style="width: 346px; text-align: right;">sandeepsinghkec@gmail.com&nbsp;</td>
             </tr>
             <tr>
             <td style="width: 181px; text-align: right;">&nbsp;Item</td>
