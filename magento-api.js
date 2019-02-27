@@ -78,8 +78,8 @@ console.log('Create order api');
 	           name: JSON.parse(body).items.length
 
 	       // name : count
-	       var jsonData = JSON.parse(body);
-	       var namelengh = jsonData.items.length;
+	      // var jsonData = JSON.parse(body);
+	       //var namelengh = jsonData.items.length;
 	      //name: jsonData.items.length
         });
       }
