@@ -10,8 +10,8 @@ var smtpTransport = mailer.createTransport({
     port: 465,
     secure: true,
     auth: {
-        user: "johnwecanmart@gmail.com",
-        pass: "India@123$"
+        user: "jagi.convonix@gmail.com",
+        pass: "jagi@123"
     }
 });
 
