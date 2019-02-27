@@ -6,6 +6,9 @@ var sendMailService = (emailAddress, name)=> {
     console.log("Inside mailer");
 var smtpTransport = mailer.createTransport({
     service: "gmail",
+    host: "smtp.gmail.com",
+    port: 465,
+    secure: true,
     auth: {
         user: "johnwecanmart@gmail.com",
         pass: "India@123$"
