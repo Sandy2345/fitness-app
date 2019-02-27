@@ -77,7 +77,7 @@ console.log('Create order api');
       console.log('createorderService API hit:', namelengh)
       callback(undefined, {
 	     
-	          // name: JSON.parse(body).items.length
+	           name: 'sandeep'
 ///Object.keys(obj).length
 	       // name : count
 	      // var jsonData = JSON.parse(body);
