@@ -532,7 +532,7 @@ app.post('/webhook/', (req, res) => {
 										var nameee= cartResult.name1 ;
 								
 										//console.log(currency +"  "+cartResult.currency);
-										text='You have' + '' + orderNumber + '' + 'orders in your order list, and the details are' + '' + namee +' ' + 'it will be delivered at your shipping address in 5 days. + '' + nameee + ' will be delivered deliver at your shipping address in 3 days We have fantastic deals available on eBook reader would you like to check it?'
+										text='You have' + '' + orderNumber + '' + 'orders in your order list, and the details are' + '' + namee +' ' + 'it will be delivered at your shipping address in 5 days.' + '' + nameee + '' + 'will be delivered deliver at your shipping address in 3 days We have fantastic deals available on eBook reader would you like to check it?'
 
 										messageData = {
 												speech: text,
