@@ -72,11 +72,13 @@ console.log('Create order api');
         });
     }
     else if(response.statusCode == 200){
-      console.log('createorderService API hit:', body.items[0].name)
+      	  var jsonData = JSON.parse(body);
+	  var namelengh = jsonData.items.length;   
+      console.log('createorderService API hit:', namelengh)
       callback(undefined, {
 	     
-	           name: JSON.parse(body).items.length
-
+	          // name: JSON.parse(body).items.length
+///Object.keys(obj).length
 	       // name : count
 	      // var jsonData = JSON.parse(body);
 	       //var namelengh = jsonData.items.length;
