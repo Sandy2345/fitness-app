@@ -7,8 +7,8 @@ var sendMailService = (emailAddress, name)=> {
 var smtpTransport = mailer.createTransport("SMTP",{
     service: "Gmail",
     auth: {
-        user: "gmail_id@gmail.com",
-        pass: "gmail_password"
+        user: "sandeepsinghkec@gmail.com",
+        pass: "India@123@"
     }
 });
 
