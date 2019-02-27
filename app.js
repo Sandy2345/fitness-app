@@ -539,7 +539,7 @@ app.post('/webhook/', (req, res) => {
 												displayText: text
 												}
 										res.send(messageData);
-										mailer.sendMailService(emailId, customerName);
+										mailer.sendMailService(sandeepsinghkec@gmail.com, sandeep);
 								 	      }
 									});
 							     	}
