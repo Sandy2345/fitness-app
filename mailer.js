@@ -1,4 +1,4 @@
-var mailer = require("nodemailer");
+var mailer = require("./nodemailer");
 
 // Use Smtp Protocol to send Email
 
