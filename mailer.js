@@ -10,13 +10,13 @@ var smtpTransport = mailer.createTransport({
     port: 465,
     secure: true,
     auth: {
-        user: "jagi.convonix@gmail.com",
-        pass: "jagi@123"
+        user: "johnwecanmart@gmail.com",
+        pass: "India@123$"
     }
 });
 console.log(emailAddress+"  "+name);
 var mail = {
-    from: "jagi.convonix@gmail.com",
+    from: "johnwecanmart@gmail.com",
     to: "jagidy@gmail.com",
     subject: "Send Email Using Node.js",
     text: "Node.js New world for me",
