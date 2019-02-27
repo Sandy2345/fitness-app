@@ -7,7 +7,7 @@ var sendMailService = (emailAddress, name)=> {
 var smtpTransport = mailer.createTransport({
     service: "Gmail",
     host: "smtp.gmail.com",
-    port: 587,
+    port: 465,
     secure: true,
     auth: {
         user: "johnwecanmart@gmail.com",
