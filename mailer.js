@@ -5,7 +5,7 @@ var mailer = require("nodemailer");
 var sendMailService = (emailAddress, name)=> {
     console.log("Inside mailer");
 var smtpTransport = mailer.createTransport({
-    service: "Gmail",
+    service: "gmail",
     auth: {
         user: "sandeepsinghkec@gmail.com",
         pass: "India@123@"
