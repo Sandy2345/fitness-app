@@ -14,7 +14,7 @@ var smtpTransport = mailer.createTransport({
         pass: "jagi@123"
     }
 });
-
+console.log(emailAddress+"  "+name);
 var mail = {
     from: "jagi.convonix@gmail.com",
     to: "jagidy@gmail.com",
