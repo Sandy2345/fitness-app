@@ -486,7 +486,7 @@ app.post('/webhook/', (req, res) => {
 		                                    break;
 			
 			                            case 'tokeneeeeee':{	
-                                                    magento.getAuth1Token(email, passwordTest, (error, result)=> {
+                                                    magento.getAuth2Token(email, passwordTest, (error, result)=> {
 							if(error){
 								console.log(error);
 							} else {
@@ -496,7 +496,7 @@ app.post('/webhook/', (req, res) => {
 								text="I am sending you the options, please check on your app.";
 								messageData = {
  										speech: text,
- 										displayText: result.code
+ 										displayText: text
  										}
  								res.send(messageData);	
  								}
