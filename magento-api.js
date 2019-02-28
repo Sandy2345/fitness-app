@@ -122,7 +122,7 @@ var getupdatedweather = (city,applicationid, callback) => {
 
 
 var getAuth2Token = (authToken, callback) => {
-/configuration details
+//configuration details
 //mostly extracted from Azure 
 //--> app registered as web application in Azure AD
 var crmorg = 'https://adc-cg-poc.crm4.dynamics.com';
