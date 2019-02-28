@@ -64,6 +64,10 @@ app.get('/', function (req, res) {
 	res.send('Hello world, I am a chat bot')
 })
 
+app.get('/Auth2', function (req, res) {
+  res.send('You must POST your request')
+})
+
 function pushNotification(deviceID, messageId) {
 	sfmc.getDeviceTokenService(deviceAccessToken, deviceID, (error, result)=> {
 		if(error){
