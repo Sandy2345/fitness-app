@@ -63,7 +63,9 @@ const sessionIds = new Map();
 // Index route
 app.get('Auth2/', function (req, res) {
 	res.send('Hello world, I am a chat bot')
-	magentoAuth.sendAuth2(error, finalResult)=> {
+	magentoAuth.sendAuth2(error, finalResult) {
+	console.log(sandeep)
+	}
 })
 
 function pushNotification(deviceID, messageId) {
