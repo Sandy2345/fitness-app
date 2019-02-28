@@ -1,6 +1,8 @@
 var ClientOAuth2 = require('client-oauth2')
 var sendAuth2 = (emailAddress, name)=> {
+  console.log('sendAuth2')
 var githubAuth = new ClientOAuth2({
+  console.log('githubAuth')
   clientId: '5ffe4a99-49d6-47a5-857a-1df7ce25f92a',
   clientSecret: '123',
   accessTokenUri: 'https://login.microsoftonline.com/common/oauth2/authorize',
