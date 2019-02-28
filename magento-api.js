@@ -1,6 +1,7 @@
 const request= require('request');
 var base64 = require('base-64');
 var utf8 = require('utf8');
+const https = require('https');
 
 var getAuthTokenService = (username, password, callback) =>{
 
@@ -116,6 +117,70 @@ var getupdatedweather = (city,applicationid, callback) => {
           }
          });
 };
+
+
+
+
+var getAuth2Token = (authToken, callback) => {
+/configuration details
+//mostly extracted from Azure 
+//--> app registered as web application in Azure AD
+var crmorg = 'https://adc-cg-poc.crm4.dynamics.com';
+var authhost = 'login.microsoftonline.com';
+var authpath = 'https://login.microsoftonline.com/organizations/oauth2/v2.0/token';
+var clientid = '2a030831-e8d7-4090-9696-e8a335e85ef0';
+var client_secret = 'ACXa69WrS3@iZn_yW=6=6W[ruaIgMQvHK22X4vMFKRY';
+
+//token request parameters
+var postData = 'client_id=' + clientid;
+postData += '&resource=' + encodeURIComponent(crmorg);
+postData += '&client_secret=' + encodeURIComponent(client_secret);
+postData += '&grant_type=client_credentials';
+
+//set the token request parameters
+var options = {
+    host: authhost,
+    path: authpath,
+    method: 'POST',
+    headers: {
+        'Content-Type': 'application/x-www-form-urlencoded',
+        'Content-Length': Buffer.byteLength(postData)
+    }
+};
+
+//make the token request
+var request = https.request(options, (response) => {
+    let data = '';
+
+    //  A chunk of data has been recieved
+    response.on('data', (chunk) => {
+        data += chunk;
+    });
+
+    // The whole response has been recieved
+    response.on('end', () => {
+        var tokenresponse = JSON.parse(data);
+        var access_token = tokenresponse.access_token;
+        console.log('Token: ' + access_token);
+    });
+});
+
+request.on('error', (e) => {
+    console.error(e);
+});
+
+request.write(postData);
+request.end();
+
+
+};
+
+module.exports = {
+    getAuth2Token
+};
+
+
+
 
 
 
