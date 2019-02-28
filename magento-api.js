@@ -175,15 +175,6 @@ request.end();
 
 };
 
-module.exports = {
-    getAuth2Token
-};
-
-
-
-
-
-
 
 function isEmpty(obj) {
     for(var key in obj) {
@@ -196,5 +187,6 @@ function isEmpty(obj) {
 module.exports = {
     getAuthTokenService,
     getupdatedweather,
-    createorder 
+    createorder,
+   getAuth2Token 
 };
