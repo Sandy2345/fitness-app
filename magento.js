@@ -11,8 +11,6 @@ var githubAuth = new ClientOAuth2({
   
 })
 
-
-
 var token = githubAuth.createToken('access token', 'optional refresh token', 'optional token type', {
    data: 'raw user data'
   
