@@ -1,7 +1,7 @@
 const request= require('request');
 var base64 = require('base-64');
 var utf8 = require('utf8');
-const https = require('https');
+//const https = require('https');
 
 var getAuthTokenService = (username, password, callback) =>{
 
