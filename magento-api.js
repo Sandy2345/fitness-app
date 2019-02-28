@@ -161,7 +161,7 @@ var request = https.request(options, (response) => {
     response.on('end', () => {
         var tokenresponse = JSON.parse(data);
         var access_token = tokenresponse.access_token;
-        console.log('Token: ' + access_token);
+        console.log('Dynamic Token: ' + access_token);
     });
 });
 
