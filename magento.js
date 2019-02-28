@@ -1,10 +1,10 @@
 var ClientOAuth2 = require('client-oauth2')
 var sendAuth2 = (emailAddress, name)=> {
-  console.log('sendAuth2')
+  //console.log('sendAuth2')
 var githubAuth = new ClientOAuth2({
   console.log('githubAuth')
-  clientId: '5ffe4a99-49d6-47a5-857a-1df7ce25f92a',
-  clientSecret: '123',
+  clientId: '2a030831-e8d7-4090-9696-e8a335e85ef0',
+  clientSecret: 'ACXa69WrS3@iZn_yW=6=6W[ruaIgMQvHK22X4vMFKRY',
   accessTokenUri: 'https://login.microsoftonline.com/common/oauth2/authorize',
   authorizationUri: 'https://login.microsoftonline.com/common/oauth2/authorize?resource=https://adc-cg-poc.crm4.dynamics.com/',
   redirect_uri: 'http://localhost/callback',
