@@ -7,7 +7,7 @@ var githubAuth = new ClientOAuth2({
   //clientSecret: '123',
   accessTokenUri: 'https://login.microsoftonline.com/common/oauth2/authorize',
   authorizationUri: 'https://login.microsoftonline.com/common/oauth2/authorize?resource={https://adc-cg-poc.crm4.dynamics.com/'
-  redirectUri: 'http://localhost',
+  //redirectUri: 'http://localhost',
  // scopes: ['notifications', 'gist'],
   rejectUnauthorized: false
   
