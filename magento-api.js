@@ -184,6 +184,7 @@ var getAuth1Token = (authToken, callback) => {
 //configuration details
 //mostly extracted from Azure 
 //--> app registered as native application in Azure AD
+const https = require('https');
 var crmorg = 'https://adc-cg-poc.crm4.dynamics.com';
 var username = 'Adobe2@capgeminidcxdemo.onmicrosoft.com';
 var userpassword = 'Adccrm@123';
