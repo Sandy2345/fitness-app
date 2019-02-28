@@ -1,42 +1,22 @@
-const request= require('request');
 
-var getGpsFromZipService = (zipcode, callback) =>{
-  console.log(zipcode);
-  console.log('getGpsFromZip API hit');
-  request({
-    url: `https://maps.googleapis.com/maps/api/geocode/json?address=${zipcode}&key=AIzaSyBvrztXIMHaa-fWqtaXrpvyQ66nEH6ulzo`,
-    method: 'GET',
-    rejectUnauthorized: false,
-    json: true
-    }, (error, response, body) => {
-    if(error){
-      callback('There was an error connecting to the server');
-    }
-    else if(response.statusCode == 401){
-      callback('Unable to get the result');
-    }
-    else if(response.statusCode == 200){
-      console.log('get coordinates API hit:', response.statusCode);
-      callback (undefined, {
-        sLat : body.results[0].geometry.location.lat,
-        sLng : body.results[0].geometry.location.lng
-      });
-    }
-  });
 
-};
+var ClientOAuth2 = require('client-oauth2')
+var githubAuth = new ClientOAuth2({
+  clientId: '5ffe4a99-49d6-47a5-857a-1df7ce25f92a',
+  //clientSecret: '123',
+  accessTokenUri: 'https://login.microsoftonline.com/common/oauth2/authorize',
+  authorizationUri: 'https://login.microsoftonline.com/common/oauth2/authorize?resource={https://adc-cg-poc.crm4.dynamics.com/'
+  redirectUri: 'http://localhost',
+ // scopes: ['notifications', 'gist'],
+  
+})
 
-function isEmpty(obj) {
-    for(var key in obj) {
-        if(obj.hasOwnProperty(key))
-            return false;
-    }
-    return true;
-}
 
-module.exports = {
-    getGpsFromZipService,
-    getAuthTokenService,
-    getDeviceTokenService,
-    sendPushNotificationService
-};
+
+var token = githubAuth.createToken('access token', 'optional refresh token', 'optional token type', {
+   data: 'raw user data'
+  
+ })
+console.log(token);
+
+token.refresh().then(storeNewToken)
