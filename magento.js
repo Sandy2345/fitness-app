@@ -1,5 +1,3 @@
-
-
 var ClientOAuth2 = require('client-oauth2')
 var sendAuth2 = (emailAddress, name)=> {
 var githubAuth = new ClientOAuth2({
