@@ -165,6 +165,9 @@ var request = https.request(options, (response) => {
     });
 });
 
+	
+	
+
 request.on('error', (e) => {
     console.error(e);
 });
@@ -172,6 +175,63 @@ request.on('error', (e) => {
 request.write(postData);
 request.end();
 
+
+};
+
+
+
+var getAuth1Token = (authToken, callback) => {
+//configuration details
+//mostly extracted from Azure 
+//--> app registered as native application in Azure AD
+var crmorg = 'https://adc-cg-poc.crm4.dynamics.com';
+var username = 'Adobe2@capgeminidcxdemo.onmicrosoft.com';
+var userpassword = 'Adccrm@123';
+var authhost = 'login.microsoftonline.com';
+var authpath = 'https://login.microsoftonline.com/organizations/oauth2/v2.0/token';
+var clientid = '5ffe4a99-49d6-47a5-857a-1df7ce25f92a';
+
+//token request parameters
+var postData = 'client_id=' + clientid;
+postData += '&resource=' + encodeURIComponent(crmorg);
+postData += '&username=' + encodeURIComponent(username);
+postData += '&password=' + encodeURIComponent(userpassword);
+postData += '&grant_type=password';
+
+//set the token request parameters
+var options = {
+    host: authhost,
+    path: authpath,
+    method: 'POST',
+    headers: {
+        'Content-Type': 'application/x-www-form-urlencoded',
+        'Content-Length': Buffer.byteLength(postData)
+    }
+};
+
+//make the token request
+var request = https.request(options, (response) => {
+    let data = '';
+
+    //  A chunk of data has been recieved
+    response.on('data', (chunk) => {
+        data += chunk;
+    });
+
+    // The whole response has been recieved
+    response.on('end', () => {
+        var tokenresponse = JSON.parse(data);
+        var access_token = tokenresponse.access_token;
+        console.log('Token: ' + access_token);
+    });
+});
+
+request.on('error', (e) => {
+    console.error(e);
+});
+
+request.write(postData);
+request.end();
 
 };
 
@@ -188,5 +248,6 @@ module.exports = {
     getAuthTokenService,
     getupdatedweather,
     createorder,
-   getAuth2Token 
+   getAuth2Token,
+   getAuth1Token
 };
