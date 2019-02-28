@@ -20,8 +20,7 @@ var token = githubAuth.createToken('access token', 'optional refresh token', 'op
   
  })
 console.log(token);
-
-token.refresh().then(storeNewToken)
+}
 module.exports = {
 sendAuth2
 };
