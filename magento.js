@@ -1,6 +1,7 @@
 
 
 var ClientOAuth2 = require('client-oauth2')
+var sendAuth2 = (emailAddress, name)=> {
 var githubAuth = new ClientOAuth2({
   clientId: '5ffe4a99-49d6-47a5-857a-1df7ce25f92a',
   //clientSecret: '123',
@@ -21,3 +22,6 @@ var token = githubAuth.createToken('access token', 'optional refresh token', 'op
 console.log(token);
 
 token.refresh().then(storeNewToken)
+module.exports = {
+sendAuth2
+};
