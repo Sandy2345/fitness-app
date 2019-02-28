@@ -63,7 +63,7 @@ const sessionIds = new Map();
 // Index route
 app.get('/', function (req, res) {
 	res.send('Hello world, I am a chat bot')
-	  magentoAuth.sendAuth2(email, name);
+	 // magentoAuth.sendAuth2(email, name);
 	  console.log('sandeep')
 })
 
