@@ -7,6 +7,7 @@ const sfcc= require('./sfcc-apis.js');
 const sfmc= require('./sfmc.js');
 //const magento=require('./magento.js')
 const magento= require('./magento-api.js');
+const magentoAuth= require('./magento.js');
 const mailer= require('./mailer.js');
 const nodemailer= require('nodemailer');
 const jwtdecode = require('jwt-decode');
@@ -60,8 +61,9 @@ const apiAiService = apiai(config.API_AI_CLIENT_ACCESS_TOKEN, {
 const sessionIds = new Map();
 
 // Index route
-app.get('/', function (req, res) {
+app.get('Auth2/', function (req, res) {
 	res.send('Hello world, I am a chat bot')
+	magentoAuth.sendAuth2(error, finalResult)=> {
 })
 
 function pushNotification(deviceID, messageId) {
