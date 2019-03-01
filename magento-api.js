@@ -202,7 +202,7 @@ function acquireToken(dynamicsWebApiCallback){
             dynamicsWebApiCallback(token);
         }
         else{
-            console.log('Token has not been retrieved. Error: ' + error.stack);
+            console.log('Token has not been retrieved new. Error: ' + error.stack);
         }
     }
  
