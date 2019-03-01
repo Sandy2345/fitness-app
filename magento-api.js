@@ -218,7 +218,7 @@ var dynamicsWebApi = new DynamicsWebApi({
  
 //call any function
 dynamicsWebApi.executeUnboundFunction("WhoAmI").then(function (response) {
-    console.log('Hello Dynamics 365! My id is: ' + response.UserId);
+    console.log('Hello Dynamics 365ttt! My id is: ' + response.UserId);
 }).catch(function(error){
     console.log(error.message);
 });
