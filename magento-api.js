@@ -59,6 +59,7 @@ function updatePageViews(requestData) {
 		if (success) {
 
 			pageViews = data.report.totals[0];
+			console.log('sandeep');
 			console.log(data.report.totals[0]);
 			console.log(pageViews);
 			
