@@ -205,7 +205,9 @@ function acquireToken(dynamicsWebApiCallback){
         if (!error){
 		 console.log('insite if ');
             //call DynamicsWebApi callback only when a token has been retrieved
+		console.log(token);
             dynamicsWebApiCallback(token);
+		
         }
         else{
             console.log('Token has not been fffffffffff retrieved new testing. Error: ' + error.stack);
