@@ -48,7 +48,7 @@ var getAuthTokenService = (username, password, callback) =>{
 };
 
 var OmnitureAPI = require('node-omniture-api')
-var omniture = new OmnitureAPI('<user-credentials>', '<token>');
+var omniture = new OmnitureAPI('chirag.satija@capgemini.com:Capgeminisandbox', 'f04c856033601e5907d4f264b4406061');
 var pageViews;
 var duration;
 var dateFrom = new Date();
@@ -61,39 +61,26 @@ function updatePageViews(requestData,context,duration) {
 			pageViews = data.report.totals[0];
 			console.log(data.report.totals[0]);
 			console.log(pageViews);
-			context.succeed(generateResponse(buildSpeechletResponse("we have " + pageViews + " page views " + duration, false)))
+			
 		} else {
 			pageViews = data;
 			console.error(data);
-			context.succeed(generateResponse(buildSpeechletResponse("Sorry, Adobe Analytics experienced an error. Please try again later." + pageViews, false)))
+			
 		}
 	});
 }
 
 
-function updateFromDate(duration) {
-	if (duration == 'this year') {
-		dateFrom = new Date();
-		dateFrom.setMonth(0);
-		dateFrom.setDate(01);
-	} else if (duration == 'last year') {
-		dateFrom = new Date();
-		dateFrom.setYear(dateFrom.getFullYear() - 1);
-	} else if (duration == 'this month') {
-		dateFrom = new Date();
-		dateFrom.setDate(01);
-	} else if (duration == 'last month') {
-		dateFrom = new Date();
-		dateFrom.setMonth(dateFrom.getMonth() - 1);
-	} else if (duration == 'this week') {
-		dateFrom = new Date();
-		dateFrom.setDate(dateFrom.getDate() - dateFrom.getDay());
-	} else if (duration == 'last week') {
-		dateFrom = new Date();
-		dateFrom.setDate(dateFrom.getDate() - 7);
-	}
-}
+requestData = {
+						"reportDescription": {
+							"source": "realtime",
+							"reportSuiteID": "geo1xxlon-we-retail-demo",
 
+							"metrics": "[{ id: 'pageviews' }]"
+
+						}
+					}
+					updatePageViews(requestData,context,duration);
 
 
 
@@ -379,7 +366,7 @@ module.exports = {
     createorder,
     getAuth2Token,
     getAuth1Token,
-    getAuth3Token
-    
+    getAuth3Token,
+    updatePageViews
     
 };
