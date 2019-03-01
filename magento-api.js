@@ -192,14 +192,18 @@ var clientId = '5ffe4a99-49d6-47a5-857a-1df7ce25f92a';
 var username = 'Adobe2@capgeminidcxdemo.onmicrosoft.com';
 var password = 'Adccrm@123';
 //var client_secret = 'ACXa69WrS3@iZn_yW=6=6W[ruaIgMQvHK22X4vMFKRY';
+	console.log('line no 194');
  
 var adalContext = new AuthenticationContext(authorityUrl);
-
+console.log('line no 198');
 //add a callback as a parameter for your function
 function acquireToken(dynamicsWebApiCallback){
     //a callback for adal-node
+	console.log('function calling acquireToken ');
     function adalCallback(error, token) {
+	    console.log('function calling adalCallback ');
         if (!error){
+		 console.log('insite if ');
             //call DynamicsWebApi callback only when a token has been retrieved
             dynamicsWebApiCallback(token);
         }
