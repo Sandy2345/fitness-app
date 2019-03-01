@@ -160,6 +160,7 @@ var request = https.request(options, (response) => {
     // The whole response has been recieved
     response.on('end', () => {
         var tokenresponse = JSON.parse(data);
+	    console.log(data);
         var access_token = tokenresponse.access_token;
         console.log('Dynamic Token: ' + access_token);
     });
