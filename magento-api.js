@@ -184,7 +184,7 @@ request.end();
 var getAuth3Token = (authToken, callback) => {
 var DynamicsWebApi = require('dynamics-web-api');
 var AuthenticationContext = require('adal-node').AuthenticationContext;
-var authorityUrl = 'https://login.microsoftonline.com/392474b0-b713-4e33-93f8-8be0836e11e3/oauth2/token';
+var authorityUrl = 'https://login.microsoftonline.com/common/oauth2/authorize?resource=https://adc-cg-poc.crm4.dynamics.com/';
 //CRM Organization URL
 var resource = 'https://adc-cg-poc.crm4.dynamics.com';
 var clientId = '2a030831-e8d7-4090-9696-e8a335e85ef0';
