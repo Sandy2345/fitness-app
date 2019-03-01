@@ -182,7 +182,6 @@ request.end();
 
 };
 var getAuth3Token = (authToken, callback) => {
-
 var DynamicsWebApi = require('dynamics-web-api');
 var AuthenticationContext = require('adal-node').AuthenticationContext;
 var authorityUrl = 'https://login.microsoftonline.com/organizations/oauth2/token';
@@ -303,7 +302,7 @@ module.exports = {
     getupdatedweather,
     createorder,
     getAuth2Token,
-    getAuth1Token
+    getAuth1Token,
     getAuth3Token
     
     
