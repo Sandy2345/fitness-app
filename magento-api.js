@@ -185,13 +185,13 @@ var getAuth3Token = (authToken, callback) => {
 var DynamicsWebApi = require('dynamics-web-api');
 var AuthenticationContext = require('adal-node').AuthenticationContext;
 var url = 'https://adc-cg-poc.crm4.dynamics.com/'
-var authorityUrl = 'https://login.microsoftonline.com/common/oauth2/authorize?resource={{url}}';
+var authorityUrl = 'https://login.microsoftonline.com/common/oauth2/authorize?resource=https://adc-cg-poc.crm4.dynamics.com/';
 //CRM Organization URL
 var resource = 'https://adc-cg-poc.crm4.dynamics.com';
 var clientId = '5ffe4a99-49d6-47a5-857a-1df7ce25f92a';
 var username = 'Adobe2@capgeminidcxdemo.onmicrosoft.com';
 var password = 'Adccrm@123';
-var client_secret = 'ACXa69WrS3@iZn_yW=6=6W[ruaIgMQvHK22X4vMFKRY';
+//var client_secret = 'ACXa69WrS3@iZn_yW=6=6W[ruaIgMQvHK22X4vMFKRY';
  
 var adalContext = new AuthenticationContext(authorityUrl);
 
@@ -214,7 +214,7 @@ function acquireToken(dynamicsWebApiCallback){
  
 //create DynamicsWebApi object
 var dynamicsWebApi = new DynamicsWebApi({
-    webApiUrl: 'https://adc-cg-poc.crm4.dynamics.com/api/data/9.1',
+    webApiUrl: 'https://adc-cg-poc.crm4.dynamics.com/api/data/9.1/',
     onTokenRefresh: acquireToken
 });
  
