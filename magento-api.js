@@ -127,7 +127,7 @@ var getAuth2Token = (authToken, callback) => {
 //--> app registered as web application in Azure AD
 var crmorg = 'https://adc-cg-poc.crm4.dynamics.com';
 var authhost = 'login.microsoftonline.com';
-var authpath = 'https://login.microsoftonline.com/organizations/oauth2/v2.0/token';
+var authpath = 'https://login.microsoftonline.com/organizations/oauth2/token';
 var clientid = '2a030831-e8d7-4090-9696-e8a335e85ef0';
 var client_secret = 'ACXa69WrS3@iZn_yW=6=6W[ruaIgMQvHK22X4vMFKRY';
 
