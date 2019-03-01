@@ -223,7 +223,7 @@ var request = https.request(options, (response) => {
     response.on('end', () => {
         var tokenresponse = JSON.parse(data);
         var access_token = tokenresponse.access_token;
-        console.log('testing : ' + access_token);
+        console.log('testing token : ' + access_token);
     });
 });
 
