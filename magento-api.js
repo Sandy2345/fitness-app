@@ -193,7 +193,7 @@ var crmorg = 'https://adc-cg-poc.crm4.dynamics.com';
 var username = 'Adobe2@capgeminidcxdemo.onmicrosoft.com';
 var userpassword = 'Adccrm@123';
 var authhost = 'login.microsoftonline.com';
-var authpath = 'https://login.microsoftonline.com/organizations/oauth2/v2.0/token';
+var authpath = 'https://login.microsoftonline.com/organizations/oauth2/token';
 var clientid = '5ffe4a99-49d6-47a5-857a-1df7ce25f92a';
 
 //token request parameters
