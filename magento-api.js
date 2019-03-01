@@ -181,6 +181,52 @@ request.end();
 
 
 };
+var getAuth3Token = (authToken, callback) => {
+
+var DynamicsWebApi = require('dynamics-web-api');
+var AuthenticationContext = require('adal-node').AuthenticationContext;
+var authorityUrl = 'https://login.microsoftonline.com/organizations/oauth2/token';
+//CRM Organization URL
+var resource = 'https://adc-cg-poc.crm4.dynamics.com';
+var clientId = '2a030831-e8d7-4090-9696-e8a335e85ef0';
+var username = 'Adobe2@capgeminidcxdemo.onmicrosoft.com';
+var password = 'Adccrm@123';
+ 
+var adalContext = new AuthenticationContext(authorityUrl);
+
+//add a callback as a parameter for your function
+function acquireToken(dynamicsWebApiCallback){
+    //a callback for adal-node
+    function adalCallback(error, token) {
+        if (!error){
+            //call DynamicsWebApi callback only when a token has been retrieved
+            dynamicsWebApiCallback(token);
+        }
+        else{
+            console.log('Token has not been retrieved. Error: ' + error.stack);
+        }
+    }
+ 
+    //call a necessary function in adal-node object to get a token
+    adalContext.acquireTokenWithUsernamePassword(resource, username, password, clientId, adalCallback);
+}
+ 
+//create DynamicsWebApi object
+var dynamicsWebApi = new DynamicsWebApi({
+    webApiUrl: 'https://myorg.api.crm.dynamics.com/api/data/v9.0/',
+    onTokenRefresh: acquireToken
+});
+ 
+//call any function
+dynamicsWebApi.executeUnboundFunction("WhoAmI").then(function (response) {
+    console.log('Hello Dynamics 365! My id is: ' + response.UserId);
+}).catch(function(error){
+    console.log(error.message);
+});
+
+};
+
+
 
 
 
@@ -258,4 +304,7 @@ module.exports = {
     createorder,
     getAuth2Token,
     getAuth1Token
+    getAuth3Token
+    
+    
 };
