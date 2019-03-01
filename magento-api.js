@@ -187,7 +187,7 @@ var AuthenticationContext = require('adal-node').AuthenticationContext;
 var authorityUrl = 'https://login.microsoftonline.com/392474b0-b713-4e33-93f8-8be0836e11e3/oauth2/token';
 //CRM Organization URL
 var resource = 'https://adc-cg-poc.crm4.dynamics.com';
-var clientId = '5ffe4a99-49d6-47a5-857a-1df7ce25f92a';
+var clientId = '2a030831-e8d7-4090-9696-e8a335e85ef0';
 var username = 'Adobe2@capgeminidcxdemo.onmicrosoft.com';
 var password = 'Adccrm@123';
  
