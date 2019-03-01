@@ -30,6 +30,7 @@
     "xml2js": "^0.4.19",
     "dateformat": "^3.0.3",
     "dynamics-web-api":"^1.5.1",
-     "adal-node":"^0.1.28"
+     "adal-node":"^0.1.28",
+    "node-omniture-api":"^0.2.0"
   }
 }
