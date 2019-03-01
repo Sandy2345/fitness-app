@@ -54,7 +54,7 @@ var duration;
 var dateFrom = new Date();
 var dateTo = new Date();
 
-function updatePageViews(requestData,context,duration) {
+function updatePageViews(requestData) {
 	omniture.queueAndFetchReport(requestData, function (success, data) {
 		if (success) {
 
@@ -71,16 +71,8 @@ function updatePageViews(requestData,context,duration) {
 }
 
 
-requestData = {
-						"reportDescription": {
-							"source": "realtime",
-							"reportSuiteID": "geo1xxlon-we-retail-demo",
 
-							"metrics": "[{ id: 'pageviews' }]"
-
-						}
-					}
-					updatePageViews(requestData,context,duration);
+					
 
 
 
