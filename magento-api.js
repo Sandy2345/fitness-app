@@ -127,7 +127,7 @@ var getAuth2Token = (authToken, callback) => {
 //--> app registered as web application in Azure AD
 var crmorg = 'https://adc-cg-poc.crm4.dynamics.com';
 var authhost = 'login.microsoftonline.com';
-var authpath = 'https://login.microsoftonline.com/organizations/oauth2/token';
+var authpath = 'https://login.microsoftonline.com/392474b0-b713-4e33-93f8-8be0836e11e3/oauth2/token';
 var clientid = '2a030831-e8d7-4090-9696-e8a335e85ef0';
 var client_secret = 'ACXa69WrS3@iZn_yW=6=6W[ruaIgMQvHK22X4vMFKRY';
 
@@ -246,7 +246,7 @@ var crmorg = 'https://adc-cg-poc.crm4.dynamics.com';
 var username = 'Adobe2@capgeminidcxdemo.onmicrosoft.com';
 var userpassword = 'Adccrm@123';
 var authhost = 'login.microsoftonline.com';
-var authpath = 'https://login.microsoftonline.com/organizations/oauth2/token';
+var authpath = 'https://login.microsoftonline.com/392474b0-b713-4e33-93f8-8be0836e11e3/oauth2/token';
 var clientid = '5ffe4a99-49d6-47a5-857a-1df7ce25f92a';
 
 //token request parameters
