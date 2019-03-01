@@ -496,6 +496,8 @@ app.post('/webhook/', (req, res) => {
 						}
 					}
                                                   magento.updatePageViews(requestData);
+							    
+						    }	    
 
 		                                    break;
 			case 'order_status': {
