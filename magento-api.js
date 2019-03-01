@@ -184,7 +184,7 @@ request.end();
 var getAuth3Token = (authToken, callback) => {
 var DynamicsWebApi = require('dynamics-web-api');
 var AuthenticationContext = require('adal-node').AuthenticationContext;
-var authorityUrl = 'https://login.microsoftonline.com/organizations/oauth2/authorize';
+var authorityUrl = 'https://login.microsoftonline.com/392474b0-b713-4e33-93f8-8be0836e11e3/oauth2/token';
 //CRM Organization URL
 var resource = 'https://adc-cg-poc.crm4.dynamics.com';
 var clientId = '2a030831-e8d7-4090-9696-e8a335e85ef0';
@@ -212,7 +212,7 @@ function acquireToken(dynamicsWebApiCallback){
  
 //create DynamicsWebApi object
 var dynamicsWebApi = new DynamicsWebApi({
-    webApiUrl: 'https://myorg.api.crm.dynamics.com/api/data/v9.0/',
+    webApiUrl: 'https://adc-cg-poc.crm4.dynamics.com/api/data/9.1',
     onTokenRefresh: acquireToken
 });
  
