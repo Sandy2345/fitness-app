@@ -184,10 +184,11 @@ request.end();
 var getAuth3Token = (authToken, callback) => {
 var DynamicsWebApi = require('dynamics-web-api');
 var AuthenticationContext = require('adal-node').AuthenticationContext;
-var authorityUrl = 'https://login.microsoftonline.com/392474b0-b713-4e33-93f8-8be0836e11e3/oauth2/token';
+var url = 'https://adc-cg-poc.crm4.dynamics.com/'
+var authorityUrl = 'https://login.microsoftonline.com/common/oauth2/authorize?resource={{url}}';
 //CRM Organization URL
 var resource = 'https://adc-cg-poc.crm4.dynamics.com';
-var clientId = '2a030831-e8d7-4090-9696-e8a335e85ef0';
+var clientId = '5ffe4a99-49d6-47a5-857a-1df7ce25f92a';
 var username = 'Adobe2@capgeminidcxdemo.onmicrosoft.com';
 var password = 'Adccrm@123';
  
