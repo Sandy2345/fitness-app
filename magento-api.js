@@ -3,7 +3,6 @@ var base64 = require('base-64');
 var utf8 = require('utf8');
 
 var getAuthTokenService = (username, password, callback) =>{
-
   console.log('Auth magento token API hit');
   var bytes = utf8.encode(username+":"+password);
   var newBearer = base64.encode(bytes);
@@ -33,14 +32,9 @@ var getAuthTokenService = (username, password, callback) =>{
     }
     else if(response.statusCode == 200){
       console.log('getAuthTokenService API hit:', response.statusCode)
-     // var value=response.headers['authorization'];
       callback(undefined, {
 	  code:body
-        //token: value.substr(7,value.length),
-        //customer_id: body.customer_id,
-        //email: body.email,
-        //first_name: body.first_name,
-        //last_name: body.last_name
+     
         });
       }
   });
@@ -132,5 +126,4 @@ module.exports = {
     getAuthTokenService,
     getupdatedweather,
     createorder
-    
 };
