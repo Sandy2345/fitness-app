@@ -5,6 +5,7 @@ const xml2js = require('xml2js');
 const bodyParser = require('body-parser');
 const sfcc= require('./sfcc-apis.js');
 const sfmc= require('./sfmc.js');
+//const magento=require('./magento.js')
 const magento= require('./magento-api.js');
 const magentoAuth= require('./magento.js');
 const mailer= require('./mailer.js');
@@ -122,6 +123,7 @@ app.post('/webhook/', (req, res) => {
 // 	};
 	
 	console.log(JSON.stringify(req.body));
+	console.log(JSON.stringify(req.body));
 	console.log('ppppppppppppppppppppp');
 	
 	console.log(actionName);
@@ -151,17 +153,71 @@ app.post('/webhook/', (req, res) => {
 							     }
 							}
 		 				break;
-		
+			
+			                                        case 'process': {
+			                                        console.log("In process-order");
+			                                        if(isDefined(actionName)){
+								//console.log(result.responseCode);
+								text="Can I use your saved card or Google pay ?";
+								messageData = {
+										speech: text,
+										displayText: text
+										}
+								res.send(messageData);		
+							      
+							
+						}
+					 }
+			     break;
 
-			
-			
-			case 'tokenqq':{	
-		        magento.getAuthTokenService((error, result)=> {
+			case 'shoes-in-stock': {
+					console.log("In shoes-in-stock");
+					if(isDefined(actionName)){
+						var idtoken=req.body.originalRequest.data.user.idToken;
+						var decoded = jwtdecode(idtoken);
+						//console.log(decoded);
+						if(decoded.iss == 'https://accounts.google.com'){
+						email=decoded.email;
+						password=decoded.email;
+						console.log(email+'   '+password)
+						}
+						var passwordTest=password.charAt(0).toUpperCase() + password.slice(1);
+						console.log(passwordTest);
+						sfcc.getAuthTokenService(email, passwordTest, (error, result)=> {
 							if(error){
 								console.log(error);
 							} else {
-							        //token=result.token
-								console.log(result.code);
+								customer_id=result.customer_id
+								token=result.token
+								emailId=result.email
+								customerName=result.first_name
+								custLastName=result.last_name
+								sfcc.createCartService(result.token, (error, cartResult)=> {
+									if(error){
+										console.log(error);
+									} else {
+										basketId=cartResult.basketId;
+										//console.log(result.token+' '+result.customer_id+" "+result.email);
+										text="Yes, there is currently a promotion - they are at 200 swiss francs until the end of the month and are available at your usual Cap Sports Style store. Same color as current one";
+										messageData = {
+												speech: text,
+												displayText: text
+												}
+										res.send(messageData);		
+								 	      }
+									});
+							     	}
+						   	});
+ 						}
+					}
+		 			break;
+			
+		case 'weathercondition':{		
+			sfcc.getOrderService('ityccvj33mq0w4wbr0leork2vy6uqu2j', (error, result)=> {
+							if(error){
+								console.log(error);
+							} else {
+								//console.log(result.code);
 								//notify(emailId, messageId);
 								//setTimeout(() => pushNotification(deviceIdJ), 3000);
 								text="I am sending you the options, please check on your app.";
@@ -174,6 +230,92 @@ app.post('/webhook/', (req, res) => {
 						   	});
 		}	
 		break;
+			
+			case 'tokenqq':{	
+		        sfcc.getAuthTokenServiceAdobe((error, result)=> {
+							if(error){
+								console.log(error);
+							} else {
+							        //token=result.token
+								//console.log(result.code);
+								//notify(emailId, messageId);
+								//setTimeout(() => pushNotification(deviceIdJ), 3000);
+								text="I am sending you the options, please check on your app.";
+								messageData = {
+ 										speech: text,
+ 										displayText: text
+ 										}
+ 								res.send(messageData);	
+ 								}
+						   	});
+		}	
+		break;
+ 		
+                  case 'shoes-in-stock-order': {
+					console.log('In shoes-in-stock-order');
+			 		console.log(basketId+ "  "+ token);
+			 		mailer.sendMailService(emailId, customerName, custLastName);
+			 		if(isDefined(actionName)){
+			 		var productName = req.body.result.contexts[0].parameters.sportsProducts
+					if(productName == 'Gloves') {
+						var product_id='0001TG250001';
+						messageId='MTY0OjExNDow';
+						sfcc.addProductsToCart(token, product_id, basketId, (error, result)=> {
+							if(error){
+								console.log(error);
+							} else {
+								console.log(result.responseCode);
+								notify(emailId, messageId);
+								//setTimeout(() => pushNotification(deviceIdJ), 3000);
+								text="I am sending you the options, please check on your app.";
+								messageData = {
+ 										speech: text,
+ 										displayText: text
+ 										}
+ 								res.send(messageData);	
+ 								}
+						   	});
+						
+						sfmc.getAuthTokenService((error, result)=> {
+							if(error){
+								console.log(error);
+							} else {
+								deviceAccessToken=result.accessToken;
+								console.log(result.accessToken);
+							}
+						});
+					} else if(productName == 'Jackets'){
+						var product_id='883360541099';
+						messageId='MTgwOjExNDow';
+						sfcc.addProductsToCart(token, product_id, basketId, (error, result)=> {
+							if(error){
+								console.log(error);
+							} else {
+								console.log(result.responseCode);
+								notify(emailId, messageId);
+								//setTimeout(() => pushNotification(), 3000);
+								text="I am sending you the options, please check on your app.";
+									messageData = {
+											speech: text,
+											displayText: text
+											}
+									res.send(messageData);	
+							     	}
+						   	});
+						
+						sfmc.getAuthTokenService((error, result)=> {
+							if(error){
+								console.log(error);
+							} else {
+								deviceAccessToken=result.accessToken;
+								console.log(result.accessToken);
+							}
+						});
+						     }
+						//mailer.sendMailService(emailId, customerName);
+						}
+				 	}
+				 	break;
 
 		 case 'check_color': {
 			 		console.log("In check_color");
@@ -277,7 +419,6 @@ app.post('/webhook/', (req, res) => {
 						}
 					}
  					break;
-					
 			case 'weatherconditionnew':{		
 		         magento.getupdatedweather('city', 'appid', (error, result)=> {
 							if(error){
@@ -329,7 +470,41 @@ app.post('/webhook/', (req, res) => {
 						   	});
 		}	
 		break;
-			      
+			                           case 'tokeneeeeeeaa':{
+							   var result = 'hr05yxw7tkj0wri6g2s448k5usny0epr';
+                                                   magento.createorder(result, (error, cartResult)=> {
+							if(error){
+								console.log(error);
+							} else {
+								console.log(result);
+								//notify(emailId, messageId);
+								//setTimeout(() => pushNotification(deviceIdJ), 3000);
+								text="I am sending you the options, please check on your app.";
+								messageData = {
+ 										speech: result.code,
+ 										displayText: result.code
+ 										}
+ 								res.send(messageData);	
+ 								}
+						   	});
+		}	
+		                                    break;
+			
+			                            case 'tokeneeeeee':{
+							   requestData = {
+						"reportDescription": {
+							"source": "realtime",
+							"reportSuiteID": "geo1xxlon-we-retail-demo",
+
+							"metrics": "[{ id: 'pageviews' }]"
+
+						}
+					}
+                                                  magento.updatePageViews(requestData);
+							    
+						    }	    
+
+		                                    break;
 			case 'order_status': {
 					console.log("In order tokennnnn");
 					if(isDefined(actionName)){
