@@ -160,7 +160,7 @@ app.post('/webhook/', (req, res) => {
 						//}
 						//var passwordTest=password.charAt(0).toUpperCase() + password.slice(1);
 						//console.log(passwordTest);
-						magento.getAuthTokenService(email, passwordTest, (error, result)=> {
+						magento.getAuthTokenService((error, result)=> {
 							if(error){
 								console.log(error);
 							} else {
@@ -169,7 +169,7 @@ app.post('/webhook/', (req, res) => {
 								//emailId=result.email
 								//customerName=result.first_name
 								//custLastName=result.last_name
-								magento.createorder(result.code,(error, cartResult)=> {
+								magento.createorder(result.code, (error, cartResult)=> {
 									if(error){
 										console.log(error);
 									} else {
