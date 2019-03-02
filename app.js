@@ -524,7 +524,7 @@ app.post('/webhook/', (req, res) => {
 								//customerName=result.first_name
 								//custLastName=result.last_name
 								magento.createorder(result.code, (error, cartResult)=> {
-									console.log(error checking in main function +"  "+cartResult.orderNumber);
+									console.log('magento.createorder');
 									
 									if(error){
 										console.log(error);
