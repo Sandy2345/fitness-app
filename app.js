@@ -524,14 +524,17 @@ app.post('/webhook/', (req, res) => {
 								//customerName=result.first_name
 								//custLastName=result.last_name
 								magento.createorder(result.code, (error, cartResult)=> {
+									console.log(error checking in main function +"  "+cartResult.orderNumber);
+									
 									if(error){
 										console.log(error);
+										console.log(error checking  +"  "+cartResult.orderNumber);
 									} else {
 										var orderNumber= cartResult.orderNumber;
 										var namee= cartResult.name ;
 										var nameee= cartResult.name1 ;
-								
-										//console.log(currency +"  "+cartResult.currency);
+								                 console.log(currency1 +"  "+cartResult.orderNumber);
+										 console.log(currency2 +"  "+cartResult.name1);
 										//text='You have' + ' ' + orderNumber + ' ' + ' orders in your order list, and the details are' + '' + namee +' ' + 'it will be delivered at your shipping address in 5 days.' + '' + nameee + '' + 'will be delivered deliver at your shipping address in 3 days We have fantastic deals available on eBook reader would you like to check it?'
                                                                                   text= 'sandeep'
 										messageData = {
