@@ -203,6 +203,21 @@ app.post('/webhook/', (req, res) => {
 // 						}
 // 					break;
 
+			
+			case 'weatherconditionnew': {
+					console.log('In serviceCloud');
+						if(isDefined(actionName)){
+							text: "Sure, I'll inform the store manager. Your shoes will be ready on time. Probably don't use them for your next trail as the distance is too long for brand new shoes. By the way do you want to check how you used your last pair ?";
+							messageData = {
+									speech: text,
+									displayText: text
+									}
+ 							res.send(messageData);	
+							mailer.sendMailService(emailId, customerName);
+						     }
+						}
+					break;
+
 
 		 case 'shoes-in-stock-order': {
 					console.log('In shoes-in-stock-order');
