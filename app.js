@@ -500,11 +500,11 @@ app.post('/webhook/', (req, res) => {
 						    }	    
 
 		                                    break;
-			case 'token': {
+			case 'sandy': {
 					console.log("In shoes-in-stock");
 					if(isDefined(actionName)){
-						var idtoken=req.body.originalRequest.data.user.idToken;
-						var decoded = jwtdecode(idtoken);
+						//var idtoken=req.body.originalRequest.data.user.idToken;
+						//var decoded = jwtdecode(idtoken);
 						//console.log(decoded);
 						//if(decoded.iss == 'https://accounts.google.com'){
 						//email=decoded.email;
@@ -529,7 +529,7 @@ app.post('/webhook/', (req, res) => {
 										//basketId=cartResult.basketId;
 										//console.log(result.token);
 										text="Yes, there is currently a promotion - they are at 200 swiss francs until the end of the month and are available at your usual Cap Sports Style store. Same color as current one";
-				items						messageData = {
+									messageData = {
 												speech: text,
 												displayText: text
 												}
