@@ -1,5 +1,3 @@
-'use strict';
-
 const apiai = require('apiai');
 const config = require('./config');
 const express = require('express');
@@ -7,6 +5,7 @@ const xml2js = require('xml2js');
 const bodyParser = require('body-parser');
 const sfcc= require('./sfcc-apis.js');
 const sfmc= require('./sfmc.js');
+//const magento=require('./magento.js')
 const mailer= require('./mailer.js');
 const nodemailer= require('nodemailer');
 const jwtdecode = require('jwt-decode');
@@ -119,7 +118,7 @@ app.post('/webhook/', (req, res) => {
 // 		res.send(messageData);	
 // 	};
 	
-	//console.log(JSON.stringify(req.body));
+	console.log(JSON.stringify(req.body));
 	var data = req.body;
 	var sessionId = req.body.sessionId;
 	var actionName = req.body.result.action;
@@ -188,38 +187,26 @@ app.post('/webhook/', (req, res) => {
 					}
 		 			break;
 			
-			
-// 		case 'serviceCloud': {
-// 					console.log('In serviceCloud');
-// 						if(isDefined(actionName)){
-// 							text: "Sure, I'll inform the store manager. Your shoes will be ready on time. Probably don't use them for your next trail as the distance is too long for brand new shoes. By the way do you want to check how you used your last pair ?";
-// 							messageData = {
-// 									speech: text,
-// 									displayText: text
-// 									}
-// 							res.send(messageData);	
-// 							mailer.sendMailService(emailId, customerName);
-// 						     }
-// 						}
-// 					break;
-
-			
-			case 'weatherconditionnew': {
-					console.log('In serviceCloud');
-						if(isDefined(actionName)){
-							text: "Sure, I'll inform the store manager. Your shoes will be ready on time. Probably don't use them for your next trail as the distance is too long for brand new shoes. By the way do you want to check how you used your last pair ?";
-							messageData = {
-									speech: text,
-									displayText: text
-									}
- 							res.send(messageData);	
-							mailer.sendMailService(emailId, customerName);
-						     }
-						}
-					break;
-
-
-		 case 'shoes-in-stock-order': {
+		case 'weathercondition':{		
+		sfcc.getupdatedweather('city', 'appid', (error, result)=> {
+							if(error){
+								console.log(error);
+							} else {
+								console.log(result.code);
+								//notify(emailId, messageId);
+								//setTimeout(() => pushNotification(deviceIdJ), 3000);
+								text="I am sending you the options, please check on your app.";
+								messageData = {
+ 										speech: result.code,
+ 										displayText: text
+ 										}
+ 								res.send(messageData);	
+ 								}
+						   	});
+		}	
+		break;
+ 		
+                  case 'shoes-in-stock-order': {
 					console.log('In shoes-in-stock-order');
 			 		console.log(basketId+ "  "+ token);
 			 		mailer.sendMailService(emailId, customerName, custLastName);
