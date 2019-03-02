@@ -171,8 +171,7 @@ app.post('/webhook/', (req, res) => {
 								//emailId=result.email
 								//customerName=result.first_name
 								//custLastName=result.last_name
-								magento.createorder(result.code, (error, cartResult)=> {
-									 code
+								magento.createorder(result.code, (error, cartResult)=> 
 									if(error){
 										console.log(error);
 									} else {
