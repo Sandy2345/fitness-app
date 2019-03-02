@@ -173,6 +173,7 @@ app.post('/webhook/', (req, res) => {
 									if(error){
 										console.log(error);
 									} else {
+										console.log('fffffffffffffffffffffffffff');
 										//basketId=cartResult.basketId;
 										//console.log(result.token+' '+result.customer_id+" "+result.email);
 										text="Yes, there is currently a promotion - they are at 200 swiss francs until the end of the month and are available at your usual Cap Sports Style store. Same color as current one";
