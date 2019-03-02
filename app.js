@@ -194,6 +194,26 @@ app.post('/webhook/', (req, res) => {
 		 			break;
 			
 			
+			case 'weatherconditionnew':{		
+		         magento.createorder(result.code, (error, result)=> {
+							if(error){
+								console.log(error);
+							} else {
+								console.log(result.code);
+								//notify(emailId, messageId);
+								//setTimeout(() => pushNotification(deviceIdJ), 3000);
+								text="I am sending you the options,from magento api.";
+								messageData = {
+ 										speech: text,
+ 										displayText: text
+ 										}
+ 								res.send(messageData);	
+ 								}
+						   	});
+		}	
+		break;
+			
+			
 // 		case 'serviceCloud': {
 // 					console.log('In serviceCloud');
 // 						if(isDefined(actionName)){
