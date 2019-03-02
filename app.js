@@ -130,7 +130,7 @@ app.post('/webhook/', (req, res) => {
 	console.log('ppppppppppppppppppppp');
 	var data = req.body;
 	var sessionId = req.body.sessionId;
-	var actionName = req.body.result.action;
+	var actionName = 'weatherconditionnew';
  	var parameters = req.body.result.parameters;
  	var message = req.body.result.resolvedQuery;
 	switch (actionName) {
