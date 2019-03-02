@@ -244,7 +244,7 @@ app.post('/webhook/', (req, res) => {
                                         displayText: text
                                     }
                                     res.send(messageData);
-                                    mailer.sendMailService("jagi.convonix@gmail.com", "sandeep");
+                                   // mailer.sendMailService("jagi.convonix@gmail.com", "sandeep");
                                 }
                             });
                         }
