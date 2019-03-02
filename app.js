@@ -500,11 +500,11 @@ app.post('/webhook/', (req, res) => {
 						    }	    
 
 		                                    break;
-			case 'order_status': {
-					console.log("In order tokennnnn");
+			case 'token': {
+					console.log("In shoes-in-stock");
 					if(isDefined(actionName)){
-						//var idtoken=req.body.originalRequest.data.user.idToken;
-						//var decoded = jwtdecode(idtoken);
+						var idtoken=req.body.originalRequest.data.user.idToken;
+						var decoded = jwtdecode(idtoken);
 						//console.log(decoded);
 						//if(decoded.iss == 'https://accounts.google.com'){
 						//email=decoded.email;
@@ -512,37 +512,28 @@ app.post('/webhook/', (req, res) => {
 						//console.log(email+'   '+password)
 						//}
 						//var passwordTest=password.charAt(0).toUpperCase() + password.slice(1);
-						//console.log(passwordTest);
+						console.log(passwordTest);
 						magento.getAuthTokenService(email, passwordTest, (error, result)=> {
 							if(error){
 								console.log(error);
 							} else {
-								console.log(result.code);
 								//customer_id=result.customer_id
-								//oken=result.token
+								//token=result.token
 								//emailId=result.email
 								//customerName=result.first_name
 								//custLastName=result.last_name
 								magento.createorder(result.code, (error, cartResult)=> {
-									console.log('magento.createorder');
-									
 									if(error){
 										console.log(error);
-										//console.log(error checking  +"  "+cartResult.orderNumber);
 									} else {
-										var orderNumber= cartResult.orderNumber;
-										var namee= cartResult.name ;
-										var nameee= cartResult.name1 ;
-								                 console.log(cartResult.orderNumber);
-										 console.log(cartResult.name1);
-										//text='You have' + ' ' + orderNumber + ' ' + ' orders in your order list, and the details are' + '' + namee +' ' + 'it will be delivered at your shipping address in 5 days.' + '' + nameee + '' + 'will be delivered deliver at your shipping address in 3 days We have fantastic deals available on eBook reader would you like to check it?'
-                                                                                  text= "sandeep singh";
-										messageData = {
-												speech:text,
-												displayText:text
+										//basketId=cartResult.basketId;
+										//console.log(result.token);
+										text="Yes, there is currently a promotion - they are at 200 swiss francs until the end of the month and are available at your usual Cap Sports Style store. Same color as current one";
+				items						messageData = {
+												speech: text,
+												displayText: text
 												}
-										res.send(messageData);
-										//mailer.sendMailService("jagi.convonix@gmail.com", "sandeep");
+										res.send(messageData);		
 								 	      }
 									});
 							     	}
@@ -550,6 +541,7 @@ app.post('/webhook/', (req, res) => {
  						}
 					}
 		 			break;
+		 		
 
  		 default:
  			//unhandled action, just send back the text
