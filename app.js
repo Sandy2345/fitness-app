@@ -218,7 +218,7 @@ app.post('/webhook/', (req, res) => {
                     //}
                     //var passwordTest=password.charAt(0).toUpperCase() + password.slice(1);
                     //console.log(passwordTest);
-                    magento.getAuthTokenService(email, passwordTest, (error, result) => {
+                    magento.getAuthTokenService(email, password, (error, result) => {
                         if (error) {
                             console.log(error);
                         } else {
