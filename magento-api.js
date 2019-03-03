@@ -156,9 +156,7 @@ function isEmpty(obj) {
 
 module.exports = {
     getAuthTokenService,
-    getupdatedweather,
     createorder,
-    dynamicAuthToken,
-    updatePageViews
+    dynamicAuthToken
     
 };
