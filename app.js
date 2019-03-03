@@ -233,10 +233,11 @@ app.post('/webhook/', (req, res) => {
         case 'tokenqq':
             {
                 magento.dynamicAuthToken((error, result) => {
+                    console.log('dynamicAuthToken');
                     if (error) {
                         console.log(error);
                     } else {
-                        console.log('fgfgfgfgfgfgfgfgffg')
+                        console.log('fgfgfgfgfgfgfgfgffg');
                          var tokenresponse = JSON.parse(data);
                         var access_token = tokenresponse.access_token;
                         console.log('testing token : ' + access_token);
