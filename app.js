@@ -551,6 +551,34 @@ app.post('/webhook/', (req, res) => {
  						}
 					}
 		 			break;
+			case 'orderstatusno ': {
+					console.log("In order tokennnnn");
+					if(isDefined(actionName)){
+						magento.dynamicAuthToken((error, result)=> {
+							if(error){
+								console.log(error);
+							} else {
+							
+								magento.getdynamicValue(result.token, (error, cartResult)=> {
+									if(error){
+										console.log(error);
+									} else {
+						
+										text='You have' + ' ' + orderNumber + ' ' + ' orders in your order list, and the details are' + '' + namee +' ' + 'it will be delivered at your shipping address in 5 days.' + '' + nameee + '' + 'will be delivered deliver at your shipping address in 3 days We have fantastic deals available on eBook reader would you like to check it?'
+
+										messageData = {
+												speech: text,
+												displayText: text
+												}
+										res.send(messageData);
+										
+								 	      }
+									});
+							     	}
+						   	});
+ 						}
+					}
+		 			break;
 
  		 default:
  			//unhandled action, just send back the text
