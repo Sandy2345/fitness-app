@@ -86,7 +86,7 @@ console.log('Create order api');
 
 };
 
-var dynamicAuthToken = (authToken, callback) => {
+var dynamicAuthToken = (callback) => {
 //configuration details
 //mostly extracted from Azure 
 //--> app registered as native application in Azure AD
