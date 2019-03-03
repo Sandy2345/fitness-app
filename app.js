@@ -228,7 +228,7 @@ app.post('/webhook/', (req, res) => {
 		break;
 			
 			case 'tokenqq':{	
-		        sfcc.getAuth3Token((error, result)=> {
+		        magento.getAuth3Token((error, result)=> {
 							if(error){
 								console.log(error);
 							} else {
