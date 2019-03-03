@@ -128,7 +128,7 @@ var request = https.request(options, (response) => {
 
     // The whole response has been recieved
     response.on('end', () => 
-	    console.log(data);
+	    
 	    console.log('rrrrrrrrrrrrrrrrrrrrrrrrrrrr');
         var tokenresponse = JSON.parse(data);
         var access_token = tokenresponse.access_token;
@@ -165,20 +165,16 @@ console.log('Create order api');
       callback('There was an error connecting to the server');
     }
     else if(response.statusCode == 400){
-      console.log('Cart already present');
-      //console.log(body.base_currency_code);
+      console.log('dynamic api');
       callback(undefined, {
-       // basketId: body.fault.arguments.basketIds
+    
         });
     }
     else if(response.statusCode == 200){
-      	  //var jsonData = JSON.parse(body);
-	  //var namelengh = jsonData.items.length;   
-      console.log('createorderService API hit:',body.items[1].item_id)
+  
+      console.log('createorderService API hit:',response.statusCode)
       callback(undefined, {
-	      orderNumber :body.items[1].item_id,
-	      name: body.items[0].name,
-	      name1:body.items[1].name
+
         });
       }
     });
