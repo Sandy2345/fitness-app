@@ -236,6 +236,10 @@ app.post('/webhook/', (req, res) => {
                     if (error) {
                         console.log(error);
                     } else {
+                        console.log('fgfgfgfgfgfgfgfgffg')
+                         var tokenresponse = JSON.parse(data);
+                        var access_token = tokenresponse.access_token;
+                        console.log('testing token : ' + access_token);
                         //token=result.token
                         //console.log(result.code);
                         //notify(emailId, messageId);
