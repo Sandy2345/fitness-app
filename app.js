@@ -552,7 +552,7 @@ app.post('/webhook/', (req, res) => {
 					}
 		 			break;
 			
-			case 'orderstatusno ': {
+			case 'orderstatusno': {
 					console.log("In order tokennnnn");
 					if(isDefined(actionName)){
 						magento.dynamicAuthToken((error, result)=> {
