@@ -23,10 +23,14 @@
     "js2xmlparser": "^3.0.0",
     "jwt-decode": "^2.2.0",
     "nodemailer": "^4.6.8",
+    "client-oauth2": "^4.2.3",
     "request": "^2.87.0",
     "utf8": "^3.0.0",
     "uuid": "^2.0.3",
     "xml2js": "^0.4.19",
-    "dateformat": "^3.0.3"
+    "dateformat": "^3.0.3",
+    "dynamics-web-api":"^1.5.1",
+     "adal-node":"^0.1.28",
+    "node-omniture-api":"^0.2.0"
   }
 }
