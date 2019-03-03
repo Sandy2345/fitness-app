@@ -10,7 +10,7 @@ var getAuthTokenService = (username, password, callback) =>{
   console.log(bearer);
   console.log('sandeep:',bytes)
   request({
-    url: 'https://34.242.42.128/rest/default/V1/integration/admin/token' ,
+    url: 'https://34.242.42.128/rest/default/V1/integration/admin/token',
     body: {
      "username": "Admin",
       "password": "Admin@123"
@@ -33,7 +33,7 @@ var getAuthTokenService = (username, password, callback) =>{
     else if(response.statusCode == 200){
       console.log('getAuthTokenService API hit:', response.statusCode)
       callback(undefined, {
-	  code:body
+	  //code:body
      
         });
       }
