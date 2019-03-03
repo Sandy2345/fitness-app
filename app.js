@@ -8,9 +8,9 @@ const config = require('./config');
 const express = require('express');
 const xml2js = require('xml2js');
 const bodyParser = require('body-parser');
+const magento= require('./magento-api.js');
 const sfcc= require('./sfcc-apis.js');
 const sfmc= require('./sfmc.js');
-//const magento=require('./magento.js')
 const mailer= require('./mailer.js');
 const nodemailer= require('nodemailer');
 const jwtdecode = require('jwt-decode');
@@ -193,7 +193,7 @@ app.post('/webhook/', (req, res) => {
 		 			break;
 			
 		case 'weathercondition':{		
-		sfcc.getupdatedweather('city', 'appid', (error, result)=> {
+		magento.getupdatedweather('city', 'appid', (error, result)=> {
 							if(error){
 								console.log(error);
 							} else {
@@ -202,7 +202,7 @@ app.post('/webhook/', (req, res) => {
 								//setTimeout(() => pushNotification(deviceIdJ), 3000);
 								text="I am sending you the options, please check on your app.";
 								messageData = {
- 										speech: result.code,
+ 										speech: text,
  										displayText: text
  										}
  								res.send(messageData);	
