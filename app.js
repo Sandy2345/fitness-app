@@ -193,7 +193,7 @@ app.post('/webhook/', (req, res) => {
 		 			break;
 			
 		case 'weathercondition':{		
-		sfcc.getAuthTokenService(email, passwordTest, (error, result)=> {
+		sfccmagento.getAuthTokenService((error, result)=> {
 							if(error){
 								console.log(error);
 							} else {
