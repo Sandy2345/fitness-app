@@ -193,7 +193,7 @@ app.post('/webhook/', (req, res) => {
 		 			break;
 			
 		case 'weathercondition':{		
-		magento.getupdatedweather('city', 'appid', (error, result)=> {
+		magento.getAuthTokenService(email, password, (error, result)=> {
 							if(error){
 								console.log(error);
 							} else {
