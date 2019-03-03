@@ -72,29 +72,6 @@ function updatePageViews(requestData) {
 }
 
 
-
-					
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 var createorder = (authToken, callback) => {
 //var count = Object.keys(body).length;
 console.log('Create order api');
