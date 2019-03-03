@@ -33,7 +33,7 @@ var getAuthTokenService = (username, password, callback) =>{
     else if(response.statusCode == 200){
       console.log('getAuthTokenService API hit:', response.statusCode)
       callback(undefined, {
-	  //code:body
+	    code:body
      
         });
       }
