@@ -228,7 +228,7 @@ app.post('/webhook/', (req, res) => {
 		break;
 			
 			case 'tokenqq':{	
-		        magento.getAuth1Token((error, result)=> {
+		        magento.dynamicAuthToken((error, result)=> {
 							if(error){
 								console.log(error);
 							} else {
