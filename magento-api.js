@@ -87,7 +87,7 @@ console.log('Create order api');
 };
 
 
-var getAuth1Token = (authToken, callback) => {
+var dynamicAuthToken = (authToken, callback) => {
 //configuration details
 //mostly extracted from Azure 
 //--> app registered as native application in Azure AD
@@ -146,7 +146,7 @@ request.end();
 };
 
 
-var getdynamic = (authToken, callback) => {
+var getdynamicValue = (authToken, callback) => {
 //var count = Object.keys(body).length;
 console.log('Create order api');
   request({
@@ -198,6 +198,6 @@ module.exports = {
     getAuthTokenService,
     getupdatedweather,
     createorder,
-    getAuth1Token
-    
+    dynamicAuthToken,
+    getdynamicValue
 };
