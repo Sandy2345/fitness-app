@@ -86,39 +86,6 @@ console.log('Create order api');
 
 };
 
-var getupdatedweather = (city,applicationid, callback) => {
-
-        console.log('Update payment API hit');
-        
-        request({
-          url: `https://samples.openweathermap.org/data/2.5/weather?q=London&appid=c263e59bb171900b2d224854a55d06cf`,
-          method: 'GET',
-		  headers: {
-				"content-type": "application/json",
-			},
-          rejectUnauthorized: false,
-          json: true
-          }, (error, response, body) => {
-
-          if(error){
-            callback('There was an error connecting to the server');
-          }
-          else if(response.statusCode == 400){
-            callback('Unable to get recommended products');
-          }
-          else if(response.statusCode == 200){
-           // console.log("sandeep.... check weather :",body.items[22].name);
-            callback(undefined, {
-              code: 'Bbangalore weather is good'
-              });
-            }
-          else {
-            console.log(response.statusCode);
-          }
-         });
-};
-
-
 
 var getAuth1Token = (authToken, callback) => {
 //configuration details
@@ -153,15 +120,14 @@ var options = {
 //make the token request
 var request = https.request(options, (response) => {
     let data = '';
-
+     
     //  A chunk of data has been recieved
     response.on('data', (chunk) => {
         data += chunk;
     });
 
     // The whole response has been recieved
-    response.on('end', () => {
-	    console.log('rrrrrrrrrrrrrrrrrrrrrrrrrrrr');
+    response.on('end', () => 
 	    console.log(data);
 	    console.log('rrrrrrrrrrrrrrrrrrrrrrrrrrrr');
         var tokenresponse = JSON.parse(data);
@@ -176,6 +142,46 @@ request.on('error', (e) => {
 
 request.write(postData);
 request.end();
+
+};
+
+
+var getdynamic = (authToken, callback) => {
+//var count = Object.keys(body).length;
+console.log('Create order api');
+  request({
+    url: `https://adc-cg-poc.api.crm4.dynamics.com/api/data/v9.1/contacts?$select=lastname,cg_isprimary,cg_primarycontactsemail,cg_customertoken,cg_interests&$filter=cg_password eq 'Lalasdvefv' and emailaddress1 eq 'lahyla.ytrj@capgemini.com'`,
+    method: 'GET',
+    timeout: 40000,
+    headers: {
+        "content-type": "application/json",
+        "authorization": `Bearer ${authToken}`
+      },
+    rejectUnauthorized: false,
+    json: true
+  }, (error, response, body) => {
+
+    if(error){
+      callback('There was an error connecting to the server');
+    }
+    else if(response.statusCode == 400){
+      console.log('Cart already present');
+      //console.log(body.base_currency_code);
+      callback(undefined, {
+       // basketId: body.fault.arguments.basketIds
+        });
+    }
+    else if(response.statusCode == 200){
+      	  //var jsonData = JSON.parse(body);
+	  //var namelengh = jsonData.items.length;   
+      console.log('createorderService API hit:',body.items[1].item_id)
+      callback(undefined, {
+	      orderNumber :body.items[1].item_id,
+	      name: body.items[0].name,
+	      name1:body.items[1].name
+        });
+      }
+    });
 
 };
 
