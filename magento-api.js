@@ -192,9 +192,6 @@ module.exports = {
     getAuthTokenService,
     getupdatedweather,
     createorder,
-    getAuth2Token,
-    getAuth1Token,
-    getAuth3Token,
-    updatePageViews
+    getAuth1Token
     
 };
