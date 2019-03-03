@@ -202,8 +202,8 @@ app.post('/webhook/', (req, res) => {
 								//setTimeout(() => pushNotification(deviceIdJ), 3000);
 								text="I am sending you the options, please check on your app.";
 								messageData = {
- 										speech: text,
- 										displayText: text
+ 										speech:result.code,
+ 										displayText:result.code
  										}
  								res.send(messageData);	
  								}
