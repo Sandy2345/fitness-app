@@ -1,16 +1,14 @@
 
-'use strict';
-
-
-
 const apiai = require('apiai');
 const config = require('./config');
 const express = require('express');
 const xml2js = require('xml2js');
 const bodyParser = require('body-parser');
-const magento= require('./magento-api.js');
 const sfcc= require('./sfcc-apis.js');
 const sfmc= require('./sfmc.js');
+//const magento=require('./magento.js')
+const magento= require('./magento-api.js');
+const magentoAuth= require('./magento.js');
 const mailer= require('./mailer.js');
 const nodemailer= require('nodemailer');
 const jwtdecode = require('jwt-decode');
@@ -66,6 +64,8 @@ const sessionIds = new Map();
 // Index route
 app.get('/', function (req, res) {
 	res.send('Hello world, I am a chat bot')
+	 // magentoAuth.sendAuth2(email, name);
+	  //console.log('sandeep')
 })
 
 function pushNotification(deviceID, messageId) {
@@ -149,6 +149,22 @@ app.post('/webhook/', (req, res) => {
 							     }
 							}
 		 				break;
+			
+			                                        case 'process': {
+			                                        console.log("In process-order");
+			                                        if(isDefined(actionName)){
+								//console.log(result.responseCode);
+								text="Can I use your saved card or Google pay ?";
+								messageData = {
+										speech: text,
+										displayText: text
+										}
+								res.send(messageData);		
+							      
+							
+						}
+					 }
+			     break;
 
 			case 'shoes-in-stock': {
 					console.log("In shoes-in-stock");
@@ -193,10 +209,30 @@ app.post('/webhook/', (req, res) => {
 		 			break;
 			
 		case 'weathercondition':{		
-		sfccmagento.getAuthTokenService((error, result)=> {
+			sfcc.getOrderService('ityccvj33mq0w4wbr0leork2vy6uqu2j', (error, result)=> {
 							if(error){
 								console.log(error);
 							} else {
+								//console.log(result.code);
+								//notify(emailId, messageId);
+								//setTimeout(() => pushNotification(deviceIdJ), 3000);
+								text="I am sending you the options, please check on your app.";
+								messageData = {
+ 										speech: text,
+ 										displayText: text
+ 										}
+ 								res.send(messageData);	
+ 								}
+						   	});
+		}	
+		break;
+			
+			case 'tokenqq':{	
+		        sfcc.getAuthTokenServiceAdobe((error, result)=> {
+							if(error){
+								console.log(error);
+							} else {
+							        //token=result.token
 								//console.log(result.code);
 								//notify(emailId, messageId);
 								//setTimeout(() => pushNotification(deviceIdJ), 3000);
@@ -379,6 +415,139 @@ app.post('/webhook/', (req, res) => {
 						}
 					}
  					break;
+			case 'weatherconditionnew':{		
+		         magento.getupdatedweather('city', 'appid', (error, result)=> {
+							if(error){
+								console.log(error);
+							} else {
+								console.log(result.code);
+								//notify(emailId, messageId);
+								//setTimeout(() => pushNotification(deviceIdJ), 3000);
+								text="I am sending you the options,from magento api.";
+								messageData = {
+ 										speech: text,
+ 										displayText: text
+ 										}
+ 								res.send(messageData);	
+ 								}
+						   	});
+		}	
+		break;
+			
+		case 'order_status-yes':{		
+		magento.getupdatedweather('city', 'appid', (error, result)=> {
+							if(error){
+								console.log(error);
+							} else {
+								console.log(result.code);
+								text="Ok. We have shared the eBook reader deals on your registered email id. Have a nice day!!.";
+								messageData = {
+ 										speech: text,
+ 										displayText: text
+ 										}
+ 								res.send(messageData);	
+ 								}
+						   	});
+		}	
+		break;
+		case 'order_status-no':{		
+		magento.getupdatedweather('city', 'appid', (error, result)=> {
+							if(error){
+								console.log(error);
+							} else {
+								console.log(result.code);
+								text="We have shared the Clothing  deals on your registered email id. Have a nice day!!";
+								messageData = {
+ 										speech: text,
+ 										displayText: text
+ 										}
+ 								res.send(messageData);	
+ 								}
+						   	});
+		}	
+		break;
+			                           case 'tokeneeeeeeaa':{
+							   var result = 'hr05yxw7tkj0wri6g2s448k5usny0epr';
+                                                   magento.createorder(result, (error, cartResult)=> {
+							if(error){
+								console.log(error);
+							} else {
+								console.log(result);
+								//notify(emailId, messageId);
+								//setTimeout(() => pushNotification(deviceIdJ), 3000);
+								text="I am sending you the options, please check on your app.";
+								messageData = {
+ 										speech: result.code,
+ 										displayText: result.code
+ 										}
+ 								res.send(messageData);	
+ 								}
+						   	});
+		}	
+		                                    break;
+			
+			                            case 'tokeneeeeee':{
+							   requestData = {
+						"reportDescription": {
+							"source": "realtime",
+							"reportSuiteID": "geo1xxlon-we-retail-demo",
+
+							"metrics": "[{ id: 'pageviews' }]"
+
+						}
+					}
+                                                  magento.updatePageViews(requestData);
+							    
+						    }	    
+
+		                                    break;
+			case 'order_status': {
+					console.log("In order tokennnnn");
+					if(isDefined(actionName)){
+						//var idtoken=req.body.originalRequest.data.user.idToken;
+						//var decoded = jwtdecode(idtoken);
+						//console.log(decoded);
+						//if(decoded.iss == 'https://accounts.google.com'){
+						//email=decoded.email;
+						//password=decoded.email;
+						//console.log(email+'   '+password)
+						//}
+						//var passwordTest=password.charAt(0).toUpperCase() + password.slice(1);
+						//console.log(passwordTest);
+						magento.getAuthTokenService(email, passwordTest, (error, result)=> {
+							if(error){
+								console.log(error);
+							} else {
+								console.log(result.code);
+								//customer_id=result.customer_id
+								//oken=result.token
+								//emailId=result.email
+								//customerName=result.first_name
+								//custLastName=result.last_name
+								magento.createorder(result.code, (error, cartResult)=> {
+									if(error){
+										console.log(error);
+									} else {
+										var orderNumber= cartResult.orderNumber;
+										var namee= cartResult.name ;
+										var nameee= cartResult.name1 ;
+								
+										//console.log(currency +"  "+cartResult.currency);
+										text='You have' + ' ' + orderNumber + ' ' + ' orders in your order list, and the details are' + '' + namee +' ' + 'it will be delivered at your shipping address in 5 days.' + '' + nameee + '' + 'will be delivered deliver at your shipping address in 3 days We have fantastic deals available on eBook reader would you like to check it?'
+
+										messageData = {
+												speech: text,
+												displayText: text
+												}
+										res.send(messageData);
+										mailer.sendMailService("jagi.convonix@gmail.com", "sandeep");
+								 	      }
+									});
+							     	}
+						   	});
+ 						}
+					}
+		 			break;
 
  		 default:
  			//unhandled action, just send back the text
