@@ -149,11 +149,12 @@ app.post('/webhook/', (req, res) => {
              case 'tokeneeeeee':{
 				 	console.log('In case Tokeneeee');
                              magento.dynamicAuthToken((error, result)=> {
+				         console.log('ppppppppppppppppp');
 							if(error){
 								console.log(error);
 							} else {
-								//console.log('Result code--->',result.code);
-								console.log('Code--->',result.code);
+								  console.log('xxxxxxxxxxxxxxx');
+								//console.log('Code--->',result.code);
 								text="I am sending you the options, please check on your app.";
 								messageData = {
  										speech: text,
