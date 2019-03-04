@@ -157,6 +157,42 @@ console.log('Create dynamic api');
 };
 
 
+var updateDynamic = (authToken, contactid, callback) => {
+
+        console.log('Update payment API hit');
+        //console.log(`In updating payment method ${authToken} ${payment_id} ${order_no} ${total}`);
+        request({
+          url: `https://adc-cg-poc.api.crm4.dynamics.com/api/data/v9.1/contacts(958c6009-ec38-e911-a81e-000d3a2891e5)`,
+          method: 'PATCH',
+          headers: {
+           "Content-Type": "application/json",
+           "Authorization": `Bearer ${authToken}`
+          },
+          body: {
+                "cg_interests" : "sandeep"
+               
+          },
+          rejectUnauthorized: false,
+          json: true
+          }, (error, response, body) => {
+
+          if(error){
+            callback('There was an error connecting to the server');
+          }
+          else if(response.statusCode == 400){
+            callback('Unable to get recommended products');
+          }
+          else if(response.statusCode == 200){
+            console.log("Update Payment Service API hit:", response.statusCode);
+            }
+          else {
+            console.log(response.statusCode);
+          }
+         });
+};
+
+
+
 function isEmpty(obj) {
     for(var key in obj) {
         if(obj.hasOwnProperty(key))
@@ -168,5 +204,6 @@ module.exports = {
     getAuthTokenService,
     createorder,
     dynamicAuthToken,
-    getdynamic
+    getdynamic,
+    updateDynamic
 };
