@@ -130,7 +130,7 @@ request.end();
 var getdynamic = (authToken, callback) =>{
 console.log('Create dynamic api');
   request({
-    url: 'https://adc-cg-poc.api.crm4.dynamics.com/api/data/v9.1/contacts?$select=lastname,cg_interests&$filter=(emailaddress1 eq 'lahyla.ytrj@capgemini.com)' ,
+    url: 'https://adc-cg-poc.api.crm4.dynamics.com/api/data/v9.1/contacts?$select=lastname' ,
     method: 'GET',
     timeout: 40000,
     headers: {
@@ -162,7 +162,7 @@ var updateDynamic = (authToken, callback) => {
         console.log('Update payment API hit');
         //console.log(`In updating payment method ${authToken} ${payment_id} ${order_no} ${total}`);
         request({
-          url: `https://adc-cg-poc.api.crm4.dynamics.com/api/data/v9.1/contacts(958c6009-ec38-e911-a81e-000d3a2891e5)`,
+          url: `https://adc-cg-poc.api.crm4.dynamics.com/api/data/v9.1/contacts(958c6009-ec38-e911-a81e-000d3a2891e5)` ,
           method: 'PATCH',
           headers: {
            "Content-Type": "application/json",
