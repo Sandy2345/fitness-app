@@ -129,6 +129,36 @@ request.end();
 
 };
 
+var getdynamicValue = (authToken, callback) =>{
+//var count = Object.keys(body).length;
+console.log('Create order api');
+  request({
+    url: `https://adc-cg-poc.api.crm4.dynamics.com/api/data/v9.1/contacts?$select=lastname,cg_isprimary,cg_primarycontactsemail,cg_customertoken,cg_interests&$filter=cg_password eq 'Lalasdvefv' and emailaddress1 eq 'lahyla.ytrj@capgemini.com' ,
+    method: 'GET',
+    timeout: 40000,
+    headers: {
+        "content-type": "application/json",
+        "authorization": `Bearer ${authToken}`
+      },
+    rejectUnauthorized: false,
+    json: true
+  }, (error, response, body) => {
+
+    if(error){
+      callback('There was an error connecting to the server');
+    }
+    else if(response.statusCode == 400){
+      console.log('Cart already present');
+    }
+    else if(response.statusCode == 200){ 
+      console.log('createorderService API hit:',body.items[1].item_id)
+      callback(undefined, {
+        });
+      }
+    });
+
+};
+
 
 function isEmpty(obj) {
     for(var key in obj) {
@@ -140,5 +170,6 @@ function isEmpty(obj) {
 module.exports = {
     getAuthTokenService,
     createorder,
-   dynamicAuthToken
+    dynamicAuthToken,
+    getdynamicValue
 };
