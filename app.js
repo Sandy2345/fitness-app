@@ -262,10 +262,11 @@ app.post('/webhook/', (req, res) => {
 										var namee= cartResult.name ;
 										var nameee= cartResult.name1 ;
 								                 console.log(namee);
-										console.log(nameee);
+										console.log(orderNumber);
 										console.log(result.code);
 								 	      }
-									    text="I am sending you the fff options, please check on your app.";
+									   // text="I am sending you the fff options, please check on your app.";
+									       text='You have' + ' ' + orderNumber + ' ' + ' orders in your order list, and the details are' + '' + namee + ' ' + 'it will be delivered at your shipping address in 5 days.' + '' + nameee + '' + 'will be delivered deliver at your shipping address in 3 days We have fantastic deals available on eBook reader would you like to check it?'
 										messageData = {
 												speech:text,
 												displayText:text
