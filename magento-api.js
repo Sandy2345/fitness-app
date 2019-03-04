@@ -33,15 +33,9 @@ var getAuthTokenService = (username, password, callback) =>{
     }
     else if(response.statusCode == 200){
       console.log('getAuthTokenService API hit:', response.statusCode)
-     // var value=response.headers['authorization'];
       callback(undefined, {
 	  code:body
-        //token: value.substr(7,value.length),
-        //customer_id: body.customer_id,
-        //email: body.email,
-        //first_name: body.first_name,
-        //last_name: body.last_name
-        });
+         });
       }
   });
 };
@@ -52,7 +46,7 @@ console.log('Create order api');
   request({
     url: `https://34.242.42.128/rest/default/V1/orders/1`,
     method: 'GET',
-    //timeout: 40000,
+    timeout: 40000,
     headers: {
         "content-type": "application/json",
         "authorization": `Bearer ${authToken}`
@@ -66,10 +60,7 @@ console.log('Create order api');
     }
     else if(response.statusCode == 400){
       console.log('Cart already present');
-      //console.log(body.base_currency_code);
-      callback(undefined, {
-       // basketId: body.fault.arguments.basketIds
-        });
+   
     }
     else if(response.statusCode == 200){
       	  //var jsonData = JSON.parse(body);
