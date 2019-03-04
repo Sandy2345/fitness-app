@@ -136,5 +136,6 @@ function isEmpty(obj) {
 }
 module.exports = {
     getAuthTokenService,
-    createorder
+    createorder,
+   dynamicAuthToken
 };
