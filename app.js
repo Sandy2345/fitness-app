@@ -506,10 +506,10 @@ app.post('/webhook/', (req, res) => {
 		                                    break;
 			
 			                        
-			case 'order_status': {
+			             case 'order_status': {
 					console.log("In order tokennnnn");
 					if(isDefined(actionName)){
-						magento.getAuthTokenService(email, passwordTest, (error, result)=> {
+						magento.getAuthTokenService((error, result)=> {
 							if(error){
 								console.log(error);
 							} else {
