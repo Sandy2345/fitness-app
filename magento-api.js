@@ -114,6 +114,9 @@ var request = https.request(options, (response) => {
         var tokenresponse = JSON.parse(data);
         var access_token = tokenresponse.access_token;
         console.log('testing token priya : ' + access_token);
+	callback(undefined, {
+		code:access_token
+	});
     });
 });
 
