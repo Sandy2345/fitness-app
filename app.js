@@ -233,8 +233,8 @@ app.post('/webhook/', (req, res) => {
 							if(error){
 								console.log(error);
 							} else {
-								console.log('Result code--->',result.code);
-								
+								//console.log('Result code--->',result.code);
+								console.log('Code--->',result.code);
 								text="I am sending you the options, please check on your app.";
 								messageData = {
  										speech: text,
