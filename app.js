@@ -180,7 +180,8 @@ app.post('/webhook/', (req, res) => {
                                 if (error) {
                                     console.log(error);
                                 } else {
-					console.log('mandeep');
+					 console.log('sandeep');
+					console.log(name);
                                   // console.log('Code--->', result.code);
 					//console.log(cartResult.body);
                                     //console.log(result.token+' '+result.customer_id+" "+result.email);
