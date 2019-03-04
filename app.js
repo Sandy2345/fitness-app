@@ -170,7 +170,6 @@ app.post('/webhook/', (req, res) => {
 		    
 		    case 'dynamicValue': {
                   console.log("In shoes-in-stock");
-			    var 
                    if (isDefined(actionName)) {
                     magento.dynamicAuthToken((error, result) => {
 			     console.log('sanu');
