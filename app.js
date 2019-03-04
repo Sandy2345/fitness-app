@@ -146,6 +146,24 @@ app.post('/webhook/', (req, res) => {
                 }
             }
             break;
+             case 'tokeneeeeee':{
+				 	console.log('In case Tokeneeee');
+                             magento.dynamicAuthToken((error, result)=> {
+							if(error){
+								console.log(error);
+							} else {
+								//console.log('Result code--->',result.code);
+								console.log('Code--->',result.code);
+								text="I am sending you the options, please check on your app.";
+								messageData = {
+ 										speech: text,
+ 										displayText: text
+ 										}
+ 								res.send(messageData);	
+ 								}
+						   	});
+						}	
+		 break;
 
         case 'shoes-in-stock-order':
             {
