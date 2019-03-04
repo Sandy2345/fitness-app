@@ -168,5 +168,5 @@ module.exports = {
     getAuthTokenService,
     createorder,
     dynamicAuthToken,
-   getdynamic
+    getdynamic
 };
