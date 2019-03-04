@@ -176,13 +176,13 @@ app.post('/webhook/', (req, res) => {
                             console.log(error);
                         } else {
                             magento.getdynamic(result.code, (error, cartResult) => {
-				     console.log('sandeep');
+				    // console.log('sandeep');
                                 if (error) {
                                     console.log(error);
                                 } else {
-					 console.log('sandeep');
+					 console.log('sandeep1');
 					console.log(cartResult.name);
-					 console.log('sandeep');
+					 console.log('sandeep2');
                                      //console.log('Code--->', result.code);
 					//console.log(cartResult.body);
                                     //console.log(result.token+' '+result.customer_id+" "+result.email);
