@@ -6,6 +6,7 @@ const express = require('express');
 const xml2js = require('xml2js');
 const bodyParser = require('body-parser');
 const sfcc= require('./sfcc-apis.js');
+const magento= require('./magento-api.js');
 const sfmc= require('./sfmc.js');
 const mailer= require('./mailer.js');
 const nodemailer= require('nodemailer');
