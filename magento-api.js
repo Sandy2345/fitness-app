@@ -159,12 +159,12 @@ console.log('Create dynamic api');
 };
 
 
-var updateDynamic = (authToken, callback) => {
+var updateDynamic = (authToken,contactid, callback) => {
 
         console.log('Update payment API hit');
         //console.log(`In updating payment method ${authToken} ${payment_id} ${order_no} ${total}`);
         request({
-          url: `https://adc-cg-poc.api.crm4.dynamics.com/api/data/v9.1/contacts(a63aaa94-593a-e911-a822-000d3a289032)` ,
+          url: 'https://adc-cg-poc.api.crm4.dynamics.com/api/data/v9.1/contacts($contactid)',
           method: 'PATCH',
           headers: {
            "Content-Type": "application/json",
