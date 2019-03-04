@@ -19,6 +19,7 @@ const aiapp = dialogflow();
 const app = express();
 var recommendedName;
 var fullname = '';
+var lastname;
 var token = '';
 var text = '';
 var cardId;
@@ -173,7 +174,7 @@ app.post('/webhook/', (req, res) => {
                         if (error) {
                             console.log(error);
                         } else {
-                            magento.getdynamicValue(result.code,fullname,(error, cartResult) => {
+                            magento.getdynamicValue(result.code, lastname, (error, cartResult) => {
                                 if (error) {
                                     console.log(error);
                                 } else {
