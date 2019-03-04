@@ -162,15 +162,14 @@ var updateDynamic = (authToken, callback) => {
         console.log('Update payment API hit');
         //console.log(`In updating payment method ${authToken} ${payment_id} ${order_no} ${total}`);
         request({
-          url: `https://adc-cg-poc.api.crm4.dynamics.com/api/data/v9.1/contacts(958c6009-ec38-e911-a81e-000d3a2891e5)` ,
+          url: `https://adc-cg-poc.api.crm4.dynamics.com/api/data/v9.1/contacts(a63aaa94-593a-e911-a822-000d3a289032)` ,
           method: 'PATCH',
           headers: {
            "Content-Type": "application/json",
            "Authorization": `Bearer ${authToken}`
           },
           body: {
-                "cg_interests" : "sandeep"
-               
+               "cg_interests" : "dvsd"
           },
           rejectUnauthorized: false,
           json: true
