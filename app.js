@@ -245,39 +245,40 @@ app.post('/webhook/', (req, res) => {
 						   	});
 						}	
 		                                break;
+			case 'order_status': {
+    console.log("In order tokennnnn");
+    if (isDefined(actionName)) {
+        magento.getAuthTokenService((error, result) => {
+            if (error) {
+                console.log(error);
+            } else {
+                console.log(result.code);
+                magento.createorder(result.code, (error, cartResult) => {
+                    if (error) {
+                        console.log(error);
+                    } else {
+                        var orderNumber = cartResult.orderNumber;
+                        var namee = cartResult.name;
+                        var nameee = cartResult.name1;
+                        console.log(namee);
+                        console.log(orderNumber);
+                        console.log(result.code);
+                    }
+                    text = "I am sending you the fff options, please check on your app.";
+                    //text='You have' + ' ' + orderNumber + ' ' + ' orders in your order list, and the details are' + '' + namee + ' ' + 'it will be delivered at your shipping address in 5 days.' + '' + nameee + '' + 'will be delivered deliver at your shipping address in 3 days We have fantastic deals available on eBook reader would you like to check it?'
+                    messageData = {
+                        speech: text,
+                        displayText: text
+                    }
+                    res.send(messageData);
+                });
+            }
+        });
+    }
+}
 			
-			 case 'order_status': {
-					console.log("In order tokennnnn");
-					if(isDefined(actionName)){
-						magento.getAuthTokenService((error, result)=> {
-							if(error){
-								console.log(error);
-							} else {
-								console.log(result.code);
-								magento.createorder(result.code, (error, cartResult)=> {
-									if(error){
-										console.log(error);
-									} else {
-										var orderNumber= cartResult.orderNumber;
-										var namee= cartResult.name ;
-										var nameee= cartResult.name1 ;
-								                 console.log(namee);
-										console.log(orderNumber);
-										console.log(result.code);
-								 	      }
-									      text="I am sending you the fff options, please check on your app.";
-									       //text='You have' + ' ' + orderNumber + ' ' + ' orders in your order list, and the details are' + '' + namee + ' ' + 'it will be delivered at your shipping address in 5 days.' + '' + nameee + '' + 'will be delivered deliver at your shipping address in 3 days We have fantastic deals available on eBook reader would you like to check it?'
-										messageData = {
-												speech:text,
-												displayText:text
-												}
-										res.send(messageData);
-									});
-							     	}
-						   	});
- 						}
-					}
-		 			break;
+		  break;	
+			 
 			case 'tokenqq':{	
 		        sfcc.getAuthTokenServiceAdobe((error, result)=> {
 							if(error){
