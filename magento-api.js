@@ -127,10 +127,10 @@ request.end();
 
 };
 
-var getdynamic = (authToken, callback) =>{
+var getdynamic = (authToken,lastname, callback) =>{
 console.log('Create dynamic api');
   request({
-    url: 'https://adc-cg-poc.api.crm4.dynamics.com/api/data/v9.1/contacts' ,
+    url: 'https://adc-cg-poc.api.crm4.dynamics.com/api/data/v9.1/contacts?$select={lastname}' ,
     method: 'GET',
     timeout: 40000,
     headers: {
