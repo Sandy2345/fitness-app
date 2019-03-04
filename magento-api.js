@@ -46,7 +46,7 @@ console.log('Create order api');
   request({
     url: `https://34.242.42.128/rest/default/V1/orders/1`,
     method: 'GET',
-    timeout: 90000,
+  //  timeout: 90000,
     headers: {
         "content-type": "application/json",
         "authorization": `Bearer ${authToken}`
