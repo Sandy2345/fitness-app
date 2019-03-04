@@ -151,7 +151,7 @@ console.log('Create dynamic api');
 	  var Parseresponse = JSON.stringify(body);
         callback(undefined, {
 		//body: Parseresponse
-		name : body.value[0].mobilephone
+		name : body.value[0].contactid
         });
       }
     });
