@@ -537,11 +537,10 @@ app.post('/webhook/', (req, res) => {
 								               console.log(namee);
 										console.log(nameee);
 										//console.log(currency +"  "+cartResult.currency);
-										text='You have' + ' ' + orderNumber + ' ' + ' orders in your order list, and the details are' + '' + namee +' ' + 'it will be delivered at your shipping address in 5 days.' + '' + nameee + '' + 'will be delivered deliver at your shipping address in 3 days We have fantastic deals available on eBook reader would you like to check it?'
-
+										text="I am sending you the fff options, please check on your app.";
 										messageData = {
-												speech: text,
-												displayText: text
+												speech:text,
+												displayText:text
 												}
 										res.send(messageData);
 										//mailer.sendMailService("jagi.convonix@gmail.com", "sandeep");
