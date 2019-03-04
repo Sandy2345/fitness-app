@@ -62,14 +62,9 @@ console.log('Create order api');
       console.log('Cart already present');
    
     }
-    else if(response.statusCode == 200){
-      	  //var jsonData = JSON.parse(body);
-	  //var namelengh = jsonData.items.length;   
+    else if(response.statusCode == 200){ 
       console.log('createorderService API hit:',body.items[1].item_id)
       callback(undefined, {
-	      orderNumber :body.items[1].item_id,
-	      name: body.items[0].name,
-	      name1:body.items[1].name
         });
       }
     });
