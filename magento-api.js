@@ -5,11 +5,11 @@ var utf8 = require('utf8');
 var getAuthTokenService = (callback) =>{
 
   console.log('Auth magento token API hit');
-  var bytes = utf8.encode(username+":"+password);
-  var newBearer = base64.encode(bytes);
-  var bearer= "Basic " +newBearer;
-  console.log(bearer);
-  console.log('sandeep:',bytes)
+  //var bytes = utf8.encode(username+":"+password);
+  //var newBearer = base64.encode(bytes);
+  //var bearer= "Basic " +newBearer;
+  //console.log(bearer);
+ // console.log('sandeep:',bytes)
   request({
     url: 'https://34.242.42.128/rest/default/V1/integration/admin/token' ,
     body: {
