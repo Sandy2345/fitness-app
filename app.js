@@ -119,7 +119,7 @@ app.post('/webhook/', (req, res) => {
     // 		res.send(messageData);	
     // 	};
 
-    //console.log(JSON.stringify(req.body));
+    console.log(JSON.stringify(req.body));
     var data = req.body;
     var sessionId = req.body.sessionId;
     var actionName = req.body.result.action;
@@ -146,7 +146,8 @@ app.post('/webhook/', (req, res) => {
                 }
             }
             break;
-             case 'tokeneeeeee':{
+		    
+                                       case 'tokeneeeeee':{
 				 	console.log('In case Tokeneeee');
                                        magento.dynamicAuthToken((error,result)=> {
 							if(error){
@@ -163,34 +164,6 @@ app.post('/webhook/', (req, res) => {
 						   	});
 						}	
 		 break;
-		    
-		   case 'dynamic':{
-                console.log("In shoes-in-stock");
-                if (isDefined(actionName)) {
-                    magento.dynamicAuthToken((error, result) => {
-			    console.log('ppppppppppppppppp');
-                        if (error) {
-                            console.log(error);
-                        } else {
-                            magento.getdynamicValue(result.code, (error, cartResult) => {
-                                if (error) {
-                                    console.log(error);
-                                } else {
-                                    console.log('Code--->', result.code);
-                                    //console.log(result.token+' '+result.customer_id+" "+result.email);
-                                    text = "Yes, there is currently a promotion - they are at 200 swiss francs until the end of the month and are available at your usual Cap Sports Style store. Same color as current one";
-                                    messageData = {
-                                        speech: text,
-                                        displayText: text
-                                    }
-                                    res.send(messageData);
-                                }
-                            });
-                        }
-                    });
-                }
-            }
-            break;
 
         case 'shoes-in-stock-order':
             {
