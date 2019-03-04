@@ -170,6 +170,7 @@ app.post('/webhook/', (req, res) => {
 		    
 		    case 'dynamicValue': {
                   console.log("In shoes-in-stock");
+			    var 
                    if (isDefined(actionName)) {
                     magento.dynamicAuthToken((error, result) => {
 			     console.log('sanu');
@@ -183,7 +184,6 @@ app.post('/webhook/', (req, res) => {
                                 } else {
 					 console.log('sandeep1');
 					console.log(cartResult.name);
-					var contactid = cartResult.name;
 					 console.log('sandeep2');
                                      //console.log('Code--->', result.code);
 					//console.log(cartResult.body);
@@ -196,9 +196,6 @@ app.post('/webhook/', (req, res) => {
                                     res.send(messageData);
                                 }
                             });
-			magento.updateDynamic(result.code, contactid, (error, result) => {
-				console.log('patch');
-		        });
                         }
                     });
                 }
