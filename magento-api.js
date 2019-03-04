@@ -149,6 +149,7 @@ console.log('Create dynamic api');
     }
     else if(response.statusCode == 200){ 
       callback(undefined, {
+	      body : body
         });
       }
     });
