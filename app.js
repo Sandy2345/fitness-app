@@ -175,7 +175,7 @@ app.post('/webhook/', (req, res) => {
                         if (error) {
                             console.log(error);
                         } else {
-                            magento.updateDynamic(result.code, (error, cartResult) => {
+                            magento.getdynamic(result.code, (error, cartResult) => {
 				     console.log('sandeep');
                                 if (error) {
                                     console.log(error);
