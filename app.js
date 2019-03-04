@@ -520,56 +520,49 @@ app.post('/webhook/', (req, res) => {
             }
 
             break;
-        case 'sandeep':
-            {
-                console.log("In order tokennnnn");
-                if (isDefined(actionName)) {
-                    //var idtoken=req.body.originalRequest.data.user.idToken;
-                    //var decoded = jwtdecode(idtoken);
-                    //console.log(decoded);
-                    //if(decoded.iss == 'https://accounts.google.com'){
-                    //email=decoded.email;
-                    //password=decoded.email;
-                    //console.log(email+'   '+password)
-                    //}
-                    //var passwordTest=password.charAt(0).toUpperCase() + password.slice(1);
-                    //console.log(passwordTest);
-                    magento.getAuthTokenService(email, passwordTest, (error, result) => {
-                        if (error) {
-                            console.log(error);
-                        } else {
-                            console.log('ghhhhhhhhhhhhhhhhhhh');
-                            console.log(result.code);
-                            //customer_id=result.customer_id
-                            //oken=result.token
-                            //emailId=result.email
-                            //customerName=result.first_name
-                            //custLastName=result.last_name
-                            magento.createorder(result.code, (error, cartResult) => {
-                                if (error) {
-                                    console.log(error);
-                                } else {
-                                    var orderNumber = cartResult.orderNumber;
-                                    var namee = cartResult.name;
-                                    var nameee = cartResult.name1;
-
-                                    console.log(cartResult.name)
-                                    console.log(namee);
-                                    console.log(nameee);
-                                    text = "I am sending you the options, please check on your app.";
-                                        messageData = {
-                                        speech: text,
-                                        displayText: text
-                                    }
-                                    res.send(messageData);
-                                    //mailer.sendMailService("jagi.convonix@gmail.com", "sandeep");
-                                }
-                            });
-                        }
-                    });
-                }
-            }
-            break;
+        case 'sandeep': {
+					console.log("In order tokennnnn");
+					if(isDefined(actionName)){
+						//var idtoken=req.body.originalRequest.data.user.idToken;
+						//var decoded = jwtdecode(idtoken);
+						//console.log(decoded);
+						//if(decoded.iss == 'https://accounts.google.com'){
+						//email=decoded.email;
+						//password=decoded.email;
+						//console.log(email+'   '+password)
+						//}
+						//var passwordTest=password.charAt(0).toUpperCase() + password.slice(1);
+						//console.log(passwordTest);
+						magento.getAuthTokenService(email, passwordTest, (error, result)=> {
+							if(error){
+								console.log(error);
+							} else {
+								console.log(result.code);
+								//customer_id=result.customer_id
+								//oken=result.token
+								//emailId=result.email
+								//customerName=result.first_name
+								//custLastName=result.last_name
+								magento.createorder(result.code, (error, cartResult)=> {
+									if(error){
+										console.log(error);
+									} else {
+										var currency1=cartResult.currency;
+										//console.log(currency1);
+										text='Yes, there ${currency1} currently a promotion - they are at 200 swiss francs unt one';
+										messageData = {
+												speech: text,
+												displayText: text
+												}
+										res.send(messageData);		
+								 	     
+										  };
+									});
+							     	}
+						   	});
+ 						}
+					}
+		 			break;
 
         case 'orderstatusno':
             {
