@@ -49,7 +49,7 @@ console.log('Create order api');
     timeout: 90000,
     headers: {
         "content-type": "application/json",
-        "authorization": `${authToken}`
+        "authorization": `Bearer ${authToken}`
       },
     rejectUnauthorized: false,
     json: true
