@@ -502,11 +502,10 @@ app.post('/webhook/', (req, res) => {
  								res.send(messageData);	
  								}
 						   	});
-		}	
+		                                    }	
 		                                    break;
-			
 			                        
-			             case 'order_status': {
+			               case 'order_status': {
 					console.log("In order tokennnnn");
 					if(isDefined(actionName)){
 						magento.getAuthTokenService((error, result)=> {
@@ -521,10 +520,9 @@ app.post('/webhook/', (req, res) => {
 										var orderNumber= cartResult.orderNumber;
 										var namee= cartResult.name ;
 										var nameee= cartResult.name1 ;
-								               console.log(namee);
+								                 console.log(namee);
 										console.log(nameee);
-										
-		
+										console.log(result.code);
 								 	      }
 									    text="I am sending you the fff options, please check on your app.";
 										messageData = {
