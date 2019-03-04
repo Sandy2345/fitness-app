@@ -149,7 +149,6 @@ app.post('/webhook/', (req, res) => {
              case 'tokeneeeeee':{
 				 	console.log('In case Tokeneeee');
                                        magento.dynamicAuthToken((error,result)=> {
-				         
 							if(error){
 								console.log(error);
 							} else {
