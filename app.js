@@ -1,4 +1,5 @@
 'use strict';
+
 const apiai = require('apiai');
 const config = require('./config');
 const express = require('express');
@@ -6,9 +7,6 @@ const xml2js = require('xml2js');
 const bodyParser = require('body-parser');
 const sfcc= require('./sfcc-apis.js');
 const sfmc= require('./sfmc.js');
-//const magento=require('./magento.js')
-const magento= require('./magento-api.js');
-const magentoAuth= require('./magento.js');
 const mailer= require('./mailer.js');
 const nodemailer= require('nodemailer');
 const jwtdecode = require('jwt-decode');
@@ -64,8 +62,6 @@ const sessionIds = new Map();
 // Index route
 app.get('/', function (req, res) {
 	res.send('Hello world, I am a chat bot')
-	 // magentoAuth.sendAuth2(email, name);
-	  console.log('sandeep')
 })
 
 function pushNotification(deviceID, messageId) {
@@ -123,7 +119,7 @@ app.post('/webhook/', (req, res) => {
 // 		res.send(messageData);	
 // 	};
 	
-	console.log(JSON.stringify(req.body));
+	//console.log(JSON.stringify(req.body));
 	var data = req.body;
 	var sessionId = req.body.sessionId;
 	var actionName = req.body.result.action;
@@ -149,22 +145,6 @@ app.post('/webhook/', (req, res) => {
 							     }
 							}
 		 				break;
-			
-			                                        case 'process': {
-			                                        console.log("In process-order");
-			                                        if(isDefined(actionName)){
-								//console.log(result.responseCode);
-								text="Can I use your saved card or Google pay ?";
-								messageData = {
-										speech: text,
-										displayText: text
-										}
-								res.send(messageData);		
-							      
-							
-						}
-					 }
-			     break;
 
 			case 'shoes-in-stock': {
 					console.log("In shoes-in-stock");
@@ -208,98 +188,23 @@ app.post('/webhook/', (req, res) => {
 					}
 		 			break;
 			
-		case 'weathercondition':{		
-			sfcc.getOrderService('ityccvj33mq0w4wbr0leork2vy6uqu2j', (error, result)=> {
-							if(error){
-								console.log(error);
-							} else {
-								//console.log(result.code);
-								//notify(emailId, messageId);
-								//setTimeout(() => pushNotification(deviceIdJ), 3000);
-								text="I am sending you the options, please check on your app.";
-								messageData = {
- 										speech: text,
- 										displayText: text
- 										}
- 								res.send(messageData);	
- 								}
-						   	});
-							}	
-							break;
 			
-			 case 'tokeneeeeee':{
-				 	console.log('In case Tokeneeee');
-                                               magento.getAuthTokenService((error, result)=> {
-							if(error){
-								console.log(error);
-							} else {
-								//console.log('Result code--->',result.code);
-								console.log('Code--->',result.code);
-								text="I am sending you the options, please check on your app.";
-								messageData = {
- 										speech: text,
- 										displayText: text
- 										}
- 								res.send(messageData);	
- 								}
-						   	});
-						}	
-		                                break;
-			case 'order_status': {
-    console.log("In order tokennnnn");
-    if (isDefined(actionName)) {
-        magento.getAuthTokenService((error, result) => {
-            if (error) {
-                console.log(error);
-            } else {
-                console.log(result.code);
-                magento.createorder(result.code, (error, cartResult) => {
-                    if (error) {
-                        console.log(error);
-                    } else {
-                        var orderNumber = cartResult.orderNumber;
-                        var namee = cartResult.name;
-                        var nameee = cartResult.name1;
-                        console.log(namee);
-                        console.log(orderNumber);
-                        console.log(result.code);
-                    }
-                    text = "I am sending you the fff options, please check on your app.";
-                    //text='You have' + ' ' + orderNumber + ' ' + ' orders in your order list, and the details are' + '' + namee + ' ' + 'it will be delivered at your shipping address in 5 days.' + '' + nameee + '' + 'will be delivered deliver at your shipping address in 3 days We have fantastic deals available on eBook reader would you like to check it?'
-                    messageData = {
-                        speech: text,
-                        displayText: text
-                    }
-                    res.send(messageData);
-                });
-            }
-        });
-    }
-}
-			
-		  break;	
-			 
-			case 'tokenqq':{	
-		        sfcc.getAuthTokenServiceAdobe((error, result)=> {
-							if(error){
-								console.log(error);
-							} else {
-							        //token=result.token
-								//console.log(result.code);
-								//notify(emailId, messageId);
-								//setTimeout(() => pushNotification(deviceIdJ), 3000);
-								text="I am sending you the options, please check on your app.";
-								messageData = {
- 										speech: text,
- 										displayText: text
- 										}
- 								res.send(messageData);	
- 								}
-						   	});
-		}	
-		break;
- 		
-                  case 'shoes-in-stock-order': {
+// 		case 'serviceCloud': {
+// 					console.log('In serviceCloud');
+// 						if(isDefined(actionName)){
+// 							text: "Sure, I'll inform the store manager. Your shoes will be ready on time. Probably don't use them for your next trail as the distance is too long for brand new shoes. By the way do you want to check how you used your last pair ?";
+// 							messageData = {
+// 									speech: text,
+// 									displayText: text
+// 									}
+// 							res.send(messageData);	
+// 							mailer.sendMailService(emailId, customerName);
+// 						     }
+// 						}
+// 					break;
+
+
+		 case 'shoes-in-stock-order': {
 					console.log('In shoes-in-stock-order');
 			 		console.log(basketId+ "  "+ token);
 			 		mailer.sendMailService(emailId, customerName, custLastName);
@@ -467,78 +372,7 @@ app.post('/webhook/', (req, res) => {
 						}
 					}
  					break;
-			case 'weatherconditionnew':{		
-		         magento.getupdatedweather('city', 'appid', (error, result)=> {
-							if(error){
-								console.log(error);
-							} else {
-								console.log(result.code);
-								//notify(emailId, messageId);
-								//setTimeout(() => pushNotification(deviceIdJ), 3000);
-								text="I am sending you the options,from magento api.";
-								messageData = {
- 										speech: text,
- 										displayText: text
- 										}
- 								res.send(messageData);	
- 								}
-						   	});
-		}	
-		break;
-			
-		case 'yes':{		
-		magento.getupdatedweather('city', 'appid', (error, result)=> {
-							if(error){
-								console.log(error);
-							} else {
-								console.log(result.code);
-								text="Ok. We have shared the eBook reader deals on your registered email id. Have a nice day!!.";
-								messageData = {
- 										speech: text,
- 										displayText: text
- 										}
- 								res.send(messageData);	
- 								}
-						   	});
-		}	
-		break;
-		case 'no':{		
-		magento.getupdatedweather('city', 'appid', (error, result)=> {
-							if(error){
-								console.log(error);
-							} else {
-								console.log(result.code);
-								text="We have shared the Clothing  deals on your registered email id. Have a nice day!!";
-								messageData = {
- 										speech: text,
- 										displayText: text
- 										}
- 								res.send(messageData);	
- 								}
-						   	});
-		}	
-		break;
-			                           case 'tokeneeeeeeaa':{
-							   var result = 'hr05yxw7tkj0wri6g2s448k5usny0epr';
-                                                   magento.createorder(result, (error, cartResult)=> {
-							if(error){
-								console.log(error);
-							} else {
-								console.log(result);
-								//notify(emailId, messageId);
-								//setTimeout(() => pushNotification(deviceIdJ), 3000);
-								text="I am sending you the options, please check on your app.";
-								messageData = {
- 										speech: result.code,
- 										displayText: result.code
- 										}
- 								res.send(messageData);	
- 								}
-						   	});
-		                                    }	
-		                                    break;
-			                        
-			              
+
  		 default:
  			//unhandled action, just send back the text
  			break;
@@ -562,4 +396,3 @@ function isDefined(obj) {
 app.listen(app.get('port'), function () {
 	console.log('running on port', app.get('port'))
 })
-
