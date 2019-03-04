@@ -146,33 +146,17 @@ app.post('/webhook/', (req, res) => {
 							}
 		 				break;
 
-			case 'shoes-in-stock': {
+			case 'order_status': {
 					console.log("In shoes-in-stock");
 					if(isDefined(actionName)){
-						var idtoken=req.body.originalRequest.data.user.idToken;
-						var decoded = jwtdecode(idtoken);
-						//console.log(decoded);
-						if(decoded.iss == 'https://accounts.google.com'){
-						email=decoded.email;
-						password=decoded.email;
-						console.log(email+'   '+password)
-						}
-						var passwordTest=password.charAt(0).toUpperCase() + password.slice(1);
-						console.log(passwordTest);
-						sfcc.getAuthTokenService(email, passwordTest, (error, result)=> {
+						magento.getAuthTokenService((error, result)=> {
 							if(error){
 								console.log(error);
 							} else {
-								customer_id=result.customer_id
-								token=result.token
-								emailId=result.email
-								customerName=result.first_name
-								custLastName=result.last_name
-								sfcc.createCartService(result.token, (error, cartResult)=> {
+								 magento.createorder(result.code, (error, cartResult)=> {
 									if(error){
 										console.log(error);
 									} else {
-										basketId=cartResult.basketId;
 										//console.log(result.token+' '+result.customer_id+" "+result.email);
 										text="Yes, there is currently a promotion - they are at 200 swiss francs until the end of the month and are available at your usual Cap Sports Style store. Same color as current one";
 										messageData = {
