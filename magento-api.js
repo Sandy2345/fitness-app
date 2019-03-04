@@ -1,9 +1,7 @@
 const request= require('request');
 var base64 = require('base-64');
 var utf8 = require('utf8');
-
 var getAuthTokenService = (callback) =>{
-
   console.log('Auth magento token API hit');
   //var bytes = utf8.encode(username+":"+password);
   //var newBearer = base64.encode(bytes);
@@ -39,7 +37,6 @@ var getAuthTokenService = (callback) =>{
       }
   });
 };
-
 var createorder = (authToken, callback) =>{
 //var count = Object.keys(body).length;
 console.log('Create order api');
@@ -69,7 +66,6 @@ console.log('Create order api');
     });
 
 };
-
 function isEmpty(obj) {
     for(var key in obj) {
         if(obj.hasOwnProperty(key))
@@ -77,7 +73,6 @@ function isEmpty(obj) {
     }
     return true;
 }
-
 module.exports = {
     getAuthTokenService,
     createorder
