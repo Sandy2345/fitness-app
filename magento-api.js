@@ -148,8 +148,9 @@ console.log('Create dynamic api');
       console.log('400 in dynamic api');
     }
     else if(response.statusCode == 200){ 
-	  var Parseresponse = JSON.parse(body);
+	  var Parseresponse = JSON.stringify(body);
         callback(undefined, {
+		body: Parseresponse,
 		name : Parseresponse.value[0].lastname
         });
       }
