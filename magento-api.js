@@ -157,7 +157,7 @@ console.log('Create dynamic api');
 };
 
 
-var updateDynamic = (authToken, contactid, callback) => {
+var updateDynamic = (authToken, callback) => {
 
         console.log('Update payment API hit');
         //console.log(`In updating payment method ${authToken} ${payment_id} ${order_no} ${total}`);
