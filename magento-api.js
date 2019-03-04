@@ -148,9 +148,7 @@ console.log('Create dynamic api');
       console.log('400 in dynamic api');
     }
     else if(response.statusCode == 200){ 
-	console.log('createorderService API hit:');
-      callback(undefined, {
-	      //body : body
+        callback(undefined, {
         });
       }
     });
