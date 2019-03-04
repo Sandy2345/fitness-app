@@ -133,11 +133,12 @@ var getdynamicValue = (authToken, callback) =>{
 //var count = Object.keys(body).length;
 console.log('Create order api');
   request({
-    url: `https://adc-cg-poc.api.crm4.dynamics.com/api/data/v9.1/contacts?$select=lastname,cg_isprimary,cg_primarycontactsemail,cg_customertoken,cg_interests&$filter=cg_password eq 'Lalasdvefv' and emailaddress1 eq 'lahyla.ytrj@capgemini.com' ,
+    url: `https://adc-cg-poc.api.crm4.dynamics.com/api/data/v9.1/contacts?$select=lastname,'
     method: 'GET',
     timeout: 40000,
     headers: {
         "content-type": "application/json"
+         "Authorization": `Bearer ${authToken}`
       },
     rejectUnauthorized: false,
     json: true
