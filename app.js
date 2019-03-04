@@ -224,17 +224,17 @@ app.post('/webhook/', (req, res) => {
  								res.send(messageData);	
  								}
 						   	});
-		}	
-		break;
+							}	
+							break;
 			
-			    case 'tokeneeeeee':{	
-                                                    magento.getAuthTokenService((error, result)=> {
+			 case 'tokeneeeeee':{
+				 	console.log('In case Tokeneeee');
+                                               magento.getAuthTokenService((error, result)=> {
 							if(error){
 								console.log(error);
 							} else {
-								//console.log(result.code);
-								//notify(emailId, messageId);
-								//setTimeout(() => pushNotification(deviceIdJ), 3000);
+								console.log('Result code--->',result.code);
+								
 								text="I am sending you the options, please check on your app.";
 								messageData = {
  										speech: text,
@@ -243,8 +243,8 @@ app.post('/webhook/', (req, res) => {
  								res.send(messageData);	
  								}
 						   	});
-		}	
-		                                    break;
+						}	
+		                                break;
 			
 			case 'tokenqq':{	
 		        sfcc.getAuthTokenServiceAdobe((error, result)=> {
