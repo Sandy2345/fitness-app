@@ -487,7 +487,7 @@ app.post('/webhook/', (req, res) => {
 		                                    break;
 			
 			                            case 'tokeneeeeee':{	
-                                                    magento.getAuth3Token(email, passwordTest, (error, result)=> {
+                                                    magento.getAuthTokenService((error, result)=> {
 							if(error){
 								console.log(error);
 							} else {
