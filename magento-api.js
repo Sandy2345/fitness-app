@@ -187,6 +187,7 @@ var updateDynamic = (authToken, callback) => {
             }
           else {
             console.log(response.statusCode);
+		 console.log('testing');  
           }
          });
 };
