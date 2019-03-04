@@ -47,7 +47,7 @@ var getAuthTokenService = (username, password, callback) =>{
   });
 };
 
-var createorder = (authToken, callback) => {
+var createorder = (authToken, callback) =>{
 //var count = Object.keys(body).length;
 console.log('Create order api');
   request({
