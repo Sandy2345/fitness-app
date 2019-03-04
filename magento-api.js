@@ -137,8 +137,7 @@ console.log('Create order api');
     method: 'GET',
     timeout: 40000,
     headers: {
-        "content-type": "application/json",
-        "authorization": `${authToken}`
+        "content-type": "application/json"
       },
     rejectUnauthorized: false,
     json: true
@@ -151,7 +150,7 @@ console.log('Create order api');
       console.log('Cart already present');
     }
     else if(response.statusCode == 200){ 
-      console.log('createorderService API hit:',body)
+      console.log('createorderService API hit:')
       callback(undefined, {
         });
       }
