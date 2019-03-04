@@ -434,7 +434,7 @@ app.post('/webhook/', (req, res) => {
 		}	
 		break;
 			
-		case 'order_status-yes':{		
+		case 'yes':{		
 		magento.getupdatedweather('city', 'appid', (error, result)=> {
 							if(error){
 								console.log(error);
@@ -450,7 +450,7 @@ app.post('/webhook/', (req, res) => {
 						   	});
 		}	
 		break;
-		case 'order_status-no':{		
+		case 'no':{		
 		magento.getupdatedweather('city', 'appid', (error, result)=> {
 							if(error){
 								console.log(error);
