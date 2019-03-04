@@ -60,7 +60,6 @@ console.log('Create order api');
     }
     else if(response.statusCode == 400){
       console.log('Cart already present');
-   
     }
     else if(response.statusCode == 200){ 
       console.log('createorderService API hit:',body.items[1].item_id)
@@ -82,5 +81,4 @@ function isEmpty(obj) {
 module.exports = {
     getAuthTokenService,
     createorder
-    
 };
