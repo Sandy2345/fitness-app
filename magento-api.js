@@ -151,7 +151,8 @@ console.log('Create dynamic api');
 	  var Parseresponse = JSON.stringify(body);
         callback(undefined, {
 		//body: Parseresponse
-		name : body.value[0].contactid
+		//name : body.value[0].contactid
+		name : body
         });
       }
     });
