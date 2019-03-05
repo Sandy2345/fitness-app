@@ -200,8 +200,9 @@ app.post('/webhook/', (req, res) => {
 			             magento.updateDynamic(result.code, contactid, (error, cartResultp) => {	
 					console.log('shivavavvav');
 						console.log(result.code);
-						//var contactid = cartResult.name;
-						console.log('trtetteteteetet');
+						var contactid = cartResult.name;
+						console.log(contactid);
+					     console.log('trtetteteteetet');
 					     
 					});	
 			}
