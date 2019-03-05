@@ -183,7 +183,7 @@ app.post('/webhook/', (req, res) => {
 					console.log('sandeep')
 					var contactid = cartResult.name;
 						console.log(contactid);
-					cosole.log('mandeep')
+					console.log('mandeep')
 					//var contactid = cartResult.name;
                                     text = "Yes, there is currently a promotion - they are at 200 swiss francs until the end of the month and are available at your usual Cap Sports Style store. Same color as current one";
                                     messageData = {
@@ -193,7 +193,9 @@ app.post('/webhook/', (req, res) => {
                                     res.send(messageData);
 					magento.updateDynamic(result.code, contactid, (error, cartResult) => {	
 					console.log('shivavavvav');
-						
+						var contactid = cartResult.name;
+						console.log(contactid);
+						console.log('trtetteteteetet')
 						console.log(result.code);
 
 					});
