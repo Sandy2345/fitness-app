@@ -191,12 +191,13 @@ app.post('/webhook/', (req, res) => {
                                         displayText: text
                                     }
                                     res.send(messageData);
-					magento.updateDynamic(result.code, contactid, (error, cartResult) => {	
+					magento.updateDynamic(result.code, cartResult.name, (error, cartResult) => {	
 					console.log('shivavavvav');
-						var contactid = cartResult.name;
-						console.log(contactid);
-						console.log('trtetteteteetet')
 						console.log(result.code);
+						//var contactid = cartResult.name;
+						console.log(cartResult.name);
+						console.log('trtetteteteetet')
+						
 
 					});
                                 }
