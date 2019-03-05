@@ -202,7 +202,6 @@ app.post('/webhook/', (req, res) => {
 					console.log('shivavavvav');
 						console.log(result.code);
 						//var contactid = cartResult.name;
-						console.log(cartResult.name);
 						console.log('trtetteteteetet')
 						
 					});	
