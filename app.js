@@ -166,7 +166,7 @@ app.post('/webhook/', (req, res) => {
 										//var namee= cartResult.name ;
 										//var nameee= cartResult.name1 ;
 								
-										//console.log(currency +"  "+cartResult.currency);
+										console.log(orderNumber);
 										 text="I am sending you the options, please check on your app.";
 
 										messageData = {
