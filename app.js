@@ -260,10 +260,7 @@ app.post('/webhook/', (req, res) => {
                                         displayText: text
                                     }
                                     res.send(messageData);
-					
-                                }
-                            });
-				     console.log('updateDynamic');
+				   console.log('updateDynamic');
 				     //console.log(contactid);
 				     //console.log(result.code);
 			             magento.updateDynamic(result.code, contactid, (error, cartResultp) => {	
@@ -273,7 +270,10 @@ app.post('/webhook/', (req, res) => {
 						//console.log(contactid);
 					       console.log('trtetteteteetet');
 					     
-					});	
+					});
+                                }
+                            });
+				     	
 			}
 			
                         
