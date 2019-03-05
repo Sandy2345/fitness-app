@@ -157,24 +157,18 @@ app.post('/webhook/', (req, res) => {
 							if(error){
 								console.log(error);
 							} else {
-								console.log(result.code);
 								magento.createorder(result.code, (error, cartResult)=> {
 									if(error){
 										console.log(error);
 									} else {
-										var orderNumber= cartResult.ordernumber;
-										//var namee= cartResult.name ;
-										//var nameee= cartResult.name1 ;
 								
-										console.log(orderNumber);
 										 text="I am sending you the options, please check on your app.";
-
 										messageData = {
 												speech: text,
 												displayText: text
 												}
 										res.send(messageData);
-										//mailer.sendMailService("jagi.convonix@gmail.com", "sandeep");
+
 								 	      }
 									});
 							     	}
