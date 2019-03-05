@@ -172,7 +172,7 @@ var updateDynamic = (authToken,contactid, callback) => {
 	contacturl = 'https://adc-cg-poc.api.crm4.dynamics.com/api/data/v9.1/contacts(' + contactid + ')';
         console.log(contacturl);
         request({
-          url: 'https://adc-cg-poc.api.crm4.dynamics.com/api/data/v9.1/contacts($contactid)',
+          url: contacturl,
           method: 'PATCH',
           headers: {
            "Content-Type": "application/json",
@@ -184,7 +184,7 @@ var updateDynamic = (authToken,contactid, callback) => {
           rejectUnauthorized: false,
           json: true
           }, (error, response, body) => {
-
+		console.log("response code"+response.statusCode);
           if(error){
             callback('There was an error connecting to the server');
           }
