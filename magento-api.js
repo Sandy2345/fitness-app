@@ -1,6 +1,7 @@
 const request= require('request');
 var base64 = require('base-64');
 var utf8 = require('utf8');
+var contacturl = '';
 var getAuthTokenService = (callback) =>{
   console.log('Auth magento token API hit');
   //var bytes = utf8.encode(username+":"+password);
@@ -168,7 +169,8 @@ var updateDynamic = (authToken,contactid, callback) => {
         console.log('Update payment API hit');
 	console.log(contactid);
 	console.log(authToken);
-        //console.log(`In updating payment method ${authToken} ${payment_id} ${order_no} ${total}`);
+	contacturl = 'https://adc-cg-poc.api.crm4.dynamics.com/api/data/v9.1/contacts(' + contactid + ')';
+        console.log(contacturl);
         request({
           url: 'https://adc-cg-poc.api.crm4.dynamics.com/api/data/v9.1/contacts($contactid)',
           method: 'PATCH',
