@@ -61,6 +61,7 @@ console.log('Create order api');
     else if(response.statusCode == 200){ 
       console.log('createorderService API hit:',body.items[1].item_id)
       callback(undefined, {
+	     ordernumber: body.items[1].item_id
         });
       }
     });
