@@ -172,7 +172,6 @@ app.post('/webhook/', (req, res) => {
                   console.log("In shoes-in-stock");
                    if (isDefined(actionName)) {
                     magento.dynamicAuthToken((error, result) => {
-			     console.log('sanu');
                         if (error) {
                             console.log(error);
                         } else {
@@ -181,12 +180,7 @@ app.post('/webhook/', (req, res) => {
                                 if (error) {
                                     console.log(error);
                                 } else {
-					 console.log('sandeep1');
-					console.log(cartResult.name);
-					 console.log('sandeep2');
-                                     //console.log('Code--->', result.code);
-					//console.log(cartResult.body);
-                                    //console.log(result.token+' '+result.customer_id+" "+result.email);
+					var contactid = cartResult.name;
                                     text = "Yes, there is currently a promotion - they are at 200 swiss francs until the end of the month and are available at your usual Cap Sports Style store. Same color as current one";
                                     messageData = {
                                         speech: text,
@@ -195,6 +189,10 @@ app.post('/webhook/', (req, res) => {
                                     res.send(messageData);
                                 }
                             });
+			magento.updateDynamic(result.code, contactid, (error, cresult) => {	
+			console.log('shivavavvav');
+				console.log(contactid);
+			});
                         }
                     });
                 }
