@@ -183,7 +183,40 @@ app.post('/webhook/', (req, res) => {
 					}
 		 			break;
 
-		    
+		    case 'shoes-in-stockkk': {
+					console.log("In shoes-in-stock");
+					if(isDefined(actionName)){
+						//var idtoken=req.body.originalRequest.data.user.idToken;
+						//var decoded = jwtdecode(idtoken);
+						//console.log(decoded);
+					magento.getAuthTokenService((error, result)=> {
+							if(error){
+								console.log(error);
+							} else {
+								//customer_id=result.customer_id
+								//token=result.token
+								//emailId=result.email
+								//customerName=result.first_name
+								//custLastName=result.last_name
+								magento.createorder(result.code, (error, cartResult)=> {
+									if(error){
+										console.log(error);
+									} else {
+										//basketId=cartResult.basketId;
+										//console.log(result.token+' '+result.customer_id+" "+result.email);
+										text="Yes, there is currently a promotion - they are at 200 swiss francs until the end of the month and are available at your usual Cap Sports Style store. Same color as current one";
+										messageData = {
+												speech: text,
+												displayText: text
+												}
+										res.send(messageData);		
+								 	      }
+									});
+							     	}
+						   	});
+ 						}
+					}
+		 			break;
 		    
 		    
                                        case 'tokeneeeeee':{
