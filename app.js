@@ -195,14 +195,14 @@ app.post('/webhook/', (req, res) => {
                                 }
                             });
 				     console.log('updateDynamic');
-				     console.log(contactid);
-				     console.log(result.code);
+				     //console.log(contactid);
+				     //console.log(result.code);
 			             magento.updateDynamic(result.code, contactid, (error, cartResultp) => {	
 					console.log('shivavavvav');
 						console.log(result.code);
-						var contactid = cartResult.name;
-						console.log(contactid);
-					     console.log('trtetteteteetet');
+						//var contactid = cartResult.name;
+						//console.log(contactid);
+					     //console.log('trtetteteteetet');
 					     
 					});	
 			}
