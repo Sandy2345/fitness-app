@@ -184,7 +184,7 @@ var updateDynamic = (authToken,contactid, callback) => {
           rejectUnauthorized: false,
           json: true
           }, (error, response, body) => {
-		console.log("response code"+response.statusCode);
+		console.log("response code of patch",response.statusCode);
           if(error){
             callback('There was an error connecting to the server');
           }
