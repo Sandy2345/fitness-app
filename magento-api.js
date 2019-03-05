@@ -15,6 +15,7 @@ var getAuthTokenService = (callback) =>{
       "password": "Admin@123"
     },
     method: 'POST',
+   timeout: 40000,
     rejectUnauthorized: false,
     headers: {
         //"Authorization": bearer,
