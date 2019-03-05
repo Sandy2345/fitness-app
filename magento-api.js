@@ -173,9 +173,7 @@ var updateDynamic = (authToken,contactid, callback) => {
            "Authorization": `Bearer ${authToken}`
           },
           body: {
-                "cg_interests" : "ASHOKtesting",
-		"cg_sendproemailforereader" : "Yes", 
-                "cg_sendproemailforclothing" : "Yes" 
+                "cg_interests" : "ASyyyyyyyyHOKtesting"
           },
           rejectUnauthorized: false,
           json: true
