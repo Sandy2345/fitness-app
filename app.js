@@ -234,6 +234,27 @@ app.post('/webhook/', (req, res) => {
 						}	
 		 break;
 		    
+		    
+		    case 'tokent':{
+				 	console.log('In case Tokeneeee');
+                                    magento.createorder(token, (error, cartResult)=> {
+							if(error){
+								console.log(error);
+							} else {
+								token = result.code
+								console.log('Code--->',token);
+								text="I am sending you the options, please check on your app.";
+								messageData = {
+ 										speech: 'sandeep',
+ 										displayText: 'sandeep'
+ 										}
+ 									
+									res.send(messageData);	
+ 								}
+						   	});
+						}	
+		 break;
+		    
 		    case 'dynamicValue': {
                   console.log("In shoes-in-stock");
                    if (isDefined(actionName)) {
