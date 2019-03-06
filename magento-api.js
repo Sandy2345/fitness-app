@@ -65,15 +65,11 @@ console.log(authToken);
 	    console.log(body);
 	   console.log("body values");
            console.log(body[0].order_id);
-	    for(var i =0; i < 4;i++){
-            var str = "";
-             str + = "You have 4 orders in your order list, and the details are " + body[i].name + "it will be delivered at your shipping address in" + body[i].delivery_days + "days";
+	    for(var i =0; i < 4; i++){
+                console.log(body[0].name+"\t"+ body[0].delivery_days);
              }
-	          callback(undefined, {
-		  console.log(str);
-	          ordernumber: body[i].order_id
-        });
-     
+	  var str = "You have 4 orders in your order list, and the details are " + body[0].name + "it will be delivered at your shipping address in" + body[0].delivery_days + "days";
+	  console.log(str);
       }
     });
 
