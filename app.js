@@ -168,6 +168,7 @@ app.post('/webhook/', (req, res) => {
 												displayText: text
 												}
 										res.send(messageData);
+										console.log(messageData);
 
 								 	      }
 									});
