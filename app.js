@@ -246,8 +246,8 @@ app.post('/webhook/', (req, res) => {
 								console.log('Code--->',result.code);
 								text="Greetings! How can I assist?";
 								messageData = {
- 										speech: result.code,
- 										displayText: result.code
+ 										speech: text,
+ 										displayText: text
  										}
  									
 									res.send(messageData);	
