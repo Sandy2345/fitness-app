@@ -216,7 +216,7 @@ app.post('/webhook/', (req, res) => {
 		    
                                        case 'tokeneeeeee':{
 				 	console.log('In case Tokeneeee');
-                                       magento.dynamicAuthToken((error,result)=> {
+                                      magento.createorder(result.code, (error, cartResult)=> {
 							if(error){
 								console.log(error);
 							} else {
@@ -227,9 +227,7 @@ app.post('/webhook/', (req, res) => {
  										displayText: result.code
  										}
  									
-								magento.createorder(result.code, (error, cartResult)=> {
-									res.send(messageData);
-								});	
+									res.send(messageData);	
  								}
 						   	});
 						}	
