@@ -18,7 +18,7 @@ var getAuthTokenService =(callback) =>{
     method: 'POST',
     rejectUnauthorized: false,
     headers: {
-        "Authorization": bearer,
+       // "Authorization": bearer,
         "Content-Type": "application/json"
       },
     json: true
