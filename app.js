@@ -244,8 +244,7 @@ app.post('/webhook/', (req, res) => {
 								console.log(error);
 							} else {
 								token = result.code
-								console.log('Code--->',result.code);
-								text="Greetings! How can I assist?";
+								text="Greetings! I am Marty.How can I assist?";
 								messageData = {
  										speech: text,
  										displayText: text
