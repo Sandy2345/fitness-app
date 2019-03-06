@@ -72,7 +72,7 @@ console.log(authToken);
      console.log(s)
      callback(undefined, {
 	     //ordernumber: body.items[1].item_id
-	    console.log(s) 
+	    //console.log(s) 
         });
       }
     });
