@@ -65,6 +65,14 @@ console.log(authToken);
 	    console.log(body);
 	     console.log("body values");
            console.log(body[0].order_id);
+	    for(var i =0; i < 4;i++){
+            var str = ""
+             str + ="You have 4 orders in your order list, and the details are " body[i].name + "it will be delivered at your shipping address in" + body[i].delivery_days + "days"
+             }
+	  callback(undefined, {
+		  console.log(str);
+	     ordernumber: body.items[1].item_id
+        });
      
       }
     });
