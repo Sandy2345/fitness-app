@@ -61,9 +61,9 @@ console.log(authToken);
       console.log('Cart already present');
     }
     else if(response.statusCode == 200){ 
-      console.log('createorderService API hit:',body.order_id)
+      console.log('createorderService API hit:',body.[0].order_id)
       callback(undefined, {
-	     ordernumber: body.delivery_days
+	     ordernumber: body
         });
       }
     });
