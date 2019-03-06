@@ -216,10 +216,11 @@ app.post('/webhook/', (req, res) => {
 		    
                                        case 'tokeneeeeee':{
 				 	console.log('In case Tokeneeee');
-                                      magento.createorder(result.code, (error, cartResult)=> {
+                                     getAuthTokenService((error, result)=> {
 							if(error){
 								console.log(error);
 							} else {
+								token = result.code
 								console.log('Code--->',result.code);
 								text="I am sending you the options, please check on your app.";
 								messageData = {
