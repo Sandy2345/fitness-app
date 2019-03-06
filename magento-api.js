@@ -2,7 +2,7 @@ const request= require('request');
 var base64 = require('base-64');
 var utf8 = require('utf8');
 var contacturl = '';
-var getAuthTokenService = (callback) =>{
+var getAuthTokenService =(callback) =>{
   console.log('Auth magento token API hit');
   //var bytes = utf8.encode(username+":"+password);
   //var newBearer = base64.encode(bytes);
@@ -16,10 +16,9 @@ var getAuthTokenService = (callback) =>{
       "password": "Admin@123"
     },
     method: 'POST',
-   timeout: 40000,
     rejectUnauthorized: false,
     headers: {
-        //"Authorization": bearer,
+        "Authorization": bearer,
         "Content-Type": "application/json"
       },
     json: true
@@ -43,9 +42,8 @@ var createorder = (authToken, callback) =>{
 //var count = Object.keys(body).length;
 console.log('Create order api');
   request({
-    url: `https://34.242.42.128/rest/default/V1/orders/1`,
+    url: `https://34.242.42.128/rest/default/V1/orders/1` ,
     method: 'GET',
-    timeout: 40000,
     headers: {
         "content-type": "application/json",
         "authorization": `Bearer ${authToken}`
