@@ -237,6 +237,7 @@ app.post('/webhook/', (req, res) => {
 		    
 		    case 'tokent':{
 				 	console.log('In case Tokeneeee');
+			    console.log('Code--->',token);
                                     magento.createorder(token, (error, cartResult)=> {
 							if(error){
 								console.log(error);
