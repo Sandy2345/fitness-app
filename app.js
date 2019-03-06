@@ -157,11 +157,12 @@ app.post('/webhook/', (req, res) => {
 							if(error){
 								console.log(error);
 							} else {
+								console.log('Code----> ',result.code);
 								magento.createorder(result.code, (error, cartResult)=> {
 									if(error){
 										console.log(error);
 									} else {
-								
+										console.log('Order Number----> ',cartResult.ordernumber);
 										 text="I am sending you the options, please check on your app.";
 										messageData = {
 												speech: text,
