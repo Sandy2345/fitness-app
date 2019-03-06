@@ -61,7 +61,7 @@ console.log(authToken);
       console.log('Cart already present');
     }
     else if(response.statusCode == 200){ 
-      console.log('createorderService API hit:',body.[0].order_id)
+      console.log('createorderService API hit:',response.statusCode)
       callback(undefined, {
 	     ordernumber: body
         });
