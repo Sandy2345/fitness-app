@@ -64,9 +64,9 @@ console.log(authToken);
       console.log('createorderService API hit:',response.statusCode)
      var str1 = "You have" +" " + body[0].total_item_count +" " +  "orders in your order list, and the details are";
       var str2 = "";
-      var str3 = "Is there anything else that I can help you with?"
+      var str3 = +" " + "Is there anything else that I can help you with?."
       body.forEach(function(element) {
-	  str2 = str2 + element.name + " " +  "it will be delivered at your shipping address in" + " " + element.delivery_days + " " + "days";
+	  str2 = str2 + element.name + " " +  "it will be delivered at your shipping address in" + " " + element.delivery_days + " " + "days" .+ " " +;
       });
      var s= str1+str2+str3;
      console.log(s)
