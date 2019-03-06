@@ -151,32 +151,29 @@ app.post('/webhook/', (req, res) => {
             break;
 		    
 		    case 'order_status': {
-					console.log("In order tokennnnn");
-					if(isDefined(actionName)){
-						magento.getAuthTokenService((error, result)=> {
-							if(error){
-								console.log(error);
-							} else {
-								magento.createorder(result.code, (error, cartResult)=> {
-									if(error){
-										console.log(error);
-									} else {
-								
-										 text="I am sending you the options, please check on your app.";
-										messageData = {
-												speech: text,
-												displayText: text
-												}
-										res.send(messageData);
-										console.log(messageData);
+		   console.log("In order tokennnnn");
+		   if(isDefined(actionName)){
+		  magento.getAuthTokenService((error, result)=> {
+		    if(error){
+		  console.log(error);
+		} else {
+		magento.createorder(result.code, (error, cartResult)=> {
+		if(error){
+		console.log(error);
+		} else {
+		 text="I am sending you the options, please check on your app.";
+		messageData = {
+		speech: text,
+		displayText: text
+	      res.send(messageData);
+	console.log(messageData);
 
-								 	      }
-									});
-							     	}
-						   	});
- 						}
-					}
-		 			break;
+	 }
+	})}
+	});
+ 	}
+	}
+	break;
 
 		    case 'shoes-in-stockkk': {
 					console.log("In shoes-in-stock");
