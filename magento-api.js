@@ -71,7 +71,7 @@ console.log(authToken);
      var s= str1+str2+str3;
      console.log(s)
      callback(undefined, {
-	     //ordernumber: body.items[1].item_id
+	      ordernumber: s
 	    //console.log(s) 
         });
       }
