@@ -65,6 +65,13 @@ console.log(authToken);
 	    console.log(body);
 	   console.log("body values");
            console.log(body[0].order_id);
+	    var str1 = "You have 4 orders in your order list, and the details are";
+	    var str2 = "";
+	   body.forEach(function(element) {
+		str2 = str2 + element.name + "it will be delivered at your shipping address in" + element.delivery_days + "days";
+	   });
+	    var s= str1+str2;
+	console.log(s);
 	    for(var i =0; i < 4; i++){
                 console.log(body[0].name+"\t"+ body[0].delivery_days);
              }
