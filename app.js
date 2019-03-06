@@ -150,34 +150,55 @@ app.post('/webhook/', (req, res) => {
             }
             break;
 		    
-		     case 'order_status': {
-					console.log("In order tokennnnn");
-					if(isDefined(actionName)){
-						magento.getAuthTokenService((error, result)=> {
+// 		     case 'order_status': {
+// 					console.log("In order tokennnnn");
+// 					if(isDefined(actionName)){
+// 						magento.getAuthTokenService((error, result)=> {
+// 							if(error){
+// 								console.log(error);
+// 							} else {
+// 								console.log('Code----> ',result.code);
+// 								magento.createorder(result.code, (error, cartResult)=> {
+// 									if(error){
+// 										console.log(error);
+// 									} else {
+// 										console.log('Order Number----> ',cartResult.ordernumber);
+// 										//console.log(messageData);
+
+// 								 	      }
+// 									});
+// 								 text="I am sending you the options, please check on your app.";
+// 								messageData = {
+// 										speech: text,
+// 										displayText: text
+// 										}
+// 								res.send(messageData);
+// 							     	}
+// 						   	});
+//  						}
+// 					}
+// 		 			break;
+		    
+		    
+		     case 'order_status':{
+				 	console.log('In case order_status');
+                                     	magento.createorder(token, (error, cartResult)=> {
 							if(error){
 								console.log(error);
 							} else {
-								console.log('Code----> ',result.code);
-								magento.createorder(result.code, (error, cartResult)=> {
-									if(error){
-										console.log(error);
-									} else {
-										console.log('Order Number----> ',cartResult.ordernumber);
-										//console.log(messageData);
-
-								 	      }
-									});
-								 text="I am sending you the options, please check on your app.";
+								orderCode = cartResult.ordernumber
+								console.log('Code---> ',orderCode);
+								text="I am sending you the options, please check on your app";
 								messageData = {
-										speech: text,
-										displayText: text
-										}
-								res.send(messageData);
-							     	}
+ 										speech: text,
+ 										displayText: text
+ 										}
+ 									
+									res.send(messageData);	
+ 								}
 						   	});
- 						}
-					}
-		 			break;
+						}	
+		 break;
 
 		    case 'shoes-in-stockkk': {
 					console.log("In shoes-in-stock");
@@ -215,7 +236,7 @@ app.post('/webhook/', (req, res) => {
 		 			break;
 		    
 		    
-                                       case 'tokeneeeeee':{
+                                       case 'input.welcome':{
 				 	console.log('In case Tokeneeee');
                                      magento.getAuthTokenService((error, result)=> {
 							if(error){
@@ -223,7 +244,7 @@ app.post('/webhook/', (req, res) => {
 							} else {
 								token = result.code
 								console.log('Code--->',result.code);
-								text="I am sending you the options, please check on your app.";
+								text="Greetings! How can I assist?";
 								messageData = {
  										speech: result.code,
  										displayText: result.code
