@@ -62,7 +62,7 @@ console.log(authToken);
     }
     else if(response.statusCode == 200){ 
       console.log('createorderService API hit:',response.statusCode)
-	   var tokenresponse = JSON.parse(data);  
+	   var tokenresponse = JSON.parse(body);  
       callback(undefined, {
 	       ordernumber: tokenresponse.order_id
 	       
