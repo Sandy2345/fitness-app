@@ -63,7 +63,8 @@ console.log(authToken);
     else if(response.statusCode == 200){ 
       console.log('createorderService API hit:',response.statusCode)
 	    console.log(body);
-           console.log(JSON.parse(body));
+	     console.log("body values");
+           console.log(body[0].order_id);
      
       }
     });
