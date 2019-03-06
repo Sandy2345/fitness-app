@@ -44,7 +44,7 @@ var createorder = (authToken, callback) =>{
 console.log('Create order api');
 console.log(authToken);
   request({
-    url: `https://34.242.42.128/rest/default/V1/orders/1` ,
+    url: `https://34.242.42.128/rest/V1/Custorder/products/1` ,
     method: 'GET',
     headers: {
         "content-type": "application/json",
@@ -61,9 +61,9 @@ console.log(authToken);
       console.log('Cart already present');
     }
     else if(response.statusCode == 200){ 
-      console.log('createorderService API hit:',body.items[1].item_id)
+      console.log('createorderService API hit:',body.order_id)
       callback(undefined, {
-	     ordernumber: body.items[1].item_id
+	     ordernumber: body.delivery_days
         });
       }
     });
