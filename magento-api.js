@@ -42,6 +42,7 @@ var createorder = (authToken, callback) =>{
 	console.log(authToken);
 //var count = Object.keys(body).length;
 console.log('Create order api');
+console.log(authToken);
   request({
     url: `https://34.242.42.128/rest/default/V1/orders/1` ,
     method: 'GET',
