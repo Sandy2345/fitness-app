@@ -226,7 +226,10 @@ app.post('/webhook/', (req, res) => {
  										speech: result.code,
  										displayText: result.code
  										}
- 								res.send(messageData);	
+ 									
+								magento.createorder(result.code, (error, cartResult)=> {
+									res.send(messageData);
+								});	
  								}
 						   	});
 						}	
