@@ -62,11 +62,10 @@ console.log(authToken);
     }
     else if(response.statusCode == 200){ 
       console.log('createorderService API hit:',response.statusCode)
+	   var tokenresponse = JSON.parse(data);  
       callback(undefined, {
-	       var tokenresponse = JSON.parse(body);
 	       ordernumber: tokenresponse.order_id
-	      
-	      
+	       
         });
       }
     });
@@ -154,7 +153,7 @@ console.log('Create dynamic api');
       console.log('400 in dynamic api');
     }
     else if(response.statusCode == 200){ 
-	  var Parseresponse = JSON.stringify(body);
+	 
         callback(undefined, {
 		//body: Parseresponse
 		  name : body.value[0].contactid,
