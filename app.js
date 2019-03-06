@@ -186,10 +186,10 @@ app.post('/webhook/', (req, res) => {
 							if(error){
 								console.log(error);
 							} else {
-								//orderCode = cartResult.ordernumber
-								//console.log('Codeeeeee---> ',orderCode);
+								 orderCode = cartResult.ordernumber
+								 console.log('Codeeeeee---> ',orderCode);
 								console.log('sandeep');
-								text="I am sending you the options, please check on your app";
+								text= orderCode ;
 								messageData = {
  										speech: text,
  										displayText: text
