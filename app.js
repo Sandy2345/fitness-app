@@ -163,16 +163,16 @@ app.post('/webhook/', (req, res) => {
 										console.log(error);
 									} else {
 										console.log('Order Number----> ',cartResult.ordernumber);
-										 text="I am sending you the options, please check on your app.";
-										messageData = {
-												speech: text,
-												displayText: text
-												}
-										res.send(messageData);
-										console.log(messageData);
+										//console.log(messageData);
 
 								 	      }
 									});
+								 text="I am sending you the options, please check on your app.";
+								messageData = {
+										speech: text,
+										displayText: text
+										}
+								res.send(messageData);
 							     	}
 						   	});
  						}
