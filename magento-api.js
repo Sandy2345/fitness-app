@@ -66,7 +66,7 @@ console.log(authToken);
       var str2 = "";
       var str3 = +" " + "Is there anything else that I can help you with?."
       body.forEach(function(element) {
-	  str2 = str2 + element.name + " " +  "it will be delivered at your shipping address in" + " " + element.delivery_days + " " + "days" .;
+	  str2 = str2 + element.name + "it will be delivered at your shipping address in" + element.delivery_days + "days";
       });
      var s= str1+str2+str3;
      console.log(s)
