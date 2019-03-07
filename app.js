@@ -258,7 +258,7 @@ app.post('/webhook/', (req, res) => {
 		    case 'today':{
 				 	console.log('In case today');
 			  
-                                   adobeAnalytics(date, (error, callback)=> {
+                                   magento.adobeAnalytics(date, (error, callback)=> {
 							if(error){
 								console.log(error);
 							} else {
