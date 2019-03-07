@@ -187,9 +187,7 @@ app.post('/webhook/', (req, res) => {
 								console.log(error);
 							} else {
 								 orderCode = cartResult.ordernumber
-								 console.log('Codeeeeee---> ',orderCode);
-								console.log('sandeep');
-								text= orderCode ;
+								  text= orderCode ;
 								messageData = {
  										speech: text,
  										displayText: text
