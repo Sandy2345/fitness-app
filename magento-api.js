@@ -214,7 +214,11 @@ var updateDynamic = (authToken,contactid, callback) => {
          });
 };
 
-
+//adobe analytics chirag code starts
+var adobeAnalytics(date, (error, callback)  => {
+	callback('inside adobe analytics');
+}
+//adobe analytics chirag code ends
 
 function isEmpty(obj) {
     for(var key in obj) {
@@ -228,5 +232,6 @@ module.exports = {
     createorder,
     dynamicAuthToken,
     getdynamic,
-    updateDynamic
+    updateDynamic,
+	adobeAnalytics
 };
