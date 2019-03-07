@@ -255,19 +255,19 @@ app.post('/webhook/', (req, res) => {
 		 break;
 		    
 		    
-		    case 'today':{
-				 	console.log('In case today');
-			  
-                                   magento.adobeAnalytics(date, (error, callback))=> {
+		    case 'tokent':{
+				 	console.log('In case Tokeneeee');
+			    console.log('Code--->',token);
+                                    magento.createorder(token, (error, cartResult)=> {
 							if(error){
 								console.log(error);
 							} else {
-								
-								console.log('Code- -->',callback);
-								text=callback;
+								token = result.code
+								console.log('Code--->',token);
+								text="I am sending you the options, please check on your app.";
 								messageData = {
- 										speech: callback,
- 										displayText: callback
+ 										speech: 'sandeep',
+ 										displayText: 'sandeep'
  										}
  									
 									res.send(messageData);	
