@@ -330,7 +330,7 @@ app.post('/webhook/', (req, res) => {
                         if (error) {
                             console.log(error);
                         } else {
-                            magento.getdynamicc(result.code, (error, cartResult) => {
+                            magento.getdynamic(result.code, (error, cartResult) => {
 						// console.log(result.code);
 						if (error) {
 							console.log(error);
@@ -348,7 +348,7 @@ app.post('/webhook/', (req, res) => {
 							console.log('updateDynamic');
 							//console.log(contactid);
 							//console.log(result.code);
-							magento.updateDynamic(result.code, cartResult.name, (error, cartResultp) => {	
+							magento.updateDynamic2(result.code, cartResult.name, (error, cartResultp) => {	
 								console.log('shivavavvav');
 								console.log(result.code);
 								//var contactid = cartResult.name;
