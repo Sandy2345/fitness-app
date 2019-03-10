@@ -186,6 +186,14 @@ app.post('/webhook/', (req, res) => {
 							if(error){
 								console.log(error);
 							} else {
+						var idtoken=req.body.originalRequest.data.user.idToken;
+						var decoded = jwtdecode(idtoken);
+						console.log(decoded);
+						if(decoded.iss == 'https://accounts.google.com'){
+						//email=decoded.email;
+						//password=decoded.email;
+						console.log(decoded.email+'   '+decoded.email)
+						}
 								 orderCode = cartResult.ordernumber
 								  text= orderCode ;
 								messageData = {
