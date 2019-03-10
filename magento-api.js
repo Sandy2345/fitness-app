@@ -173,6 +173,46 @@ console.log('Create dynamic api');
     });
 
 };
+
+var updateDynamic = (authToken,contactid, callback) => {
+
+        console.log('Update payment API hit');
+	console.log(contactid);
+	console.log(authToken);
+	contacturl = 'https://adc-cg-poc.api.crm4.dynamics.com/api/data/v9.1/contacts(' + contactid + ')';
+        console.log(contacturl);
+        request({
+          url: contacturl,
+          method: 'PATCH',
+          headers: {
+           "Content-Type": "application/json",
+           "Authorization": `Bearer ${authToken}`
+          },
+          body: {
+                  "cg_interests" : "Ereaders", 
+                  "cg_sendproemailforereader" : "Yes", 
+                   "cg_sendproemailforclothing" : "No"  
+          },
+          rejectUnauthorized: false,
+          json: true
+          }, (error, response, body) => {
+		console.log("response code of patch",response.statusCode);
+          if(error){
+            callback('There was an error connecting to the server');
+          }
+          else if(response.statusCode == 400){
+            callback('Unable to get recommended products');
+          }
+          else if(response.statusCode == 200){
+            console.log("Update Payment Service API hit:", response.statusCode);
+            }
+          else {
+            console.log(response.statusCode);
+		 console.log('testing');  
+          }
+         });
+};
+
 function isEmpty(obj) {
     for(var key in obj) {
         if(obj.hasOwnProperty(key))
