@@ -190,7 +190,7 @@ var updateDynamic = (authToken,contactid, callback) => {
            "Authorization": `Bearer ${authToken}`
           },
           body: {
-                  "cg_interests" : "Ereaders", 
+                  "cg_interests" : "updateDynamic", 
                   "cg_sendproemailforereader" : "Yes", 
                    "cg_sendproemailforclothing" : "No"  
           },
@@ -229,7 +229,7 @@ var updateDynamic2 = (authToken,contactid, callback) => {
            "Authorization": `Bearer ${authToken}`
           },
           body: {
-                  "cg_interests" : "clothing", 
+                  "cg_interests" : "updateDynamic2", 
                   "cg_sendproemailforereader" : "Yes", 
                    "cg_sendproemailforclothing" : "No"  
           },
