@@ -322,6 +322,48 @@ app.post('/webhook/', (req, res) => {
                 }
             }
             break;
+		    
+		     case 'dynamicValueno': {
+                  console.log("In shoes-in-stock");
+                   if (isDefined(actionName)) {
+                    magento.dynamicAuthToken((error, result) => {
+                        if (error) {
+                            console.log(error);
+                        } else {
+                            magento.getdynamicc(result.code, (error, cartResult) => {
+						// console.log(result.code);
+						if (error) {
+							console.log(error);
+						} else {
+							console.log('sandeep')
+							console.log(contactid);
+							console.log(cartResult.body);
+							var contactid = cartResult.name;
+							text = "Yes, e color as current one";
+							messageData = {
+								speech: text,
+								displayText: text
+							}
+							res.send(messageData);
+							console.log('updateDynamic');
+							//console.log(contactid);
+							//console.log(result.code);
+							magento.updateDynamic(result.code, cartResult.name, (error, cartResultp) => {	
+								console.log('shivavavvav');
+								console.log(result.code);
+								//var contactid = cartResult.name;
+								console.log(cartResult.name);
+								console.log('trtetteteteetet');
+							});
+						}
+ 					
+					});
+				}
+			});
+                }
+            }
+            break;
+
 
         case 'shoes-in-stock-order':
             {
