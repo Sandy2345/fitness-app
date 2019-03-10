@@ -122,7 +122,7 @@ app.post('/webhook/', (req, res) => {
     // 		res.send(messageData);	
     // 	};
 
-    console.log(JSON.stringify(req.body));
+    //console.log(JSON.stringify(req.body));
     var data = req.body;
     var sessionId = req.body.sessionId;
     var actionName = req.body.result.action;
@@ -186,7 +186,7 @@ app.post('/webhook/', (req, res) => {
 							if(error){
 								console.log(error);
 							} else {
-						          console.log(JSON.stringify(req.body));
+						          //console.log(JSON.stringify(req.body));
 						             // var token=req.body.originalRequest.data.user.idToken;
 						             // console.log(token);
 								//console.log(JSON.stringify(decoded));
