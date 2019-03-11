@@ -208,9 +208,34 @@ console.log('Create dynamic api');
 };
 
 var getvalue = (callback) =>{
-console.log('inside value');
+var OmnitureAPI = require('node-omniture-api')
+var omniture = new OmnitureAPI('payal.daryani@capgemini.com:Capgeminisandbox', 'e5eccca081d2a1a329ee56e41e451811');
+var pageViews;
+	requestData = {
+		"reportDescription": {
+		"source": "realtime",
+		"reportSuiteID": "geo1xxlon-we-retail-demo",
+
+		"metrics": "[{ id: 'pageviews' }]"
+
+		}
+	}
+console.log('inside value');	
+omniture.queueAndFetchReport(requestData, function (success, data) {
+		if (success) {
+
+			pageViews = data.report.totals[0];
+			console.log(data.report.totals[0]);
+			console.log(pageViews);
+			
+		} else {
+			pageViews = data;
+			console.error(data);
+		}
+	});
   callback(undefined, {
-   body: 'chirag'
+   body: 'chirag',
+	  page : pageViews
 		
         }); 
 
