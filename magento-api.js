@@ -399,5 +399,6 @@ module.exports = {
     getdynamic,
     updateDynamic,
     AdobeAuthToken,
-    getvalue
+    getvalue,
+   getvalueyesterday 
 };
