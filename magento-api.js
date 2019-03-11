@@ -253,7 +253,6 @@ var dateTo = new Date();
 	dateFrom.setDate(dateFrom.getDate() - 1);
 	requestData = {
 		"reportDescription": {
-		"source": "realtime",
 		"reportSuiteID": "geo1xxlon-we-retail-demo",
                 "dateFrom": dateFrom.toISOString().slice(0, 10),
 		"dateTo": dateTo.toISOString().slice(0, 10),
