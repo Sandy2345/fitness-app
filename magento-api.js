@@ -219,6 +219,7 @@ var AdobeAuthToken = (callback) => {
 //configuration details
 //mostly extracted from Azure 
 //--> app registered as web application in Azure A
+const https = require('https');
 var authhost = 'https://ims-na1.adobelogin.com/ims/authorize/v1';
 var authpath = 'https://ims-na1.adobelogin.com/ims/token/v1';
 var clientid = 'b3a3666f9af54657a97c967f870812e7';
