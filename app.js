@@ -250,10 +250,12 @@ app.post('/webhook/', (req, res) => {
 		    
 		    
 		             case 'serviceCloud': {
+				      magento.getvalue((error, cartResult)=> {
 					console.log('In serviceCloud');
 						if(isDefined(actionName)){
 							console.log('ssssssssssss');
-						       text="I am sending you the options, please check on your app.";
+							console.log(cartResult.body)
+						       text="I am sending you the options, please check on your app + cartResult.body + fsfsff";
 							messageData = {
 									speech: text,
 									displayText: text
@@ -261,6 +263,7 @@ app.post('/webhook/', (req, res) => {
 							res.send(messageData);	
 							//mailer.sendMailService(emailId, customerName);
 						     }
+				      });
 						}
 					break;
 		    
