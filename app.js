@@ -255,7 +255,7 @@ app.post('/webhook/', (req, res) => {
 						if(isDefined(actionName)){
 							console.log('ssssssssssss');
 							console.log(cartResult.body)
-						       text="I am sending you the options, please check on your app + cartResult.body + fsfsff";
+						       text="I am sending you the options, please check on your app "  + cartResult.body;
 							messageData = {
 									speech: text,
 									displayText: text
