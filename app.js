@@ -253,7 +253,7 @@ app.post('/webhook/', (req, res) => {
 					console.log('In serviceCloud');
 						if(isDefined(actionName)){
 							console.log('ssssssssssss');
-							text: "Sure, I'll inform the store manager. Your shoes will be ready on time. Probably don't use them for your next trail as the distance is too long for brand new shoes. By the way do you want to check how you used your last pair ?";
+						       text="I am sending you the options, please check on your app.";
 							messageData = {
 									speech: text,
 									displayText: text
