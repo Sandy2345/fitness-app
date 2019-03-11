@@ -228,13 +228,14 @@ app.post('/webhook/', (req, res) => {
 		    
 		    case 'tokent':{
 				 	console.log('In case Tokeneeee');
-			    console.log('Code--->',token);
-                                    magento.createorder(token, (error, cartResult)=> {
+			    //console.log('Code--->',token);
+                                    magento.AdobeAuthToken ((error, cartResult)=> {
 							if(error){
 								console.log(error);
 							} else {
-								token = result.code
-								console.log('Code--->',token);
+								//token = result.code
+								//console.log('Code--->',token);
+								console.log('mandeep');
 								text="I am sending you the options, please check on your app.";
 								messageData = {
  										speech: 'sandeep',
