@@ -225,19 +225,22 @@ omniture.queueAndFetchReport(requestData, function (success, data) {
 		if (success) {
 
 			pageViews = data.report.totals[0];
+			console.log("sssssandceep");
 			console.log(data.report.totals[0]);
+			console.log("dgdggdgdgdgd");
 			console.log(pageViews);
+			callback(undefined, {
+                       body: 'chirag',
+	               page : data.report.totals[0]
+		
+        }); 
 			
 		} else {
 			pageViews = data;
 			console.error(data);
 		}
 	});
-  callback(undefined, {
-   body: 'chirag',
-	  page : pageViews
-		
-        }); 
+  
 
 };
 
