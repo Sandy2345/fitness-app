@@ -267,6 +267,24 @@ app.post('/webhook/', (req, res) => {
 				      });
 						}
 					break;
+		    case 'yesterday': {
+				      magento.getvalueyesterday((error, cartResult)=> {
+					console.log('In serviceCloud');
+						if(isDefined(actionName)){
+							console.log('yesterday');
+							console.log(cartResult.body)
+							console.log(cartResult.page)
+						       text="yesterdayp "  + cartResult.body +  " "+ cartResult.page ;
+							messageData = {
+									speech: text,
+									displayText: text
+									}
+							res.send(messageData);	
+							//mailer.sendMailService(emailId, customerName);
+						     }
+				      });
+						}
+					break;
 		    
 		    
 		    case 'dynamicValue': {
