@@ -207,7 +207,7 @@ console.log('Create dynamic api');
 
 };
 
-var getvalue = (authToken, callback) =>{
+var getvalue = (callback) =>{
 console.log('inside value');
   callback(undefined, {
 		   body: 'chirag';
