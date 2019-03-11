@@ -222,8 +222,8 @@ var AdobeAuthToken = (callback) => {
 const https = require('https');
 var authhost = 'https://ims-na1.adobelogin.com/ims/authorize/v1';
 var authpath = 'https://ims-na1.adobelogin.com/ims/token/v1';
-var clientid = 'b3a3666f9af54657a97c967f870812e7';
-var client_secret = '287115cb-1d21-4a5e-9c69-1a274b046d7b';
+var clientid = 'ed54094318a645198c83cb02efa14834';
+var client_secret = 'bb06ab68-9951-4d94-bf04-b6db7c580424';
 
 //token request parameters
 var postData = 'client_id=' + clientid;
