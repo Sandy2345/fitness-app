@@ -27,6 +27,7 @@
     "utf8": "^3.0.0",
     "uuid": "^2.0.3",
     "xml2js": "^0.4.19",
-    "dateformat": "^3.0.3"
+    "dateformat": "^3.0.3",
+    "node-omniture-api":"^0.2.0"
   }
 }
