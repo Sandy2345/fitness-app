@@ -264,7 +264,7 @@ app.post('/webhook/', (req, res) => {
 							//console.log(contactid);
 							//console.log(cartResult.body);
 							var contactid = cartResult.name;
-							text = "Yes, there is currently a promotion - they are at 200 swiss francs until the end of the month and are available at your usual Cap Sports Style store. Same color as current one";
+							text = "Ok. We have shared the eBook reader deals on your registered email id. Have a nice day!!";
 							messageData = {
 								speech: text,
 								displayText: text
@@ -274,11 +274,11 @@ app.post('/webhook/', (req, res) => {
 							//console.log(contactid);
 							//console.log(result.code);
 							magento.updateDynamic(result.code, cartResult.name, (error, cartResultp) => {	
-								console.log('shivavavvav');
-								console.log(result.code);
+								
+								
 								//var contactid = cartResult.name;
-								console.log(cartResult.name);
-								console.log('trtetteteteetet');
+								//console.log(cartResult.name);
+								//console.log('trtetteteteetet');
 							});
 						}
  					
