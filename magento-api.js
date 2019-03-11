@@ -213,6 +213,61 @@ var updateDynamic = (authToken,contactid, callback) => {
          });
 };
 
+
+
+var AdobeAuthToken = (callback) => {
+//configuration details
+//mostly extracted from Azure 
+//--> app registered as web application in Azure A
+var authhost = 'https://ims-na1.adobelogin.com/ims/authorize/v1';
+var authpath = 'https://ims-na1.adobelogin.com/ims/token/v1';
+var clientid = 'b3a3666f9af54657a97c967f870812e7';
+var client_secret = '287115cb-1d21-4a5e-9c69-1a274b046d7b';
+
+//token request parameters
+var postData = 'client_id=' + clientid;
+//postData += '&resource=' + encodeURIComponent(crmorg);
+postData += '&client_secret=' + encodeURIComponent(client_secret);
+postData += '&grant_type=client_credentials';
+
+//set the token request parameters
+var options = {
+    host: authhost,
+    path: authpath,
+    method: 'POST',
+    headers: {
+        'Content-Type': 'application/x-www-form-urlencoded',
+        'Content-Length': Buffer.byteLength(postData)
+    }
+};
+
+//make the token request
+var request = https.request(options, (response) => {
+    let data = '';
+
+    //  A chunk of data has been recieved
+    response.on('data', (chunk) => {
+        data += chunk;
+    });
+
+    // The whole response has been recieved
+    response.on('end', () => {
+        var tokenresponse = JSON.parse(data);
+        var access_token = tokenresponse.access_token;
+        console.log('Token: ' + access_token);
+    });
+});
+
+request.on('error', (e) => {
+    console.error(e);
+});
+
+request.write(postData);
+request.end();
+
+};
+
+
 function isEmpty(obj) {
     for(var key in obj) {
         if(obj.hasOwnProperty(key))
@@ -225,5 +280,6 @@ module.exports = {
     createorder,
     dynamicAuthToken,
     getdynamic,
-    updateDynamic
+    updateDynamic,
+    AdobeAuthToken
 };
