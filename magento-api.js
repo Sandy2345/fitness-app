@@ -174,6 +174,51 @@ console.log('Create dynamic api');
 
 };
 
+var getdynamic = (authToken, callback) =>{
+console.log('Create dynamic api');
+  request({
+    url: 'https://adc-cg-poc.api.crm4.dynamics.com/api/data/v9.1/contacts?$select=lastname,cg_isprimary,cg_primarycontactsemail,cg_customertoken,cg_interests&$filter=emailaddress1%20eq%20%27verma@gmail.com%27',
+    method: 'GET',
+    timeout: 40000,
+    headers: {
+        "content-type": "application/json",
+        "authorization": `Bearer ${authToken}`
+      },
+    rejectUnauthorized: false,
+    json: true
+  }, (error, response, body) => {
+
+    if(error){
+      callback('There was an error connecting to the server');
+    }
+    else if(response.statusCode == 400){
+      console.log('400 in dynamic api');
+    }
+    else if(response.statusCode == 200){ 
+	 
+        callback(undefined, {
+		//body: Parseresponse
+		  name : body.value[0].contactid,
+		  body : body
+		
+        });
+      }
+    });
+
+};
+
+var getvalue = (authToken, callback) =>{
+console.log('inside value');
+  callback(undefined, {
+		   body: 'chirag';
+		
+        }); 
+
+};
+
+
+
+
 var updateDynamic = (authToken,contactid, callback) => {
 
         console.log('Update payment API hit');
@@ -283,5 +328,6 @@ module.exports = {
     dynamicAuthToken,
     getdynamic,
     updateDynamic,
-    AdobeAuthToken
+    AdobeAuthToken,
+    getvalue
 };
