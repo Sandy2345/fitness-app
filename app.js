@@ -260,7 +260,7 @@ app.post('/webhook/', (req, res) => {
                         console.log('today');
                         console.log(cartResult.body)
                         console.log(cartResult.page)
-                        text = "I am sending you the options, please check on your app " + cartResult.body + " " + cartResult.page;
+                        text = "The total number of page views today is" + cartResult.page;
                         messageData = {
                             speech: text,
                             displayText: text
