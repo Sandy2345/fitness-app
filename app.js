@@ -305,7 +305,7 @@ app.post('/webhook/', (req, res) => {
                         console.log('yesterday');
                         console.log(cartResult.body)
                         console.log(cartResult.page)
-                        text = "This week we had  " + cartResult.page;
+                        text = "The total number of page views in this week is  " + cartResult.page;
                         messageData = {
                             speech: text,
                             displayText: text
@@ -324,7 +324,7 @@ app.post('/webhook/', (req, res) => {
                         console.log('lastweek');
                         console.log(cartResult.body)
                         console.log(cartResult.page)
-                        text = "Last week we had  " + cartResult.page;
+                        text = "The total number of page views in Last week is  " + cartResult.page;
                         messageData = {
                             speech: text,
                             displayText: text
@@ -343,7 +343,7 @@ app.post('/webhook/', (req, res) => {
                         console.log('month');
                         console.log(cartResult.body)
                         console.log(cartResult.page)
-                        text = "This month we had  " + cartResult.page;
+                        text = "The total number of page views in this month is  " + cartResult.page;
                         messageData = {
                             speech: text,
                             displayText: text
@@ -363,7 +363,7 @@ app.post('/webhook/', (req, res) => {
                         console.log('yesterday');
                         console.log(cartResult.body)
                         console.log(cartResult.page)
-                        text = "Last month we had  " + cartResult.page;
+                        text = "The total number of page views in Last month is  " + cartResult.page;
                         messageData = {
                             speech: text,
                             displayText: text
