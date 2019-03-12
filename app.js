@@ -329,6 +329,25 @@ app.post('/webhook/', (req, res) => {
                 });
             }
             break;
+            case 'month':
+            {
+                magento.getvaluemonth((error, cartResult) => {
+                    console.log('monthh');
+                    if (isDefined(actionName)) {
+                        console.log('month');
+                        console.log(cartResult.body)
+                        console.log(cartResult.page)
+                        text = "month " + cartResult.body + " " + cartResult.page;
+                        messageData = {
+                            speech: text,
+                            displayText: text
+                        }
+                        res.send(messageData);
+                        //mailer.sendMailService(emailId, customerName);
+                    }
+                });
+            }
+            break;
 
 
      
