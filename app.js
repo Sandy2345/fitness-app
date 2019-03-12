@@ -348,15 +348,16 @@ app.post('/webhook/', (req, res) => {
                 });
             }
             break;
-           case 'lastmonth':
+            
+           case 'viewslast':
             {
                 magento.getvaluelastmonth((error, cartResult) => {
-                    console.log('monthh');
+                    console.log('last month');
                     if (isDefined(actionName)) {
                         console.log('yesterday');
                         console.log(cartResult.body)
                         console.log(cartResult.page)
-                        text = "lastmonth " + cartResult.body + " " + cartResult.page;
+                        text = "lastmonth" + cartResult.body + " " + cartResult.page;
                         messageData = {
                             speech: text,
                             displayText: text
