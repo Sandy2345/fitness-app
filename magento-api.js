@@ -206,7 +206,7 @@ var getvalue = (callback) => {
     requestData = {
         "reportDescription": {
             "source": "realtime",
-            "reportSuiteID": "geo1xxlon-we-can-mart",
+            "reportSuiteID": "geo1xxlon-we-retail-demo",
 
             "metrics": "[{ id: 'pageviews' }]"
 
@@ -245,7 +245,7 @@ var getvalueyesterday = (callback) => {
     dateFrom.setDate(dateFrom.getDate() - 1);
     requestData = {
         "reportDescription": {
-            "reportSuiteID": "geo1xxlon-we-can-mart",
+            "reportSuiteID": "geo1xxlon-we-retail-demo",
             "dateFrom": dateFrom.toISOString().slice(0, 10),
             "dateTo": dateTo.toISOString().slice(0, 10),
             "metrics": "[{ id: 'pageviews' }]"
