@@ -305,6 +305,25 @@ app.post('/webhook/', (req, res) => {
 						}
 					break;
 		    
+		    case 'lastweek': {
+				      magento.getvaluelastweek((error, cartResult)=> {
+					console.log('In serviceCloud');
+						if(isDefined(actionName)){
+							console.log('yesterday');
+							console.log(cartResult.body)
+							console.log(cartResult.page)
+						       text="lastweek "  + cartResult.body +  " "+ cartResult.page ;
+							messageData = {
+									speech: text,
+									displayText: text
+									}
+							res.send(messageData);	
+							//mailer.sendMailService(emailId, customerName);
+						     }
+				      });
+						}
+					break;
+		    
 		    
 		    case 'dynamicValue': {
                   console.log("In shoes-in-stock");
