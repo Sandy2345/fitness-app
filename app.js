@@ -253,7 +253,7 @@ app.post('/webhook/', (req, res) => {
 				      magento.getvalue((error, cartResult)=> {
 					console.log('In serviceCloud');
 						if(isDefined(actionName)){
-							console.log('ssssssssssss');
+							console.log('today');
 							console.log(cartResult.body)
 							console.log(cartResult.page)
 						       text="I am sending you the options, please check on your app "  + cartResult.body +  " "+ cartResult.page ;
@@ -269,7 +269,7 @@ app.post('/webhook/', (req, res) => {
 					break;
 		    case 'yesterday': {
 				      magento.getvalueyesterday((error, cartResult)=> {
-					console.log('In serviceCloud');
+					console.log('yesterday');
 						if(isDefined(actionName)){
 							console.log('yesterday');
 							console.log(cartResult.body)
@@ -288,7 +288,7 @@ app.post('/webhook/', (req, res) => {
 		    
 		    case 'week': {
 				      magento.getvalueweek((error, cartResult)=> {
-					console.log('In serviceCloud');
+					console.log('week');
 						if(isDefined(actionName)){
 							console.log('yesterday');
 							console.log(cartResult.body)
@@ -307,7 +307,7 @@ app.post('/webhook/', (req, res) => {
 		    
 		    case 'lastweek': {
 				      magento.getvaluelastweek((error, cartResult)=> {
-					console.log('In serviceCloud');
+					console.log('lastweek');
 						if(isDefined(actionName)){
 							console.log('yesterday');
 							console.log(cartResult.body)
@@ -326,7 +326,7 @@ app.post('/webhook/', (req, res) => {
 		    
 		      case 'month': {
 				      magento.getvaluemonth((error, cartResult)=> {
-					console.log('In serviceCloud');
+					console.log('monthh');
 						if(isDefined(actionName)){
 							console.log('yesterday');
 							console.log(cartResult.body)
