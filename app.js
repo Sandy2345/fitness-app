@@ -123,6 +123,8 @@ app.post('/webhook/', (req, res) => {
     // 	};
     console.log('checking data');
     console.log(JSON.stringify(req.body));
+    console.log('ytrytyttytyt');
+    console.log(req.body.sessionId);
      console.log(data);
     console.log(parameters);
     console.log(message);
