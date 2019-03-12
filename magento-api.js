@@ -396,6 +396,45 @@ var getvaluemonth = (callback) => {
 
 
 };
+var getvaluelastmonth = (callback) => {
+    var OmnitureAPI = require('node-omniture-api')
+    var omniture = new OmnitureAPI('payal.daryani@capgemini.com:Capgeminisandbox', 'e5eccca081d2a1a329ee56e41e451811');
+    var pageViews;
+    var dateFrom = new Date();
+    var dateTo = new Date();
+    dateFrom.setMonth(dateFrom.getMonth() - 1);
+    requestData = {
+        "reportDescription": {
+            "reportSuiteID": "geo1xxlon-we-retail-demo",
+            "dateFrom": dateFrom.toISOString().slice(0, 10),
+            "dateTo": dateTo.toISOString().slice(0, 10),
+            "metrics": "[{ id: 'pageviews' }]"
+
+        }
+    }
+    console.log('inside value');
+    omniture.queueAndFetchReport(requestData, function(success, data) {
+        if (success) {
+
+            pageViews = data.report.totals[0];
+            console.log("sssssandceep");
+            console.log(data.report.totals[0]);
+            console.log("dgdggdgdgdgd");
+            console.log(pageViews);
+            callback(undefined, {
+                body: 'chirag',
+                page: data.report.totals[0]
+
+            });
+
+        } else {
+            pageViews = data;
+            console.error(data);
+        }
+    });
+
+
+};
 
 
 
