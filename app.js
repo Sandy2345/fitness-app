@@ -149,245 +149,254 @@ app.post('/webhook/', (req, res) => {
                 }
             }
             break;
-		    
-// 		     case 'order_status': {
-// 					console.log("In order tokennnnn");
-// 					if(isDefined(actionName)){
-// 						magento.getAuthTokenService((error, result)=> {
-// 							if(error){
-// 								console.log(error);
-// 							} else {
-// 								console.log('Code----> ',result.code);
-// 								magento.createorder(result.code, (error, cartResult)=> {
-// 									if(error){
-// 										console.log(error);
-// 									} else {
-// 										console.log('Order Number----> ',cartResult.ordernumber);
-// 										//console.log(messageData);
 
-// 								 	      }
-// 									});
-// 								 text="I am sending you the options, please check on your app.";
-// 								messageData = {
-// 										speech: text,
-// 										displayText: text
-// 										}
-// 								res.send(messageData);
-// 							     	}
-// 						   	});
-//  						}
-// 					}
-// 		 			break;
-		    
-		    
-		     case 'order_status':{
-				 	console.log('In case order_status');
-                                     	magento.createorder(token, (error, cartResult)=> {
-							if(error){
-								console.log(error);
-							} else {
-						          //console.log(JSON.stringify(req.body));
-						             // var token=req.body.originalRequest.data.user.idToken;
-						             // console.log(token);
-								//console.log(JSON.stringify(decoded));
-								//console.log(decoded);
-								
-								 orderCode = cartResult.ordernumber
-								  text= orderCode ;
-								messageData = {
- 										speech: text,
- 										displayText: text
- 										}
- 									
-									res.send(messageData);	
- 								}
-						   	});
-						}	
-		 break;
-		    
-		    
-                                       case 'input.welcome':{
-				 	console.log('In case Tokeneeee');
-                                     magento.getAuthTokenService((error, result)=> {
-							if(error){
-								console.log(error);
-							} else {
-								token = result.code
-								text="Greetings! I am Marty.How can I assist?";
-								messageData = {
- 										speech: text,
- 										displayText: text
- 										}
- 									
-									res.send(messageData);	
- 								}
-						   	});
-						}	
-		 break;
-		    
-		    
-		    case 'tokent':{
-				 	console.log('In case Tokeneeee');
-			    //console.log('Code--->',token);
-                                    magento.AdobeAuthToken ((error, cartResult)=> {
-							if(error){
-								console.log(error);
-							} else {
-								//token = result.code
-								//console.log('Code--->',token);
-								console.log('mandeep');
-								text="I am sending you the options, please check on your app.";
-								messageData = {
- 										speech: 'sandeep',
- 										displayText: 'sandeep'
- 										}
- 									
-									res.send(messageData);	
- 								}
-						   	});
-						}	
-		 break;
-		    
-		    
-		             case 'serviceCloud': {
-				      magento.getvalue((error, cartResult)=> {
-					console.log('In serviceCloud');
-						if(isDefined(actionName)){
-							console.log('today');
-							console.log(cartResult.body)
-							console.log(cartResult.page)
-						       text="I am sending you the options, please check on your app "  + cartResult.body +  " "+ cartResult.page ;
-							messageData = {
-									speech: text,
-									displayText: text
-									}
-							res.send(messageData);	
-							//mailer.sendMailService(emailId, customerName);
-						     }
-				      });
-						}
-					break;
-		    case 'yesterday': {
-				      magento.getvalueyesterday((error, cartResult)=> {
-					console.log('yesterday');
-						if(isDefined(actionName)){
-							console.log('yesterday');
-							console.log(cartResult.body)
-							console.log(cartResult.page)
-						       text="yesterdayp "  + cartResult.body +  " "+ cartResult.page ;
-							messageData = {
-									speech: text,
-									displayText: text
-									}
-							res.send(messageData);	
-							//mailer.sendMailService(emailId, customerName);
-						     }
-				      });
-						}
-					break;
-		    
-		    case 'week': {
-				      magento.getvalueweek((error, cartResult)=> {
-					console.log('week');
-						if(isDefined(actionName)){
-							console.log('yesterday');
-							console.log(cartResult.body)
-							console.log(cartResult.page)
-						       text="week "  + cartResult.body +  " "+ cartResult.page ;
-							messageData = {
-									speech: text,
-									displayText: text
-									}
-							res.send(messageData);	
-							//mailer.sendMailService(emailId, customerName);
-						     }
-				      });
-						}
-					break;
-		    
-		    case 'lastweek': {
-				      magento.getvaluelastweek((error, cartResult)=> {
-					console.log('lastweek');
-						if(isDefined(actionName)){
-							console.log('yesterday');
-							console.log(cartResult.body)
-							console.log(cartResult.page)
-						       text="lastweek "  + cartResult.body +  " "+ cartResult.page ;
-							messageData = {
-									speech: text,
-									displayText: text
-									}
-							res.send(messageData);	
-							//mailer.sendMailService(emailId, customerName);
-						     }
-				      });
-						}
-					break;
-		    
-		      case 'month': {
-				      magento.getvaluemonth((error, cartResult)=> {
-					console.log('monthh');
-						if(isDefined(actionName)){
-							console.log('yesterday');
-							console.log(cartResult.body)
-							console.log(cartResult.page)
-						       text="month "  + cartResult.body +  " "+ cartResult.page ;
-							messageData = {
-									speech: text,
-									displayText: text
-									}
-							res.send(messageData);	
-							//mailer.sendMailService(emailId, customerName);
-						     }
-				      });
-						}
-					break;
-		    
-		    
-		    case 'dynamicValue': {
-                  console.log("In shoes-in-stock");
-                   if (isDefined(actionName)) {
+            // 		     case 'order_status': {
+            // 					console.log("In order tokennnnn");
+            // 					if(isDefined(actionName)){
+            // 						magento.getAuthTokenService((error, result)=> {
+            // 							if(error){
+            // 								console.log(error);
+            // 							} else {
+            // 								console.log('Code----> ',result.code);
+            // 								magento.createorder(result.code, (error, cartResult)=> {
+            // 									if(error){
+            // 										console.log(error);
+            // 									} else {
+            // 										console.log('Order Number----> ',cartResult.ordernumber);
+            // 										//console.log(messageData);
+
+            // 								 	      }
+            // 									});
+            // 								 text="I am sending you the options, please check on your app.";
+            // 								messageData = {
+            // 										speech: text,
+            // 										displayText: text
+            // 										}
+            // 								res.send(messageData);
+            // 							     	}
+            // 						   	});
+            //  						}
+            // 					}
+            // 		 			break;
+
+
+        case 'order_status':
+            {
+                console.log('In case order_status');
+                magento.createorder(token, (error, cartResult) => {
+                    if (error) {
+                        console.log(error);
+                    } else {
+                        //console.log(JSON.stringify(req.body));
+                        // var token=req.body.originalRequest.data.user.idToken;
+                        // console.log(token);
+                        //console.log(JSON.stringify(decoded));
+                        //console.log(decoded);
+
+                        orderCode = cartResult.ordernumber
+                        text = orderCode;
+                        messageData = {
+                            speech: text,
+                            displayText: text
+                        }
+
+                        res.send(messageData);
+                    }
+                });
+            }
+            break;
+
+
+        case 'input.welcome':
+            {
+                console.log('In case Tokeneeee');
+                magento.getAuthTokenService((error, result) => {
+                    if (error) {
+                        console.log(error);
+                    } else {
+                        token = result.code
+                        text = "Greetings! I am Marty.How can I assist?";
+                        messageData = {
+                            speech: text,
+                            displayText: text
+                        }
+
+                        res.send(messageData);
+                    }
+                });
+            }
+            break;
+
+
+        case 'tokent':
+            {
+                console.log('In case Tokeneeee');
+                //console.log('Code--->',token);
+                magento.AdobeAuthToken((error, cartResult) => {
+                    if (error) {
+                        console.log(error);
+                    } else {
+                        //token = result.code
+                        //console.log('Code--->',token);
+                        console.log('mandeep');
+                        text = "I am sending you the options, please check on your app.";
+                        messageData = {
+                            speech: 'sandeep',
+                            displayText: 'sandeep'
+                        }
+
+                        res.send(messageData);
+                    }
+                });
+            }
+            break;
+
+
+        case 'serviceCloud':
+            {
+                magento.getvalue((error, cartResult) => {
+                    console.log('In serviceCloud');
+                    if (isDefined(actionName)) {
+                        console.log('today');
+                        console.log(cartResult.body)
+                        console.log(cartResult.page)
+                        text = "I am sending you the options, please check on your app " + cartResult.body + " " + cartResult.page;
+                        messageData = {
+                            speech: text,
+                            displayText: text
+                        }
+                        res.send(messageData);
+                        //mailer.sendMailService(emailId, customerName);
+                    }
+                });
+            }
+            break;
+        case 'yesterday':
+            {
+                magento.getvalueyesterday((error, cartResult) => {
+                    console.log('yesterday');
+                    if (isDefined(actionName)) {
+                        console.log('yesterday');
+                        console.log(cartResult.body)
+                        console.log(cartResult.page)
+                        text = "yesterdayp " + cartResult.body + " " + cartResult.page;
+                        messageData = {
+                            speech: text,
+                            displayText: text
+                        }
+                        res.send(messageData);
+                        //mailer.sendMailService(emailId, customerName);
+                    }
+                });
+            }
+            break;
+
+        case 'week':
+            {
+                magento.getvalueweek((error, cartResult) => {
+                    console.log('week');
+                    if (isDefined(actionName)) {
+                        console.log('yesterday');
+                        console.log(cartResult.body)
+                        console.log(cartResult.page)
+                        text = "week " + cartResult.body + " " + cartResult.page;
+                        messageData = {
+                            speech: text,
+                            displayText: text
+                        }
+                        res.send(messageData);
+                        //mailer.sendMailService(emailId, customerName);
+                    }
+                });
+            }
+            break;
+
+        case 'lastweek':
+            {
+                magento.getvaluelastweek((error, cartResult) => {
+                    console.log('lastweek');
+                    if (isDefined(actionName)) {
+                        console.log('yesterday');
+                        console.log(cartResult.body)
+                        console.log(cartResult.page)
+                        text = "lastweek " + cartResult.body + " " + cartResult.page;
+                        messageData = {
+                            speech: text,
+                            displayText: text
+                        }
+                        res.send(messageData);
+                        //mailer.sendMailService(emailId, customerName);
+                    }
+                });
+            }
+            break;
+
+        case 'month':
+            {
+                magento.getvaluemonth((error, cartResult) => {
+                    console.log('monthh');
+                    if (isDefined(actionName)) {
+                        console.log('yesterday');
+                        console.log(cartResult.body)
+                        console.log(cartResult.page)
+                        text = "month " + cartResult.body + " " + cartResult.page;
+                        messageData = {
+                            speech: text,
+                            displayText: text
+                        }
+                        res.send(messageData);
+                        //mailer.sendMailService(emailId, customerName);
+                    }
+                });
+            }
+            break;
+
+
+        case 'dynamicValue':
+            {
+                console.log("In shoes-in-stock");
+                if (isDefined(actionName)) {
                     magento.dynamicAuthToken((error, result) => {
                         if (error) {
                             console.log(error);
                         } else {
                             magento.getdynamic(result.code, (error, cartResult) => {
-						// console.log(result.code);
-						if (error) {
-							console.log(error);
-						} else {
-							//console.log('sandeep')
-							//console.log(contactid);
-							//console.log(cartResult.body);
-							var contactid = cartResult.name;
-							text = "Ok. We have shared the eBook reader deals on your registered email id. Have a nice day!!";
-							messageData = {
-								speech: text,
-								displayText: text
-							}
-							res.send(messageData);
-							//console.log('updateDynamic');
-							//console.log(contactid);
-							//console.log(result.code);
-							magento.updateDynamic(result.code, cartResult.name, (error, cartResultp) => {	
-								
-								
-								//var contactid = cartResult.name;
-								//console.log(cartResult.name);
-								//console.log('trtetteteteetet');
-							});
-						}
- 					
-					});
-				}
-			});
+                                // console.log(result.code);
+                                if (error) {
+                                    console.log(error);
+                                } else {
+                                    //console.log('sandeep')
+                                    //console.log(contactid);
+                                    //console.log(cartResult.body);
+                                    var contactid = cartResult.name;
+                                    text = "Ok. We have shared the eBook reader deals on your registered email id. Have a nice day!!";
+                                    messageData = {
+                                        speech: text,
+                                        displayText: text
+                                    }
+                                    res.send(messageData);
+                                    //console.log('updateDynamic');
+                                    //console.log(contactid);
+                                    //console.log(result.code);
+                                    magento.updateDynamic(result.code, cartResult.name, (error, cartResultp) => {
+
+
+                                        //var contactid = cartResult.name;
+                                        //console.log(cartResult.name);
+                                        //console.log('trtetteteteetet');
+                                    });
+                                }
+
+                            });
+                        }
+                    });
                 }
             }
             break;
-		    
-		   
 
-          case 'order_status':
+
+
+        case 'order_status':
             {
                 console.log("In shoes-in-stock");
                 if (isDefined(actionName)) {
