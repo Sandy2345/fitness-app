@@ -123,6 +123,10 @@ app.post('/webhook/', (req, res) => {
     // 	};
     console.log('checking data');
     console.log(JSON.stringify(req.body));
+     console.log(data);
+    console.log(parameters);
+    console.log(message);
+    
     var data = req.body;
     var sessionId = req.body.sessionId;
     var actionName = req.body.result.action;
