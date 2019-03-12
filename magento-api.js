@@ -206,7 +206,7 @@ var getvalue = (callback) => {
     requestData = {
         "reportDescription": {
             "source": "realtime",
-            "reportSuiteID": "geo1xxlon-we-retail-demo",
+            "reportSuiteID": "geo1xxlon-we-can-mart",
 
             "metrics": "[{ id: 'pageviews' }]"
 
@@ -245,7 +245,7 @@ var getvalueyesterday = (callback) => {
     dateFrom.setDate(dateFrom.getDate() - 1);
     requestData = {
         "reportDescription": {
-            "reportSuiteID": "geo1xxlon-we-retail-demo",
+            "reportSuiteID": "geo1xxlon-we-can-mart",
             "dateFrom": dateFrom.toISOString().slice(0, 10),
             "dateTo": dateTo.toISOString().slice(0, 10),
             "metrics": "[{ id: 'pageviews' }]"
@@ -326,7 +326,7 @@ var getvaluelastweek = (callback) => {
     dateFrom.setDate(dateFrom.getDate() - 7);
     requestData = {
         "reportDescription": {
-            "reportSuiteID": "geo1xxlon-we-retail-demo",
+            "reportSuiteID": "geo1xxlon-we-can-mart",
             "dateFrom": dateFrom.toISOString().slice(0, 10),
             "dateTo": dateTo.toISOString().slice(0, 10),
             "metrics": "[{ id: 'pageviews' }]"
@@ -366,7 +366,7 @@ var getvaluemonth = (callback) => {
     dateFrom.setDate(01);
     requestData = {
         "reportDescription": {
-            "reportSuiteID": "geo1xxlon-we-retail-demo",
+            "reportSuiteID": "geo1xxlon-we-can-mart",
             "dateFrom": dateFrom.toISOString().slice(0, 10),
             "dateTo": dateTo.toISOString().slice(0, 10),
             "metrics": "[{ id: 'pageviews' }]"
@@ -405,7 +405,7 @@ var getvaluelastmonth = (callback) => {
     dateFrom.setMonth(dateFrom.getMonth() - 1);
     requestData = {
         "reportDescription": {
-            "reportSuiteID": "geo1xxlon-we-retail-demo",
+            "reportSuiteID": "geo1xxlon-we-can-mart",
             "dateFrom": dateFrom.toISOString().slice(0, 10),
             "dateTo": dateTo.toISOString().slice(0, 10),
             "metrics": "[{ id: 'pageviews' }]"
