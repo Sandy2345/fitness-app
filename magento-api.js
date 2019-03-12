@@ -550,5 +550,6 @@ module.exports = {
     getvalueyesterday,
     getvalueweek,
     getvaluelastweek,
-    getvaluemonth
+    getvaluemonth,
+    getvaluelastmonth
 };
