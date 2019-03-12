@@ -371,7 +371,7 @@ var omniture = new OmnitureAPI('payal.daryani@capgemini.com:Capgeminisandbox', '
 var pageViews;
 var dateFrom = new Date();
 var dateTo = new Date();
-	dateFrom.setDate(dateFrom.getDate() - 7);
+	dateFrom.setDate(01);
 	requestData = {
 		"reportDescription": {
 		"reportSuiteID": "geo1xxlon-we-retail-demo",
