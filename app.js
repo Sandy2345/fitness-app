@@ -280,7 +280,7 @@ app.post('/webhook/', (req, res) => {
                         console.log('yesterday');
                         console.log(cartResult.body)
                         console.log(cartResult.page)
-                        text = "yesterdayp " + cartResult.body + " " + cartResult.page;
+                        text = "The total number of page views yesterday is  " + cartResult.page;
                         messageData = {
                             speech: text,
                             displayText: text
@@ -299,7 +299,7 @@ app.post('/webhook/', (req, res) => {
                         console.log('yesterday');
                         console.log(cartResult.body)
                         console.log(cartResult.page)
-                        text = "week " + cartResult.body + " " + cartResult.page;
+                        text = "This week we had  " + cartResult.page;
                         messageData = {
                             speech: text,
                             displayText: text
@@ -318,7 +318,7 @@ app.post('/webhook/', (req, res) => {
                         console.log('lastweek');
                         console.log(cartResult.body)
                         console.log(cartResult.page)
-                        text = "lastweek " + cartResult.body + " " + cartResult.page;
+                        text = "Last week we had  " + cartResult.page;
                         messageData = {
                             speech: text,
                             displayText: text
@@ -337,7 +337,7 @@ app.post('/webhook/', (req, res) => {
                         console.log('month');
                         console.log(cartResult.body)
                         console.log(cartResult.page)
-                        text = "month " + cartResult.body + " " + cartResult.page;
+                        text = "This month we had  " + cartResult.page;
                         messageData = {
                             speech: text,
                             displayText: text
@@ -357,7 +357,7 @@ app.post('/webhook/', (req, res) => {
                         console.log('yesterday');
                         console.log(cartResult.body)
                         console.log(cartResult.page)
-                        text = "lastmonth" + cartResult.body + " " + cartResult.page;
+                        text = "Last month we had  " + cartResult.page;
                         messageData = {
                             speech: text,
                             displayText: text
