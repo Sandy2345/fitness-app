@@ -393,7 +393,7 @@ app.post('/webhook/', (req, res) => {
                         console.log('yesterday');
                         console.log(cartResult.body)
                         console.log(cartResult.page)
-                        text = "The total number of page views in this year is  " + cartResult.page;
+                        text = "The total number of page views in last year is  " + cartResult.page;
                         messageData = {
                             speech: text,
                             displayText: text
