@@ -485,8 +485,7 @@ var getvaluelastyear = (callback) => {
     var pageViews;
     var dateFrom = new Date();
     var dateTo = new Date();
-    dateFrom.setMonth(0);
-    dateFrom.setDate(01);
+    dateFrom.setYear(dateFrom.getFullYear() - 1);
     requestData = {
         "reportDescription": {
             "reportSuiteID": "geo1xxlon-we-can-mart",
