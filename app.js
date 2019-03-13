@@ -255,9 +255,6 @@ app.post('/webhook/', (req, res) => {
                 magento.getvalue((error, cartResult) => {
                     console.log('In serviceCloud');
                     if (isDefined(actionName)) {
-                        console.log('today');
-                        console.log(cartResult.body)
-                        console.log(cartResult.page)
                         text = "The total number of page views today is " + cartResult.page;
                         messageData = {
                             speech: text,
@@ -275,9 +272,6 @@ app.post('/webhook/', (req, res) => {
                 magento.getvalueyesterday((error, cartResult) => {
                     console.log('yesterday');
                     if (isDefined(actionName)) {
-                        console.log('yesterday');
-                        console.log(cartResult.body)
-                        console.log(cartResult.page)
                         text = "The total number of page views yesterday is  " + cartResult.page;
                         messageData = {
                             speech: text,
@@ -294,9 +288,6 @@ app.post('/webhook/', (req, res) => {
                 magento.getvalueweek((error, cartResult) => {
                     console.log('week');
                     if (isDefined(actionName)) {
-                        console.log('yesterday');
-                        console.log(cartResult.body)
-                        console.log(cartResult.page)
                         text = "The total number of page views in this week is  " + cartResult.page;
                         messageData = {
                             speech: text,
@@ -313,9 +304,6 @@ app.post('/webhook/', (req, res) => {
                 magento.getvaluelastweek((error, cartResult) => {
                     console.log('lastweek');
                     if (isDefined(actionName)) {
-                        console.log('lastweek');
-                        console.log(cartResult.body)
-                        console.log(cartResult.page)
                         text = "The total number of page views in Last week is  " + cartResult.page;
                         messageData = {
                             speech: text,
@@ -332,9 +320,6 @@ app.post('/webhook/', (req, res) => {
                 magento.getvaluemonth((error, cartResult) => {
                     console.log('monthh');
                     if (isDefined(actionName)) {
-                        console.log('month');
-                        console.log(cartResult.body)
-                        console.log(cartResult.page)
                         text = "The total number of page views in this month is  " + cartResult.page;
                         messageData = {
                             speech: text,
@@ -352,9 +337,6 @@ app.post('/webhook/', (req, res) => {
                 magento.getvaluelastmonth((error, cartResult) => {
                     console.log('last month');
                     if (isDefined(actionName)) {
-                        console.log('yesterday');
-                        console.log(cartResult.body)
-                        console.log(cartResult.page)
                         text = "The total number of page views in Last month is  " + cartResult.page;
                         messageData = {
                             speech: text,
@@ -371,9 +353,6 @@ app.post('/webhook/', (req, res) => {
                 magento.getvalueyear((error, cartResult) => {
                     console.log('last month');
                     if (isDefined(actionName)) {
-                        console.log('yesterday');
-                        console.log(cartResult.body)
-                        console.log(cartResult.page)
                         text = "The total number of page views in this year is  " + cartResult.page;
                         messageData = {
                             speech: text,
@@ -390,9 +369,6 @@ app.post('/webhook/', (req, res) => {
                 magento.getvalueyear((error, cartResult) => {
                     console.log('last month');
                     if (isDefined(actionName)) {
-                        console.log('yesterday');
-                        console.log(cartResult.body)
-                        console.log(cartResult.page)
                         text = "The total number of page views in last year is  " + cartResult.page;
                         messageData = {
                             speech: text,
