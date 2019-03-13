@@ -140,7 +140,7 @@ var dynamicAuthToken = (callback) => {
 var getdynamic = (authToken, callback) => {
     console.log('Create dynamic api');
     request({
-        url: 'https://adc-cg-poc.api.crm4.dynamics.com/api/data/v9.1/contacts?$select=lastname,cg_isprimary,cg_primarycontactsemail,cg_customertoken,cg_interests&$filter=emailaddress1%20eq%20%27verma@gmail.com%27',
+        url: 'https://adc-cg-poc.api.crm4.dynamics.com/api/data/v9.1/contacts?$select=lastname,cg_isprimary,cg_primarycontactsemail,cg_customertoken,cg_interests&$filter=emailaddress1%20eq%20%27chirag.satija@capgemini.com%27',
         method: 'GET',
         timeout: 40000,
         headers: {
