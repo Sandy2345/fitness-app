@@ -435,6 +435,8 @@ var getvaluelastmonth = (callback) => {
 
 
 };
+
+
 var getvalueyear = (callback) => {
     var OmnitureAPI = require('node-omniture-api')
     var omniture = new OmnitureAPI('payal.daryani@capgemini.com:Capgeminisandbox', 'e5eccca081d2a1a329ee56e41e451811');
@@ -442,7 +444,7 @@ var getvalueyear = (callback) => {
     var dateFrom = new Date();
     var dateTo = new Date();
     dateFrom.setMonth(0);
-    dateFrom.setDate(01);
+	dateFrom.setDate(01);
     requestData = {
         "reportDescription": {
             "reportSuiteID": "geo1xxlon-we-can-mart",
@@ -472,14 +474,19 @@ var getvalueyear = (callback) => {
             console.error(data);
         }
     });
-	
+
+
+};
+
+
 var getvaluelastyear = (callback) => {
     var OmnitureAPI = require('node-omniture-api')
     var omniture = new OmnitureAPI('payal.daryani@capgemini.com:Capgeminisandbox', 'e5eccca081d2a1a329ee56e41e451811');
     var pageViews;
     var dateFrom = new Date();
     var dateTo = new Date();
-    dateFrom.setYear(dateFrom.getFullYear() - 1);
+    dateFrom.setMonth(0);
+	dateFrom.setDate(01);
     requestData = {
         "reportDescription": {
             "reportSuiteID": "geo1xxlon-we-can-mart",
@@ -511,7 +518,7 @@ var getvaluelastyear = (callback) => {
     });
 
 
-
+};
 
 
 
@@ -629,6 +636,7 @@ module.exports = {
     getvaluelastweek,
     getvaluemonth,
     getvaluelastmonth,
-	getvalueyear,
-	getvaluelastyear
+    getvalueyear,
+    getvaluelastyear
+	
 };
