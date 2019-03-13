@@ -121,14 +121,6 @@ app.post('/webhook/', (req, res) => {
     // 				}
     // 		res.send(messageData);	
     // 	};
-    console.log('checking data');
-    console.log(JSON.stringify(req.body));
-    console.log('ytrytyttytyt');
-    console.log(req.body.sessionId);
-     console.log(data);
-    console.log(parameters);
-    console.log(message);
-    
     var data = req.body;
     var sessionId = req.body.sessionId;
     var actionName = req.body.result.action;
@@ -277,8 +269,8 @@ app.post('/webhook/', (req, res) => {
                 });
             }
             break;
-            
-            case 'yesterday':
+
+        case 'yesterday':
             {
                 magento.getvalueyesterday((error, cartResult) => {
                     console.log('yesterday');
@@ -297,7 +289,7 @@ app.post('/webhook/', (req, res) => {
                 });
             }
             break;
-            case 'week':
+        case 'week':
             {
                 magento.getvalueweek((error, cartResult) => {
                     console.log('week');
@@ -316,7 +308,7 @@ app.post('/webhook/', (req, res) => {
                 });
             }
             break;
-             case 'lastweek':
+        case 'lastweek':
             {
                 magento.getvaluelastweek((error, cartResult) => {
                     console.log('lastweek');
@@ -335,7 +327,7 @@ app.post('/webhook/', (req, res) => {
                 });
             }
             break;
-            case 'month':
+        case 'month':
             {
                 magento.getvaluemonth((error, cartResult) => {
                     console.log('monthh');
@@ -354,8 +346,8 @@ app.post('/webhook/', (req, res) => {
                 });
             }
             break;
-            
-           case 'viewslast':
+
+        case 'viewslast':
             {
                 magento.getvaluelastmonth((error, cartResult) => {
                     console.log('last month');
@@ -374,26 +366,7 @@ app.post('/webhook/', (req, res) => {
                 });
             }
             break;
-			case 'year':
-            {
-                magento.getvalueyear((error, cartResult) => {
-                    console.log('last month');
-                    if (isDefined(actionName)) {
-                        console.log('yesterday');
-                        console.log(cartResult.body)
-                        console.log(cartResult.page)
-                        text = "The total number of page views in this year is  " + cartResult.page;
-                        messageData = {
-                            speech: text,
-                            displayText: text
-                        }
-                        res.send(messageData);
-                        //mailer.sendMailService(emailId, customerName);
-                    }
-                });
-            }
-            break; 
-			case 'previousyear':
+        case 'year':
             {
                 magento.getvalueyear((error, cartResult) => {
                     console.log('last month');
@@ -412,7 +385,26 @@ app.post('/webhook/', (req, res) => {
                 });
             }
             break;
-			
+        case 'previousyear':
+            {
+                magento.getvalueyear((error, cartResult) => {
+                    console.log('last month');
+                    if (isDefined(actionName)) {
+                        console.log('yesterday');
+                        console.log(cartResult.body)
+                        console.log(cartResult.page)
+                        text = "The total number of page views in this year is  " + cartResult.page;
+                        messageData = {
+                            speech: text,
+                            displayText: text
+                        }
+                        res.send(messageData);
+                        //mailer.sendMailService(emailId, customerName);
+                    }
+                });
+            }
+            break;
+
         case 'dynamicValue':
             {
                 console.log("In shoes-in-stock");
