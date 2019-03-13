@@ -373,7 +373,46 @@ app.post('/webhook/', (req, res) => {
                     }
                 });
             }
+            break;
+			case 'year':
+            {
+                magento.getvalueyear((error, cartResult) => {
+                    console.log('last month');
+                    if (isDefined(actionName)) {
+                        console.log('yesterday');
+                        console.log(cartResult.body)
+                        console.log(cartResult.page)
+                        text = "The total number of page views in this year is  " + cartResult.page;
+                        messageData = {
+                            speech: text,
+                            displayText: text
+                        }
+                        res.send(messageData);
+                        //mailer.sendMailService(emailId, customerName);
+                    }
+                });
+            }
             break; 
+			case 'previousyear':
+            {
+                magento.getvalueyear((error, cartResult) => {
+                    console.log('last month');
+                    if (isDefined(actionName)) {
+                        console.log('yesterday');
+                        console.log(cartResult.body)
+                        console.log(cartResult.page)
+                        text = "The total number of page views in this year is  " + cartResult.page;
+                        messageData = {
+                            speech: text,
+                            displayText: text
+                        }
+                        res.send(messageData);
+                        //mailer.sendMailService(emailId, customerName);
+                    }
+                });
+            }
+            break;
+			
         case 'dynamicValue':
             {
                 console.log("In shoes-in-stock");
