@@ -60,7 +60,7 @@ var createorder = (authToken, callback) => {
             console.log('createorderService API hit:', response.statusCode)
             var str1 = "You have" + " " + body[0].total_item_count + " " + "orders in your order list, and the details are . ";
             var str2 = "";
-            var str3 = "Is there anything else that I can help you with?."
+            var str3 = "We have fantastic deals available on eBook reader would you like to check it?."
             body.forEach(function(element) {
                 str2 = str2 + element.name + " it will be delivered at your shipping address in  " + element.delivery_days + " days. ";
             });
