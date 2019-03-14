@@ -5,10 +5,9 @@ const config = require('./config');
 const express = require('express');
 const xml2js = require('xml2js');
 const bodyParser = require('body-parser');
-const sfcc = require('./sfcc-apis.js');
+//const sfcc = require('./sfcc-apis.js');
 const magento = require('./magento-api.js');
-const sfmc = require('./sfmc.js');
-const mailer = require('./mailer.js');
+const Adobe = require('./AdobeAnalytics.js');
 const nodemailer = require('nodemailer');
 const jwtdecode = require('jwt-decode');
 const {
@@ -251,7 +250,7 @@ app.post('/webhook/', (req, res) => {
 
         case 'serviceCloud':
             {
-                magento.getvalue((error, cartResult) => {
+                Adobe.getvalue((error, cartResult) => {
                     console.log('In serviceCloud');
                     if (isDefined(actionName)) {
                         text = "The total number of page views today is " + cartResult.page;
@@ -268,7 +267,7 @@ app.post('/webhook/', (req, res) => {
 
         case 'yesterday':
             {
-                magento.getvalueyesterday((error, cartResult) => {
+                Adobe.getvalueyesterday((error, cartResult) => {
                     console.log('yesterday');
                     if (isDefined(actionName)) {
                         text = "The total number of page views yesterday is  " + cartResult.page;
@@ -284,7 +283,7 @@ app.post('/webhook/', (req, res) => {
             break;
         case 'week':
             {
-                magento.getvalueweek((error, cartResult) => {
+                Adobe.getvalueweek((error, cartResult) => {
                     console.log('week');
                     if (isDefined(actionName)) {
                         text = "The total number of page views in this week is  " + cartResult.page;
@@ -300,7 +299,7 @@ app.post('/webhook/', (req, res) => {
             break;
         case 'lastweek':
             {
-                magento.getvaluelastweek((error, cartResult) => {
+                Adobe.getvaluelastweek((error, cartResult) => {
                     console.log('lastweek');
                     if (isDefined(actionName)) {
                         text = "The total number of page views in Last week is  " + cartResult.page;
@@ -316,7 +315,7 @@ app.post('/webhook/', (req, res) => {
             break;
         case 'month':
             {
-                magento.getvaluemonth((error, cartResult) => {
+                Adobe.getvaluemonth((error, cartResult) => {
                     console.log('monthh');
                     if (isDefined(actionName)) {
                         text = "The total number of page views in this month is  " + cartResult.page;
@@ -333,7 +332,7 @@ app.post('/webhook/', (req, res) => {
 
         case 'viewslast':
             {
-                magento.getvaluelastmonth((error, cartResult) => {
+                Adobe.getvaluelastmonth((error, cartResult) => {
                     console.log('last month');
                     if (isDefined(actionName)) {
                         text = "The total number of page views in Last month is  " + cartResult.page;
@@ -349,7 +348,7 @@ app.post('/webhook/', (req, res) => {
             break;
         case 'year':
             {
-                magento.getvalueyear((error, cartResult) => {
+                Adobe.getvalueyear((error, cartResult) => {
                     console.log('last month');
                     if (isDefined(actionName)) {
                         text = "The total number of page views in this year is  " + cartResult.page;
@@ -365,7 +364,7 @@ app.post('/webhook/', (req, res) => {
             break;
         case 'previousyear':
             {
-                magento.getvalueyear((error, cartResult) => {
+                Adobe.getvalueyear((error, cartResult) => {
                     console.log('last month');
                     if (isDefined(actionName)) {
                         text = "The total number of page views in last year is  " + cartResult.page;
