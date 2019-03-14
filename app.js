@@ -204,7 +204,6 @@ app.post('/webhook/', (req, res) => {
             }
             break;
 
-
         case 'input.welcome':
             {
                 console.log('In case Tokeneeee');
