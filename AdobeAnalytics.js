@@ -317,3 +317,14 @@ var getvaluelastyear = (callback) => {
 
 
 };
+module.exports = {
+    getvalue,
+    getvalueyesterday,
+    getvalueweek,
+    getvaluelastweek,
+    getvaluemonth,
+    getvaluelastmonth,
+    getvalueyear,
+    getvaluelastyear
+
+};
