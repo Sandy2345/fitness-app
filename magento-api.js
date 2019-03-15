@@ -182,7 +182,7 @@ var updateDynamic = (authToken, contactid, callback) => {
             "Authorization": `Bearer ${authToken}`
         },
         body: {
-            "cg_interests": "Ereaders",
+            "cg_interests": "Kindle",
             "cg_sendproemailforereader": "Yes",
             "cg_sendproemailforclothing": "No"
         },
