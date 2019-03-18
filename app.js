@@ -230,8 +230,8 @@ app.post('/webhook/', (req, res) => {
                     if (isDefined(actionName)) {
                         text = "The total number of page views today is " + cartResult.page;
                         messageData = {
-                            speech: text,
-                            displayText: text
+                            speech: The total number of page views today is " + cartResult.page,
+                            displayText: The total number of page views today is " + cartResult.page
                         }
                         res.send(messageData);
                         //mailer.sendMailService(emailId, customerName);
