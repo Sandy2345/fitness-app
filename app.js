@@ -70,6 +70,46 @@ app.get('/', function(req, res) {
     res.send('Hello world, I am a chat bot')
 })
 
+function pushNotification(deviceID, messageId) {
+    sfmc.getDeviceTokenService(deviceAccessToken, deviceID, (error, result) => {
+        if (error) {
+            console.log(error);
+        } else {
+            console.log("Device token :" + result.device_token);
+            sfmc.sendPushNotificationService(deviceAccessToken, result.device_token, messageId, (error, finalResult) => {
+                if (error) {
+                    console.log(error);
+                } else {
+                    console.log(finalResult);
+                }
+            });
+        }
+    });
+};
+
+
+function notify(emailId, messageId) {
+
+    console.log("In notify-  " + emailId);
+    if (emailId == 'gwengraman12@gmail.com') {
+        console.log("Gwen User");
+        setTimeout(() => pushNotification(deviceIdG, messageId), 3000);
+
+    } else if (emailId == 'josselain12@gmail.com') {
+        console.log("Josselain User");
+        setTimeout(() => pushNotification(deviceIdJ, messageId), 3000);
+
+    } else if (emailId == 'pratikb365@gmail.com') {
+        console.log("Pratik User");
+        setTimeout(() => pushNotification(deviceIdP, messageId), 3000);
+
+    } else {
+        console.log("Different User");
+    }
+};
+
+//mailer.sendMailService("pratikb365@gmail.com", "Pratik");
+
 app.post('/webhook/', (req, res) => {
 
     //console.log(access_token);
@@ -106,6 +146,36 @@ app.post('/webhook/', (req, res) => {
                 }
             }
             break;
+
+            // 		     case 'order_status': {
+            // 					console.log("In order tokennnnn");
+            // 					if(isDefined(actionName)){
+            // 						magento.getAuthTokenService((error, result)=> {
+            // 							if(error){
+            // 								console.log(error);
+            // 							} else {
+            // 								console.log('Code----> ',result.code);
+            // 								magento.createorder(result.code, (error, cartResult)=> {
+            // 									if(error){
+            // 										console.log(error);
+            // 									} else {
+            // 										console.log('Order Number----> ',cartResult.ordernumber);
+            // 										//console.log(messageData);
+
+            // 								 	      }
+            // 									});
+            // 								 text="I am sending you the options, please check on your app.";
+            // 								messageData = {
+            // 										speech: text,
+            // 										displayText: text
+            // 										}
+            // 								res.send(messageData);
+            // 							     	}
+            // 						   	});
+            //  						}
+            // 					}
+            // 		 			break;
+
 
         case 'order_status':
             {
@@ -170,8 +240,119 @@ app.post('/webhook/', (req, res) => {
             }
             break;
 
+        case 'yesterday':
+            {
+                Adobe.getvalueyesterday((error, cartResult) => {
+                    console.log('yesterday');
+                    if (isDefined(actionName)) {
+                        text = "The total number of page views yesterday is  " + cartResult.page;
+                        messageData = {
+                            speech: text,
+                            displayText: text
+                        }
+                        res.send(messageData);
+                        //mailer.sendMailService(emailId, customerName);
+                    }
+                });
+            }
+            break;
+        case 'week':
+            {
+                Adobe.getvalueweek((error, cartResult) => {
+                    console.log('week');
+                    if (isDefined(actionName)) {
+                        text = "The total number of page views in this week is  " + cartResult.page;
+                        messageData = {
+                            speech: text,
+                            displayText: text
+                        }
+                        res.send(messageData);
+                        //mailer.sendMailService(emailId, customerName);
+                    }
+                });
+            }
+            break;
+        case 'lastweek':
+            {
+                Adobe.getvaluelastweek((error, cartResult) => {
+                    console.log('lastweek');
+                    if (isDefined(actionName)) {
+                        text = "The total number of page views in Last week is  " + cartResult.page;
+                        messageData = {
+                            speech: text,
+                            displayText: text
+                        }
+                        res.send(messageData);
+                        //mailer.sendMailService(emailId, customerName);
+                    }
+                });
+            }
+            break;
+        case 'month':
+            {
+                Adobe.getvaluemonth((error, cartResult) => {
+                    console.log('monthh');
+                    if (isDefined(actionName)) {
+                        text = "The total number of page views in this month is  " + cartResult.page;
+                        messageData = {
+                            speech: text,
+                            displayText: text
+                        }
+                        res.send(messageData);
+                        //mailer.sendMailService(emailId, customerName);
+                    }
+                });
+            }
+            break;
 
-
+        case 'viewslast':
+            {
+                Adobe.getvaluelastmonth((error, cartResult) => {
+                    console.log('last month');
+                    if (isDefined(actionName)) {
+                        text = "The total number of page views in Last month is  " + cartResult.page;
+                        messageData = {
+                            speech: text,
+                            displayText: text
+                        }
+                        res.send(messageData);
+                        //mailer.sendMailService(emailId, customerName);
+                    }
+                });
+            }
+            break;
+        case 'year':
+            {
+                Adobe.getvalueyear((error, cartResult) => {
+                    console.log('last month');
+                    if (isDefined(actionName)) {
+                        text = "The total number of page views in this year is  " + cartResult.page;
+                        messageData = {
+                            speech: text,
+                            displayText: text
+                        }
+                        res.send(messageData);
+                        //mailer.sendMailService(emailId, customerName);
+                    }
+                });
+            }
+            break;
+        case 'previousyear':
+            {
+                Adobe.getvalueyear((error, cartResult) => {
+                    console.log('last month');
+                    if (isDefined(actionName)) {
+                        text = "The total number of page views in last year is  " + cartResult.page;
+                        messageData = {
+                            speech: text,
+                            displayText: text
+                        }
+                        res.send(messageData);
+                        //mailer.sendMailService(emailId, customerName);
+                    }
+                });
+            }
+            break;
 
         case 'dynamicValue':
             {
@@ -186,7 +367,9 @@ app.post('/webhook/', (req, res) => {
                                 if (error) {
                                     console.log(error);
                                 } else {
-
+                                    //console.log('sandeep')
+                                    //console.log(contactid);
+                                    //console.log(cartResult.body);
                                     var contactid = cartResult.name;
                                     text = "Ok. We have shared the eBook reader deals on your registered email id. Have a nice day!!";
                                     messageData = {
@@ -194,11 +377,15 @@ app.post('/webhook/', (req, res) => {
                                         displayText: text
                                     }
                                     res.send(messageData);
-
+                                    //console.log('updateDynamic');
+                                    //console.log(contactid);
+                                    //console.log(result.code);
                                     magento.updateDynamic(result.code, cartResult.name, (error, cartResultp) => {
 
 
-
+                                        //var contactid = cartResult.name;
+                                        //console.log(cartResult.name);
+                                        //console.log('trtetteteteetet');
                                     });
                                 }
 
@@ -209,6 +396,35 @@ app.post('/webhook/', (req, res) => {
             }
             break;
 
+
+
+        case 'order_status':
+            {
+                console.log("In shoes-in-stock");
+                if (isDefined(actionName)) {
+                    magento.getAuthTokenService((error, result) => {
+                        if (error) {
+                            console.log(error);
+                        } else {
+                            magento.createorder(result.code, (error, cartResult) => {
+                                if (error) {
+                                    console.log(error);
+                                } else {
+                                    console.log('Code--->', result.code);
+                                    //console.log(result.token+' '+result.customer_id+" "+result.email);
+                                    text = "Yes, there is currently a promotion - they are at 200 swiss francs until the end of the month and are available at your usual Cap Sports Style store. Same color as current one";
+                                    messageData = {
+                                        speech: text,
+                                        displayText: text
+                                    }
+                                    res.send(messageData);
+                                }
+                            });
+                        }
+                    });
+                }
+            }
+            break;
 
         default:
             //unhandled action, just send back the text
