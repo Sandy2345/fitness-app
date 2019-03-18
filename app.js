@@ -245,7 +245,7 @@ app.post('/webhook/', (req, res) => {
                 Adobe.getvalueyesterday((error, cartResult) => {
                     console.log('yesterday');
                     if (isDefined(actionName)) {
-                        text = "The total number of page views yesterday is  " + cartResult.page;
+                        text = "The total number of page views yesterday was  " + cartResult.page;
                         messageData = {
                             speech: text,
                             displayText: text
