@@ -159,6 +159,7 @@ app.post('/webhook/', (req, res) => {
                 Adobe.getvalue((error, cartResult) => {
                     console.log('In serviceCloud');
                     if (isDefined(actionName)) {
+                        console.log('sandeep')
                         text = "The total number of page views today is " + cartResult.page;
                         messageData = {
                             speech: text,
