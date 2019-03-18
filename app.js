@@ -225,9 +225,10 @@ app.post('/webhook/', (req, res) => {
 
         case 'serviceCloud':
             {
+                if (isDefined(actionName)) {
                 Adobe.getvalue((error, cartResult) => {
                     console.log('In serviceCloud');
-                    if (isDefined(actionName)) {
+                  
                         text = "The total number of page views today is " + cartResult.page;
                         messageData = {
                             speech: text,
@@ -235,9 +236,10 @@ app.post('/webhook/', (req, res) => {
                         }
                         res.send(messageData);
                         //mailer.sendMailService(emailId, customerName);
-                    }
+                   
                 });
             }
+               }
             break;
 
         case 'yesterday':
