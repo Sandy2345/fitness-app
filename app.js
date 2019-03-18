@@ -70,45 +70,6 @@ app.get('/', function(req, res) {
     res.send('Hello world, I am a chat bot')
 })
 
-function pushNotification(deviceID, messageId) {
-    sfmc.getDeviceTokenService(deviceAccessToken, deviceID, (error, result) => {
-        if (error) {
-            console.log(error);
-        } else {
-            console.log("Device token :" + result.device_token);
-            sfmc.sendPushNotificationService(deviceAccessToken, result.device_token, messageId, (error, finalResult) => {
-                if (error) {
-                    console.log(error);
-                } else {
-                    console.log(finalResult);
-                }
-            });
-        }
-    });
-};
-
-
-function notify(emailId, messageId) {
-
-    console.log("In notify-  " + emailId);
-    if (emailId == 'gwengraman12@gmail.com') {
-        console.log("Gwen User");
-        setTimeout(() => pushNotification(deviceIdG, messageId), 3000);
-
-    } else if (emailId == 'josselain12@gmail.com') {
-        console.log("Josselain User");
-        setTimeout(() => pushNotification(deviceIdJ, messageId), 3000);
-
-    } else if (emailId == 'pratikb365@gmail.com') {
-        console.log("Pratik User");
-        setTimeout(() => pushNotification(deviceIdP, messageId), 3000);
-
-    } else {
-        console.log("Different User");
-    }
-};
-
-//mailer.sendMailService("pratikb365@gmail.com", "Pratik");
 
 app.post('/webhook/', (req, res) => {
 
@@ -146,36 +107,6 @@ app.post('/webhook/', (req, res) => {
                 }
             }
             break;
-
-            // 		     case 'order_status': {
-            // 					console.log("In order tokennnnn");
-            // 					if(isDefined(actionName)){
-            // 						magento.getAuthTokenService((error, result)=> {
-            // 							if(error){
-            // 								console.log(error);
-            // 							} else {
-            // 								console.log('Code----> ',result.code);
-            // 								magento.createorder(result.code, (error, cartResult)=> {
-            // 									if(error){
-            // 										console.log(error);
-            // 									} else {
-            // 										console.log('Order Number----> ',cartResult.ordernumber);
-            // 										//console.log(messageData);
-
-            // 								 	      }
-            // 									});
-            // 								 text="I am sending you the options, please check on your app.";
-            // 								messageData = {
-            // 										speech: text,
-            // 										displayText: text
-            // 										}
-            // 								res.send(messageData);
-            // 							     	}
-            // 						   	});
-            //  						}
-            // 					}
-            // 		 			break;
-
 
         case 'order_status':
             {
