@@ -54,7 +54,7 @@ var getvalueyesterday = (callback) => {
         if (success) {
 
             pageViews = data.report.totals[0];
-           //console.log("sssssandceep");
+            //console.log("sssssandceep");
             //console.log(data.report.totals[0]);
             //console.log("dgdggdgdgdgd");
             //console.log(pageViews);
